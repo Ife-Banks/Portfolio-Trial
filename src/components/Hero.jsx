@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import potrait from "/public/potrait.png";
+import { useEffect, useState } from 'react';
 
 const Hero = () => {
     // Animation variants
@@ -40,6 +41,8 @@ const Hero = () => {
         }
     };
 
+
+    
     return (
         <motion.div 
             className='w-full lg:w-[75%] mx-auto mt-10 lg:mt-30'
@@ -48,30 +51,30 @@ const Hero = () => {
             variants={containerVariants}
         >
             {/* Mobile Layout (lg:hidden) */}
-            <div className='lg:hidden flex flex-col items-center px-4 gap-8'>
+            <div className='lg:hidden flex flex-col items-center px-4 gap-8 z-1'>
                 {/* Image with animation */}
                 <motion.div 
-                    className='w-[280px] h-[320px] rounded-2xl overflow-hidden shadow-lg'
+                    className='w-[280px] h-[320px] rounded-2xl overflow-hidden shadow-lg z-1'
                     variants={imageVariants}
                 >
                     <motion.img 
                         src={potrait} 
                         alt="Bankole Ifeoluwa" 
-                        className='w-full h-full object-cover object-top'
+                        className='w-full h-full object-cover object-top z-1'
                         whileHover={{ scale: 1.03 }}
                         transition={{ duration: 0.3 }}
                     />
                 </motion.div>
 
                 {/* Text Content */}
-                <motion.div className='flex flex-col gap-4 text-center' variants={itemVariants}>
+                <motion.div className='flex flex-col gap-4 text-center z-1' variants={itemVariants}>
                     <motion.h1 
                         className='text-[#cbd6e8] font-workSan text-3xl font-semibold tracking-wide'
                         whileHover={{ scale: 1.02 }}
                     >
                         Hello, I'm Bankole Ifeoluwa
                     </motion.h1>
-                    <motion.p className='text-[#808080] font-workSan text-base font-thin'>
+                    <motion.p className='text-[#808080] font-workSan text-base font-light'>
                         I'm a Freelance <span className='text-[#871BE6]'>UI/UX Designer </span>and <span className='text-[#871BE6]'>Developer</span> based in London, England.
                     </motion.p>
                     <motion.button 
@@ -87,7 +90,7 @@ const Hero = () => {
                 </motion.div>
 
                 {/* Stats with animations */}
-                <motion.div className='w-full grid grid-cols-1 gap-2 mt-4' variants={containerVariants}>
+                <motion.div className='w-full grid grid-cols-1 gap-2 mt-4 z-1' variants={containerVariants}>
                     {[
                         { value: "15 Y.", label: "Experience" },
                         { value: "250+", label: "Project Completed" },
@@ -108,7 +111,7 @@ const Hero = () => {
             </div>
 
             {/* Desktop Layout (hidden on mobile) */}
-            <div className='hidden lg:grid grid-flow-col grid-rows-1.5 gap-10'>
+            <div className='hidden lg:grid grid-flow-col grid-rows-1.5 gap-10 z-1'>
                 <motion.div 
                     className='w-[93%] p-1 flex flex-col gap-4'
                     initial={{ x: -50, opacity: 0 }}
@@ -178,7 +181,7 @@ const Hero = () => {
                     <motion.img 
                         src={potrait} 
                         alt="" 
-                        className='shadow-[0_24px_116px_0_rgba(43,56,76,0.09)] rounded-xl object-cover object-top h-110 w-90 bg-[#2A2C38]' 
+                        className='shadow-[0_24px_116px_0_rgba(43,56,76,0.09)] rounded-xl object-cover object-top h-110 w-90 bg-[#2A2C38] z-1' 
                         whileHover={{ scale: 1.03 }}
                         transition={{ type: "spring", stiffness: 200 }}
                     />
