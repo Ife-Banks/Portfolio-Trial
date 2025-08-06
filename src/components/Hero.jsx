@@ -150,8 +150,8 @@ const Hero = () => {
                     transition={{ delay: 0.4 }}
                 >
                     {[
-                        { value: "15 Y.", label: "Experience", className: "rounded-l-lg w-[33%]" },
-                        { value: "250+", label: "Project Completed", className: "w-[33%]" },
+                        { value: "4 Yrs.", label: "Experience", className: "rounded-l-lg w-[33%]" },
+                        { value: "10+", label: "Project Completed", className: "w-[33%]" },
                         { value: "58", label: "Happy Client", className: "rounded-r-lg w-[32.5%]" }
                     ].map((stat, index) => (
                         <motion.div 
@@ -163,8 +163,8 @@ const Hero = () => {
                                 transition: { duration: 0.3 }
                             }}
                         >
-                            <h1>{stat.value}</h1>
-                            <p>{stat.label}</p>
+                            <h1 className='text-[#a2acba] text-center font-workSan text-2xl font-semibold'>{stat.value}</h1>
+                            <p className='text-[7f8794] text-center font-workSan text-sm font-light'>{stat.label}</p>
                         </motion.div>
                     ))}
                 </motion.div>
