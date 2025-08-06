@@ -116,13 +116,13 @@ const Hero = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <motion.h1 
-                        className='text-[#cbd6e8] font-workSan text-5xl/13 font-semibold tracking-wide text-left w-[80%]'
+                        className='text-[#cbd6e8] font-workSan text-5xl/13 font-semibold tracking-wide text-left w-[79%]'
                         whileHover={{ scale: 1.02 }}
                     >
                         Hello, I'm Bankole Ifeoluwa
                     </motion.h1>
                     <motion.p 
-                        className='text-left text-[808080] font-workSan text-md/5 font-thin w-[95%]'
+                        className='text-left text-[#556070] font-workSan text-md/5 font-light w-[92%]'
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3 }}
