@@ -147,14 +147,14 @@ const Hero = () => {
                 </motion.div>
 
                 <motion.div 
-                    className='flex gap-1 w-[93%] flex-wrap bg-[#2a2c38]'
+                    className='flex gap-1 w-[93%] flex-wrap bg-[#2a2c38] '
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.4 }}
                 >
                     {[
-                        { value: "4 Yrs.", label: "Experience", className: "rounded-l-lg w-[33%]" },
-                        { value: "10+", label: "Project Completed", className: "w-[33%]" },
+                        { value: "4 Yrs.", label: "Experience", className: "rounded-l-lg w-[32.5%]" },
+                        { value: "10+", label: "Project Completed", className: "w-[32.5%]" },
                         { value: "58", label: "Happy Client", className: "rounded-r-lg w-[32.5%]" }
                     ].map((stat, index) => (
                         <motion.div 
