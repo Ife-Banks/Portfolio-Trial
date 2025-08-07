@@ -45,7 +45,7 @@ const Hero = () => {
     
     return (
         <motion.div 
-            className='w-full lg:w-[75%] mx-auto mt-10 lg:mt-30'
+            className='w-full lg:w-[75%] mx-auto mt-10 lg:mt-30 flex flex-col gap-20'
             initial="hidden"
             animate="visible"
             variants={containerVariants}
@@ -77,7 +77,8 @@ const Hero = () => {
                     <motion.p className='text-[#808080] font-workSan text-base font-light'>
                         I'm a Freelance <span className='text-[#871BE6]'>UI/UX Designer </span>and <span className='text-[#871BE6]'>Developer</span> based in London, England.
                     </motion.p>
-                    <motion.button 
+                    <motion.a 
+                    href='https://wa.link/msu7w0'
                         className='mx-auto py-3 px-6 rounded-md text-white font-semibold bg-[#871be6] hover:bg-[#9a3aed] transition-colors'
                         whileHover={{ 
                             scale: 1.05,
@@ -86,7 +87,7 @@ const Hero = () => {
                         whileTap={{ scale: 0.98 }}
                     >
                         Say Hello!
-                    </motion.button>
+                    </motion.a>
                 </motion.div>
 
                 {/* Stats with animations */}
@@ -132,7 +133,8 @@ const Hero = () => {
                     > 
                         I'm a Freelance <span className='text-[#871BE6]'>UI/UX Designer </span>and <span className='text-[#871BE6]'>Developer</span> based in London, England. I strives to build immersive and beautiful web applications through carefully crafted code and user-centric design.
                     </motion.p>
-                    <motion.button 
+                    <motion.a 
+                        href='https://wa.link/msu7w0'
                         className='place-self-start w-25 flex justify-center items-center py-3 px-3 mt-2 rounded-md text-white font-semibold bg-[#871be6] cursor-pointer'
                         whileHover={{ 
                             scale: 1.05,
@@ -143,11 +145,11 @@ const Hero = () => {
                         transition={{ type: "spring", stiffness: 300 }}
                     >
                         Say Hello!
-                    </motion.button>
+                    </motion.a>
                 </motion.div>
 
                 <motion.div 
-                    className='flex gap-1 w-[93%] flex-wrap bg-[#2a2c38] '
+                    className='flex gap-1 w-[93%] flex-wrap bg-[#2a2c38] z-1'
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.4 }}
@@ -186,6 +188,11 @@ const Hero = () => {
                         transition={{ type: "spring", stiffness: 200 }}
                     />
                 </motion.div>
+            </div>
+
+
+            <div>
+
             </div>
         </motion.div>
     );

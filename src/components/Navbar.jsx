@@ -50,7 +50,7 @@ const Navigate = () => {
         transition={{ delay: 0.2 }}
       >
         <div className='w-11 h-11 flex items-center justify-center flex-col rounded-full bg-[#871be6]'>
-          <p className='text-white font-poppins text-xl font-medium'>IB</p>
+          <p className='text-white font-poppins text-xl font-medium'>B</p>
         </div>
         <p className='text-[#cbd6e8] font-workSan text-2xl font-medium'>
         Ife-Banks
