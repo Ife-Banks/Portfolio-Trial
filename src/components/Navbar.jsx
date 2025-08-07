@@ -42,7 +42,7 @@ const Navigate = () => {
       initial="hidden"
       animate="visible"
       variants={navBarVariants}
-      className='flex w-full items-center bg-[#2a2c38] justify-between py-2 px-4 lg:px-40 relative'
+      className='flex w-full items-center bg-[#2A2C38] relative justify-between py-2 px-4 lg:px-40 '
     >
       {/* Logo Section */}
       <motion.div 
