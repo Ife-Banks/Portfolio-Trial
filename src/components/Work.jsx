@@ -1,6 +1,6 @@
 const Work = () => {
     return ( 
-        <div className='bg-[#27292F] flex justify-center gap-15 h-100 py-30 border z-3'>
+        <div className='relative bg-[#27292F] flex justify-center gap-15 h-100 py-30 z-1 '>
             hello
         </div>
      );
