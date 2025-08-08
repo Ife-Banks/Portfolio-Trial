@@ -166,7 +166,7 @@ const Portfolio = () => {
         variants={itemVariants}
       >
         <h1 className='text-[#cbd6e8] font-workSan text-xl lg:text-3xl font-semibold lg:w-[70%] tracking-wide text-center'>Portfolio</h1>
-        <p className='text-center flex flex-col gap-3 lg:gap-1 text-[#929aa7] font-workSan text-sm lg:text-sm/6 font-normal lg:w-[63%]'>
+        <p className='text-center flex flex-col gap-3 lg:gap-1 text-[#929aa7] font-workSan text-sm lg:text-sm/6 font-normal w-[61%] lg:w-[63%]'>
           There are many variations of passages of Lorem Ipsum available,
           but the majority have suffered alteration.
         </p>

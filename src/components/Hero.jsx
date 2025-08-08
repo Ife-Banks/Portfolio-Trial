@@ -98,7 +98,7 @@ const GithubIcon = (
             <div className='lg:hidden flex flex-col items-center px-4 gap-8 z-1'>
                 {/* Image with animation */}
                 <motion.div 
-                    className='w-[280px] h-[320px] rounded-2xl overflow-hidden shadow-lg z-1'
+                    className='w-[280px] h-[320px] rounded-2xl overflow-hidden lg:shadow-lg z-1'
                     variants={imageVariants}
                 >
                     <motion.img 
@@ -238,7 +238,7 @@ const GithubIcon = (
 {/* Second card */}
 
            <motion.div 
-    className='inline-flex flex-col lg:flex-row w-full mx-auto items-center justify-center lg:justify-evenly rounded-xl bg-[#2a2c38] z-2 shadow-[0_36px_105px_0_rgba(43,56,76,0.1)] -mb-30 p-6 lg:p-0 gap-8 lg:gap-0'
+    className='inline-flex flex-col lg:flex-row lg:w-full mx-auto items-center justify-center lg:justify-evenly rounded-xl bg-[#2a2c38] -z-0 lg:z-2 shadow-[0_36px_105px_0_rgba(43,56,76,0.1)] lg:-mb-30 p-6 lg:p-0 gap-8 lg:gap-0'
     variants={containerVariants}
     initial="hidden"
     animate="visible"
