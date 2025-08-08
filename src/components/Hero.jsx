@@ -284,14 +284,14 @@ const GithubIcon = (
       variants={containerVariants}
     >
       <motion.h1 
-        className='text-[#cbd6e8] font-workSan text-xl lg:text-2xl font-semibold text-center lg:text-left lg:w-[70%] tracking-wide'
+        className='h1 lg:text-left text-center'
         variants={itemVariants}
       >
         I am Professional User Experience Designer
       </motion.h1>
       
       <motion.div 
-        className='flex flex-col gap-3 lg:gap-1 text-[#929aa7] font-workSan text-sm lg:text-sm/6 font-normal text-center lg:text-left lg:w-[91%]'
+        className='paragraph lg:text-left text-center'
         variants={itemVariants}
       >
         <p>I design and develop services for customers specializing in creating stylish, modern websites, web services and online stores.</p>

@@ -46,7 +46,7 @@ const Work = () => {
 
     return (
         <motion.div 
-            className='relative bg-[#27292F] flex justify-center gap-15 py-20 lg:py-50 z-1 px-4 lg:px-0'
+            className='relative bg-[#27292F] flex justify-center gap-15 py-20 lg:pt-50 z-1 px-4 lg:px-0 '
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -59,13 +59,13 @@ const Work = () => {
                     variants={containerVariants}
                 >
                     <motion.h1 
-                        className='text-[#cbd6e8] font-workSan text-2xl lg:text-3xl font-semibold text-center lg:text-left lg:w-[70%] tracking-wide'
+                        className='h1 lg:text-left text-center'
                         variants={itemVariants}
                     >
                         Work Process
                     </motion.h1>
                     <motion.div 
-                        className='flex flex-col gap-3 text-[#929aa7] font-workSan text-sm lg:text-sm/5 font-normal text-center lg:text-left lg:w-[91%]'
+                        className='paragraph lg:text-left text-center'
                         variants={itemVariants}
                     >
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci.</p>

@@ -1,10 +1,11 @@
 import Hero from "../components/Hero"
 import Navigate from '../components/Navbar';
+import Portfolio from '../components/Portfolio';
 import Work from '../components/Work';
 
 const Home = () => {
     return ( 
-       <div className="bg-[#2A2C38] relative " id="three">
+       <div className="bg-[#2A2C38] relative z-0" id="three">
   <main className="bg-[#2A2C38] relative " id="two">
     <div className="-" id="one"> {/* Clips gradients */}
       {/* Gradient circles (clipped by #one's overflow:hidden) */}
@@ -16,6 +17,7 @@ const Home = () => {
     <Hero className="" /> {/* Allowed to overflow #three */}
   </main>
   <Work />
+  <Portfolio />
 </div>
      );
 }

@@ -6,6 +6,13 @@
   --font-poppins: "Poppins", sans-serif;
   --font-workSan:"Work Sans", sans-serif;
 }
+
+.h1{
+  @apply text-[#cbd6e8] font-workSan text-xl lg:text-2xl font-semibold lg:w-[70%] tracking-wide;
+}
+.paragraph{
+  @apply flex flex-col gap-3 lg:gap-1 text-[#929aa7] font-workSan text-sm lg:text-sm/6 font-normal   lg:w-[91%];
+}
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
