@@ -111,7 +111,7 @@ const GithubIcon = (
                 </motion.div>
 
                 {/* Text Content */}
-                <motion.div className='flex flex-col gap-4 text-center z-1' variants={itemVariants}>
+                <motion.div className='flex flex-col gap-4 text-center z-1 ' variants={itemVariants}>
                     <motion.h1 
                         className='text-[#cbd6e8] font-workSan text-3xl font-semibold tracking-wide'
                         whileHover={{ scale: 1.02 }}
@@ -164,7 +164,7 @@ const GithubIcon = (
                     transition={{ duration: 0.8 }}
                 >
                     <motion.h1 
-                        className='text-[#cbd6e8] font-workSan text-5xl/13 font-semibold tracking-wide text-left w-[79%]'
+                        className='text-[#cbd6e8] font-workSan text-5xl/13 font-semibold tracking-wide text-left w-[83%]'
                         whileHover={{ scale: 1.02 }}
                     >
                         Hello, I'm Bankole Ifeoluwa
@@ -193,7 +193,7 @@ const GithubIcon = (
                 </motion.div>
 
                 <motion.div 
-                    className='flex gap-1 w-[93%] flex-wrap bg-[#2a2c38] z-1'
+                    className='flex justify-between w-[93%] flex-wrap bg-[#2a2c38] z-1'
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.4 }}
