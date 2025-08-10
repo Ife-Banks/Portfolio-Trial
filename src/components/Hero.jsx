@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import potrait from "/public/potrait.png";
+import potrait from "/potrait.png";
 import { useEffect, useState } from 'react';
 
 const Hero = () => {
@@ -164,7 +164,7 @@ const GithubIcon = (
                     transition={{ duration: 0.8 }}
                 >
                     <motion.h1 
-                        className='text-[#cbd6e8] font-workSan text-5xl/13 font-semibold tracking-wide text-left w-[83%]'
+                        className='text-[#cbd6e8] font-workSan text-5xl/13 font-semibold tracking-wide text-left w-[65%]'
                         whileHover={{ scale: 1.02 }}
                     >
                         Hello, I'm Bankole Ifeoluwa
@@ -199,7 +199,7 @@ const GithubIcon = (
                     transition={{ delay: 0.4 }}
                 >
                     {[
-                        { value: "4 Yrs.", label: "Experience", className: "rounded-l-lg w-[32.5%]" },
+                        { value: "4 Y.", label: "Experience", className: "rounded-l-lg w-[32.5%]" },
                         { value: "10+", label: "Project Completed", className: "w-[32.5%]" },
                         { value: "58", label: "Happy Client", className: "rounded-r-lg w-[32.5%]" }
                     ].map((stat, index) => (
@@ -212,8 +212,8 @@ const GithubIcon = (
                                 transition: { duration: 0.3 }
                             }}
                         >
-                            <h1 className='text-[#a2acba] text-center font-workSan text-2xl font-semibold'>{stat.value}</h1>
-                            <p className='text-[7f8794] text-center font-workSan text-sm font-light'>{stat.label}</p>
+                            <h1 className='text-[#a2acba] text-center font-workSan text-3xl font-semibold'>{stat.value}</h1>
+                            <p className='text-[#7F8794] text-center font-workSan text-sm font-light'>{stat.label}</p>
                         </motion.div>
                     ))}
                 </motion.div>

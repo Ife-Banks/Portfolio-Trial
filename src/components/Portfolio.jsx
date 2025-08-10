@@ -1,10 +1,11 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import Vex from "/VexCar.png";
-import pdm from "/public/pdm.png";
-import devalyze from "/public/devalyze.png";
-import crypto from "/public/crypto.png";
-import cybergenz from "/public/cybergenz.png";
-import Trust from "/public/Trust.png";
+import pdm from "/pdm.png";
+import devalyze from "/devalyze.png";
+import crypto from "/crypto.png";
+import cybergenz from "/cybergenz.png";
+import Trust from "/Trust.png";
 
 const PortfolioCard = ({ image, alt, category, title, description,link, index }) => {
   const cardVariants = {
@@ -49,8 +50,8 @@ const PortfolioCard = ({ image, alt, category, title, description,link, index })
       <div className='flex flex-col gap-3 px-2'>
         <div className='flex flex-col gap-1'>
           <div className='flex flex-col'>
-            <p className='uppercase font-workSan text-xs font-light'>{category}</p>
-            <h2 className='font-workSan text-lg font-medium'>{title}</h2>
+            <p className='uppercase font-workSan text-xs font-light text-[#646B76]'>{category}</p>
+            <h2 className='font-workSan text-xl font-medium text-[#CBD6E8]'>{title}</h2>
           </div>
           <p className='text-[#929aa7] font-workSan text-xs/5 font-normal'>
             {description}

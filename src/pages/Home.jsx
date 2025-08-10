@@ -1,3 +1,4 @@
+import HaveProject from '../components/Haveproject';
 import Hero from "../components/Hero"
 import Navigate from '../components/Navbar';
 import Portfolio from '../components/Portfolio';
@@ -18,6 +19,7 @@ const Home = () => {
   </main>
   <Work />
   <Portfolio />
+  <HaveProject/>
 </div>
      );
 }
