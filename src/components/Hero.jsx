@@ -3,7 +3,29 @@ import potrait from "/potrait.png";
 import { useEffect, useState } from 'react';
 
 const Hero = () => {
-    // Animation variants
+    // Language greeting state
+    const [currentGreeting, setCurrentGreeting] = useState({ lang: "English", text: "Hello" });
+
+    // Language greeting changing effect
+    useEffect(() => {
+        const greetings = [
+            { lang: "French", text: "Bonjour" },
+            { lang: "Spanish", text: "Hola" },
+            { lang: "German", text: "Hallo" },
+            { lang: "Dutch", text: "Hallo" },
+            { lang: "English", text: "Hello" }
+        ];
+
+        const greetingInterval = setInterval(() => {
+            const currentIndex = greetings.findIndex(g => g.lang === currentGreeting.lang);
+            const nextIndex = (currentIndex + 1) % greetings.length;
+            setCurrentGreeting(greetings[nextIndex]);
+        }, 5000);
+
+        return () => clearInterval(greetingInterval);
+    }, [currentGreeting.lang]);
+
+    // Animation variants (your existing code)
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -14,7 +36,7 @@ const Hero = () => {
             }
         }
     };
-
+    
     const itemVariants = {
         hidden: { y: 20, opacity: 0 },
         visible: {
@@ -86,10 +108,11 @@ const GithubIcon = (
 </svg>
 );
 
-    
+    // ... (keep all your existing variants and icon definitions)
+
     return (
         <motion.div 
-            className=' w-full lg:w-[75%] mx-auto mt-10 lg:mt-30 flex flex-col gap-50  overflow-visible'
+            className='w-full lg:w-[75%] mx-auto mt-10 lg:mt-30 flex flex-col gap-50 overflow-visible'
             initial="hidden"
             animate="visible"
             variants={containerVariants}
@@ -110,18 +133,19 @@ const GithubIcon = (
                     />
                 </motion.div>
 
-                {/* Text Content */}
+                {/* Text Content - Modified to include greeting */}
                 <motion.div className='flex flex-col gap-4 text-center z-1 ' variants={itemVariants}>
                     <motion.h1 
                         className='text-[#cbd6e8] font-workSan text-3xl font-semibold tracking-wide'
                         whileHover={{ scale: 1.02 }}
                     >
-                        Hello, I'm Bankole Ifeoluwa
+                        <span className="greeting-text">{currentGreeting.text}</span>, I'm Bankole Ifeoluwa
                     </motion.h1>
                     <motion.p className='text-[#808080] font-workSan text-base font-light'>
                         I'm a Freelance <span className='text-[#871BE6]'>UI/UX Designer </span>and <span className='text-[#871BE6]'>Developer</span> based in London, England.
                     </motion.p>
-                    <motion.a 
+                    {/* ... rest of your mobile layout */}
+                     <motion.a 
                     href='https://wa.link/msu7w0'
                         className='mx-auto py-3 px-6 rounded-md text-white font-semibold bg-[#871be6] hover:bg-[#9a3aed] transition-colors'
                         whileHover={{ 
@@ -156,7 +180,7 @@ const GithubIcon = (
             </div>
 
             {/* Desktop Layout (hidden on mobile) */}
-            <div className='hidden lg:grid grid-flow-col grid-rows-1.5 gap-10 z-1 '>
+            <div className='hidden lg:grid grid-flow-col grid-rows-1.5 gap-10 z-1'>
                 <motion.div 
                     className='w-[93%] p-1 flex flex-col gap-4'
                     initial={{ x: -50, opacity: 0 }}
@@ -167,8 +191,9 @@ const GithubIcon = (
                         className='text-[#cbd6e8] font-workSan text-5xl/13 font-semibold tracking-wide text-left w-[65%]'
                         whileHover={{ scale: 1.02 }}
                     >
-                        Hello, I'm Bankole Ifeoluwa
+                        <span className="greeting-text">{currentGreeting.text}</span>, I'm Bankole Ifeoluwa
                     </motion.h1>
+                    {/* ... rest of your desktop layout */}
                     <motion.p 
                         className='text-left text-[#556070] font-workSan text-md/5 font-light w-[92%]'
                         initial={{ opacity: 0 }}
@@ -234,8 +259,8 @@ const GithubIcon = (
                 </motion.div>
             </div>
 
-
-{/* Second card */}
+            {/* ... rest of your component */}
+            {/* Second card */}
 
            <motion.div 
     className='inline-flex flex-col lg:flex-row lg:w-full mx-auto items-center justify-center lg:justify-evenly rounded-xl bg-[#2a2c38] -z-0 lg:z-2 shadow-[0_36px_105px_0_rgba(43,56,76,0.1)] lg:-mb-30 p-6 lg:p-0 gap-8 lg:gap-0'
@@ -333,6 +358,7 @@ const GithubIcon = (
       </motion.div>
     </motion.div>
   </motion.div>
+       
         </motion.div>
     );
 }
