@@ -6,12 +6,13 @@ import Slider from "react-slick";
 const Work = () => {
 
     const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
+    
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed:3000,
     pauseOnHover: true
   };
   
@@ -40,24 +41,36 @@ const Work = () => {
         }
     };
 
-    const cardVariants = {
-        hidden: { scale: 0.95, opacity: 0 },
-        visible: {
-            scale: 1,
-            opacity: 1,
-            transition: {
-                type: "spring",
-                stiffness: 100,
-                damping: 10
-            }
-        },
-        hover: {
-            y: -5,
-            boxShadow: "0 10px 25px rgba(135, 27, 230, 0.2)",
-            transition: { type: "spring", stiffness: 300 }
-        }
-    };
+  
+const sliderVariants = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
 
+const cardVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5
+    }
+  },
+  hover: {
+    scale: 1.03,
+    boxShadow: "32px 32px 124px 0 rgba(43,56,76,0.1)",
+    zIndex: 20,
+    transition: { 
+      duration: 0.3,
+      ease: "easeOut"
+    }
+  }
+};
     return (
          <motion.div 
             className='relative bg-[#27292F] flex justify-center gap-15 py-30 lg:pt-50 z-1 px-4 lg:px-0 '
@@ -88,11 +101,17 @@ const Work = () => {
                 </motion.main>
 
                 {/* Cards Grid */}
-                <div className="slider w-[55%] lg:w-[27%] lg:h-max  p-2 bg-transparent" >
-                <Slider {...settings} className='slide w-auto h-auto flex p-2 overflow-visible relative justify-center items-center  lg:shadow-[32px_32px_124px_0_rgba(43,56,76,0.1)]'  variants={cardVariants}
-                                    whileHover="hover">
-                                 {/* Research Card */}
-                                <motion.div 
+                <div className="slider w-[55%] lg:w-[27%] lg:h-max p-2 bg-transparent relative">
+  {/* Blur border effect */}
+  <div className="absolute inset-0 rounded-xl border border-white/10 backdrop-blur-sm pointer-events-none" />
+  
+  <Slider 
+    {...settings} 
+    className='slide w-auto h-auto flex p-2 overflow-visible relative justify-center items-center'
+    variants={sliderVariants}
+  >
+    {/* Research Card */}
+   <motion.div 
                                     className=' p-4 lg:p-3 flex flex-col items-start gap-3 rounded-xl bg-[#2A2C38] shadow-lg lg:shadow-[32px_32px_124px_0_rgba(43,56,76,0.1)] main-border'
                                     variants={cardVariants}
                                     whileHover="hover"
@@ -171,8 +190,10 @@ const Work = () => {
                                         </p>
                                     </div>
                                 </motion.div>
-                            </Slider>
-    </div>
+    
+    {/* Other cards with same structure */}
+  </Slider>
+                </div>
             </div>
         </motion.div>
     );
