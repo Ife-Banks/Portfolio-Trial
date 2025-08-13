@@ -88,8 +88,9 @@ const Work = () => {
                 </motion.main>
 
                 {/* Cards Grid */}
-                <div className="slider w-[27%] h-max  p-2 bg-transparent" >
-                <Slider {...settings} className='slide w-auto h-auto flex p-2 overflow-visible relative justify-center items-center   '>
+                <div className="slider w-[55%] lg:w-[27%] lg:h-max  p-2 bg-transparent" >
+                <Slider {...settings} className='slide w-auto h-auto flex p-2 overflow-visible relative justify-center items-center  lg:shadow-[32px_32px_124px_0_rgba(43,56,76,0.1)]'  variants={cardVariants}
+                                    whileHover="hover">
                                  {/* Research Card */}
                                 <motion.div 
                                     className=' p-4 lg:p-3 flex flex-col items-start gap-3 rounded-xl bg-[#2A2C38] shadow-lg lg:shadow-[32px_32px_124px_0_rgba(43,56,76,0.1)] main-border'
