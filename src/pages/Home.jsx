@@ -10,13 +10,15 @@ import Work from '../components/Work';
 const Home = () => {
      const bg1Ref = useRef(null);
     const bg2Ref = useRef(null);
+    const bg3Ref = useRef(null);
 
     useEffect(() => {
         const colors = ["#FF5733", "#33FF57", "#3357FF", "#1A5E4D", "#BE29D7"];
-        
+        const colors2 = ["#906010", "#3A6B5D", "#5C6B8A", "#C4B6B2", "#E8D5B5", "#D4AF37"];
         const changeColors = () => {
             // Create a copy of the colors array to avoid modifying the original
             const availableColors = [...colors];
+            const availableColors2 = [...colors2];
             
             // Select first color and remove it from available options
             const randomIndex1 = Math.floor(Math.random() * availableColors.length);
@@ -26,13 +28,18 @@ const Home = () => {
             // Select second color from remaining options
             const randomIndex2 = Math.floor(Math.random() * availableColors.length);
             const color2 = availableColors[randomIndex2];
-            
+
+            const randomIndex3 = Math.floor(Math.random() * availableColors2.length);
+            const color3 = availableColors2[randomIndex3];
             // Apply colors
             if (bg1Ref.current) {
                 bg1Ref.current.style.backgroundColor = color1;
             }
             if (bg2Ref.current) {
                 bg2Ref.current.style.backgroundColor = color2;
+            }
+            if (bg3Ref.current) {
+                bg3Ref.current.style.backgroundColor = color3;
             }
         };
 
@@ -59,7 +66,9 @@ const Home = () => {
                         ref={bg2Ref}
                         className="absolute border w-[900px] h-[900px] -right-[50%] top-45 border-black rotate-[-130deg] transition-all duration-500 blur-[300px] -z-0 " 
                     ></div>
-                   <div className="absolute border w-[541px] h-[206px] rotate[-30deg] lg:bottom:0 -bottom-30 -left-70 lg:-left-50 [background:linear-gradient(182deg,#906010_-157.44%,rgba(128,85,14,0.96)_-157.4%,rgba(87,58,10,0.67)_216.94%,rgba(198,137,32,0.8)_216.94%)] blur-[100px] z-1" ></div>
+                   <div
+                   ref={bg3Ref}
+                   className="absolute border w-[541px] h-[206px] rotate[-30deg] lg:bottom:0 -bottom-30 -left-70 lg:-left-50  transition-all duration-500 blur-[200px] z-1" ></div>
                 </div>
                 <Navigate />
                 <Hero className="" />

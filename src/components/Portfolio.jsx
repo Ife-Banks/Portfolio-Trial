@@ -235,10 +235,10 @@ const Portfolio = () => {
         </motion.button>
         <div
          ref={bg1Ref}
-         className="absolute border w-[541px] h-[206px] rotate[-30deg] -bottom-30 -left-80 bg-[rgba(190,41,215,0.5)] blur-[100px] -z-1"></div>
+         className="absolute border w-[541px] h-[206px] rotate[-30deg] -bottom-30 -left-80 bg-[rgba(190,41,215,0.5)] blur-[200px] -z-1  transition-all duration-500"></div>
         <div
         ref={bg2Ref}
-        className="absolute border w-[541px] h-[206px] rotate[-30deg] -bottom-10 -right-90 bg-[rgba(26,94,77,0.7)] blur-[100px] -z-1"></div>
+        className="absolute border w-[541px] h-[206px] rotate[-30deg] -bottom-10 -right-90 bg-[rgba(26,94,77,0.7)] blur-[200px] -z-1  transition-all duration-500"></div>
     </motion.div>
   );
 }
