@@ -11,10 +11,15 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
+    "@types/jquery": "^3.5.32",
+    "@types/owl.carousel": "^2.3.6",
     "framer-motion": "^12.23.12",
+    "jquery": "^3.7.1",
+    "owl.carousel": "^2.3.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
+    "react-slick": "^0.31.0",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
