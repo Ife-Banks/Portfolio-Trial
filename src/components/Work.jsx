@@ -73,11 +73,12 @@ const cardVariants = {
 };
     return (
          <motion.div 
-            className='relative bg-[#27292F] flex justify-center gap-15 py-30 lg:pt-50 z-1 px-4 lg:px-0 '
+            className='relative bg-[#27292F] flex justify-center gap-15 py-30 lg:pt-50 z-1 px-4 lg:px-0'
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
+            id='work'
         >
            <div className='relative flex w-full lg:w-[70%] mx-auto items-center justify-evenly overflow-visible flex-col lg:flex-row gap-8 lg:gap-0  p-2'>
                 {/* Text Content */}

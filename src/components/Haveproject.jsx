@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 
 const HaveProject = () => {
   return (
-    <section className='relative z-2 bg-[#0E141F] py-20 px-4'>
+    <section className='relative z-2 bg-[#0E141F] py-20 px-4'
+    id='have-project'>
       <div className='max-w-6xl mx-auto flex flex-col items-center gap-6 text-center'>
         <motion.h1 
           className='text-white font-workSan text-3xl md:text-4xl font-semibold max-w-xl'

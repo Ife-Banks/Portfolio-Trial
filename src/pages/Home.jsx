@@ -60,11 +60,11 @@ const Home = () => {
                     {/* Gradient circles */}
                     <div 
                         ref={bg1Ref}
-                        className="absolute w-[871.213px] h-[871.213px] border rotate-[-130deg] -top-150 -right-100 lg:-top-100 lg:-right-160 transition-all duration-500 blur-[300px]" 
+                        className="absolute w-100 h-[600px] lg:w-[871.213px] lg:h-[871.213px] border rotate-[-130deg] -top-50 right-full lg:-top-100 lg:-right-160 transition-all duration-500 blur-[300px] " 
                     ></div>
                     <div 
                         ref={bg2Ref}
-                        className="absolute border w-[900px] h-[900px] -right-[50%] top-45 border-black rotate-[-130deg] transition-all duration-500 blur-[300px] -z-0 " 
+                        className="absolute border w-[700px] lg:w-[900px] h-[1100px] lg:h-[900px] bottom-0 right-full lg:inset-y-0  lg:-right-[50%]  lg:top-45 border-black rotate-[-130deg] transition-all duration-500 blur-[250px] lg:blur-[300px] -z-0 " 
                     ></div>
                    <div
                    ref={bg3Ref}

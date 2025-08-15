@@ -36,6 +36,7 @@ const PortfolioCard = ({ image, alt, category, title, description,link, index })
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
       whileHover="hover"
+      id='portfolio'
     >
       <motion.div 
         className='overflow-hidden rounded-t-lg'

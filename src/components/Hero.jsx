@@ -267,6 +267,7 @@ const GithubIcon = (
     variants={containerVariants}
     initial="hidden"
     animate="visible"
+    id='about'
   >
     {/* Image section */}
     <motion.div 

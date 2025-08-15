@@ -62,19 +62,26 @@ const Navigate = () => {
         className='hidden lg:flex gap-7 items-center p-2 text-[#ccc] font-workSan text-md font-medium'
         transition={{ delay: 0.3 }}
       >
-        {['Home', 'About', 'Process', 'Portfolio', 'Blog', 'Services'].map((item) => (
-          <motion.li 
-            key={item}
-            whileHover={{ 
-              color: '#fff',
-              scale: 1.05,
-              transition: { duration: 0.2 }
-            }}
-            className='cursor-pointer'
-          >
-            {item}
-          </motion.li>
-        ))}
+      {[
+  { name: 'Home', path: '/' },
+  { name: 'About', id: '#about' },
+  { name: 'Process', id: '#work' },
+  { name: 'Portfolio', id: '#portfolio' },
+  { name: 'Services', id: '#have-project' }
+].map((item) => (
+  <motion.a 
+    key={item.name}
+    href={item.path || item.id}
+    whileHover={{ 
+      color: '#fff',
+      scale: 1.05,
+      transition: { duration: 0.2 }
+    }}
+    className='cursor-pointer'
+  >
+    {item.name}
+  </motion.a>
+))}
         <motion.button 
           whileHover={{ 
             backgroundColor: '#9a3aed',
