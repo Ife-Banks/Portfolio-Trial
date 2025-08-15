@@ -112,7 +112,7 @@ const Navigate = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            className='absolute top-16 left-0 w-full bg-[#2a2c38] py-4 px-6 lg:hidden z-50 shadow-lg'
+            className='absolute top-14 left-0 w-full bg-[#2a2c38] py-4 px-6 lg:hidden z-50 shadow-lg'
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -125,25 +125,26 @@ const Navigate = () => {
               animate="visible"
             >
                {[
-                { name: 'Home', path: '/' },
-                { name: 'About', id: '#about' },
-                { name: 'Process', id: '#work' },
-                { name: 'Portfolio', id: '#portfolio' },
-                { name: 'Services', id: '#have-project' }
-              ].map((item) => (
-                <motion.a 
-                  key={item.name}
-                  href={item.path || item.id}
-                  whileHover={{ 
-                    color: '#fff',
-                    scale: 1.05,
-                    transition: { duration: 0.2 }
-                  }}
-                  className='cursor-pointer'
-                >
-                  {item.name}
-                </motion.a>
-              ))}
+  { name: 'Home', path: 'hero' },
+  { name: 'About', id: 'about' },
+  { name: 'Process', id: 'work' },
+  { name: 'Portfolio', id: 'portfolio' },
+  { name: 'Services', id: 'have-project' }
+].map((item) => (
+  <Link 
+    key={item.name}
+    to={item.path || item.id}
+    smooth={true} duration={500}
+    whileHover={{ 
+      color: '#fff',
+      scale: 1.05,
+      transition: { duration: 0.2 }
+    }}
+    className='cursor-pointer'
+  >
+    {item.name}
+  </Link>
+))}
               <motion.button
                 variants={itemVariants}
                 whileHover={{ 

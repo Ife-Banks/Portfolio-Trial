@@ -116,6 +116,7 @@ const GithubIcon = (
             initial="hidden"
             animate="visible"
             variants={containerVariants}
+            id='hero'
         >
             {/* Mobile Layout (lg:hidden) */}
             <div className='lg:hidden flex flex-col items-center px-4 gap-8 z-1'>
