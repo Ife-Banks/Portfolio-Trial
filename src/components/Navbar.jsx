@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
+import {Link} from 'react-scroll';
 
 const Navigate = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,15 +64,16 @@ const Navigate = () => {
         transition={{ delay: 0.3 }}
       >
       {[
-  { name: 'Home', path: '/' },
-  { name: 'About', id: '#about' },
-  { name: 'Process', id: '#work' },
-  { name: 'Portfolio', id: '#portfolio' },
-  { name: 'Services', id: '#have-project' }
+  { name: 'Home', path: 'hero' },
+  { name: 'About', id: 'about' },
+  { name: 'Process', id: 'work' },
+  { name: 'Portfolio', id: 'portfolio' },
+  { name: 'Services', id: 'have-project' }
 ].map((item) => (
-  <motion.a 
+  <Link 
     key={item.name}
-    href={item.path || item.id}
+    to={item.path || item.id}
+    smooth={true} duration={500}
     whileHover={{ 
       color: '#fff',
       scale: 1.05,
@@ -80,7 +82,7 @@ const Navigate = () => {
     className='cursor-pointer'
   >
     {item.name}
-  </motion.a>
+  </Link>
 ))}
         <motion.button 
           whileHover={{ 
@@ -122,19 +124,25 @@ const Navigate = () => {
               initial="hidden"
               animate="visible"
             >
-              {['Home', 'About', 'Process', 'Portfolio', 'Blog', 'Services'].map((item) => (
-                <motion.li 
-                  key={item}
-                  variants={itemVariants}
+               {[
+                { name: 'Home', path: '/' },
+                { name: 'About', id: '#about' },
+                { name: 'Process', id: '#work' },
+                { name: 'Portfolio', id: '#portfolio' },
+                { name: 'Services', id: '#have-project' }
+              ].map((item) => (
+                <motion.a 
+                  key={item.name}
+                  href={item.path || item.id}
                   whileHover={{ 
                     color: '#fff',
-                    x: 5,
+                    scale: 1.05,
                     transition: { duration: 0.2 }
                   }}
-                  className='cursor-pointer py-2'
+                  className='cursor-pointer'
                 >
-                  {item}
-                </motion.li>
+                  {item.name}
+                </motion.a>
               ))}
               <motion.button
                 variants={itemVariants}
