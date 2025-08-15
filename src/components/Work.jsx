@@ -101,9 +101,9 @@ const cardVariants = {
                 </motion.main>
 
                 {/* Cards Grid */}
-                <div className="slider w-[55%] lg:w-[27%] lg:h-max p-2 bg-transparent relative">
+                <div className="slider w-[55%] lg:w-[27%] lg:h-max p-2 bg-transparent relative  gradient-border">
   {/* Blur border effect */}
-  <div className="absolute inset-0 rounded-xl border border-white/10 backdrop-blur-sm pointer-events-none" />
+  <div className="absolute inset-0 rounded-xl border border-white/10 backdrop-blur-sm pointer-events-none " />
   
   <Slider 
     {...settings} 
