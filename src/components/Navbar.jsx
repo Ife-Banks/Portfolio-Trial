@@ -2,61 +2,36 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
 import {Link} from 'react-scroll';
+import {navBarVariants,menuVariants,itemVariants2} from './Animations/Animate'
+
 
 const Navigate = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Animation variants
-  const navBarVariants = {
-    hidden: { y: -100, opacity: 0 },
-    visible: { 
-      y: 0, 
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-        mass: 0.5
-      }
-    }
-  };
-
-  const menuVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0 }
-  };
+ 
 
   return (
     <motion.div
       initial="hidden"
       animate="visible"
       variants={navBarVariants}
-      className='flex w-full items-center bg-[#2A2C38] relative justify-between py-2 px-4 lg:px-40 '
+      className='flex w-fit mx-auto items-center 
+      bg-transparent absolute right-8 lg:top-10  lg:right-1/2 
+      lg:translate-x-1/2 justify-between rounded-3xl 
+      px-4 lg:px-2 border-black/50 border-r-3 border-b-3 shadow-[6px_6px_12px_rgba(0,0,0,0.2)]'
     >
       {/* Logo Section */}
-      <motion.div 
+      {/* <motion.div 
         className='flex gap-3 items-center justify-start w-auto lg:w-[20%]'
         transition={{ delay: 0.2 }}
       >
         <div className='w-11 h-11 flex items-center justify-center flex-col rounded-full bg-[#871be6]'>
           <p className='text-white font-poppins text-xl font-medium'>B</p>
         </div>
-        <p className='text-[#cbd6e8] font-workSan text-2xl font-medium'>
+        <p className='text-[#cbd6e8] font-workSan text-lg font-medium border'>
         Ife-Banks
         </p>
-      </motion.div>
+      </motion.div> */}
 
       {/* Desktop Navigation */}
       <motion.ul 
@@ -86,12 +61,12 @@ const Navigate = () => {
 ))}
         <motion.button 
           whileHover={{ 
-            backgroundColor: '#9a3aed',
+            
             scale: 1.05,
             transition: { duration: 0.2 }
           }}
           whileTap={{ scale: 0.95 }}
-          className='flex justify-center items-center py-2 px-4 rounded-md text-white font-semibold bg-[#871be6] cursor-pointer'
+          className='flex justify-center items-center py-2 px-4 rounded-md text-white font-semibold cursor-pointer bg-gradient-to-r from-[#871be6] via-[#871be6]/50 to-transparent backdrop-blur-sm'
         >
           Contact
         </motion.button>
@@ -112,14 +87,14 @@ const Navigate = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            className='absolute top-14 left-0 w-full bg-[#2a2c38] py-4 px-6 lg:hidden z-50 shadow-lg'
+            className='absolute top-14 left-0 w-fit bg-[#2a2c38] py-4 px-4 lg:hidden z-50  shadow-[6px_6px_12px_rgba(0,0,0,0.2)]'
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
             <motion.ul 
-              className='flex flex-col gap-4 text-[#ccc] font-workSan text-md font-medium'
+              className='flex flex-col gap-4 text-[#ccc] font-workSan text-md font-medium items-center'
               variants={menuVariants}
               initial="hidden"
               animate="visible"
@@ -146,7 +121,7 @@ const Navigate = () => {
   </Link>
 ))}
               <motion.button
-                variants={itemVariants}
+                variants={itemVariants2}
                 whileHover={{ 
                   backgroundColor: '#9a3aed',
                   scale: 1.02,
