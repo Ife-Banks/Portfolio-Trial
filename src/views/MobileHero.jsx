@@ -2,7 +2,7 @@ import React from 'react'
 // eslint-disable-next-line no-unused-vars
 import {motion} from 'framer-motion'
 import potrait from "../assets/potrait.png";
-import Lightbtn from '../components/Lightbtn';
+import Lightbtn from '../Resuables/Lightbtn';
 import { Typewriter } from 'react-simple-typewriter';
 // eslint-disable-next-line no-unused-vars
 import {containerVariants,itemVariants,imageVariants,statItemVariants,socialCardVariants } from "../components/Animations/Animate"

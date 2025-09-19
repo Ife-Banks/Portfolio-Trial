@@ -6,11 +6,12 @@ import Navigate from '../components/Navbar';
 import Portfolio from '../components/Portfolio';
 import Job from '../components/WhatIdo';
 import Work from '../components/Work';
-import Gradients from '../components/Gradients';
+import Gradients from '../Resuables/Gradients';
 import LangContext from "../components/context/LangContext"
 
 const Home = () => {
      const [currentGreeting, setCurrentGreeting] = useState({ lang: "English", text: "Hello" });
+     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // Language greeting changing effect
     useEffect(() => {
@@ -31,9 +32,13 @@ const Home = () => {
         return () => clearInterval(greetingInterval);
     }, [currentGreeting.lang]);
 
+    const NavContext = {
+        currentGreeting,
+        isMenuOpen,
+        setIsMenuOpen    }
     return ( 
         <div className="bg-[#2A2C38] relative z-0" id="three">
-            <LangContext.Provider value={currentGreeting}>
+            <LangContext.Provider value={NavContext}>
                 <main className="bg-[#2A2C38] relative pt-5" id="two">
                 
                 <Gradients/>

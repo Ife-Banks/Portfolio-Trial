@@ -4,9 +4,10 @@ import {motion} from "framer-motion"
 function Lightbtn(props) {
   return (
     <motion.a 
-         href='https://wa.link/msu7w0'
+        target='#'
+         href={props.href}
          id={props.id}
-        className={`flex justify-start items-start py-3 px-6 rounded-md text-white font-semibold bg-[#871be6] hover:bg-[#9a3aed] transition-colors ${props.id === "desktop" ? 'w-fit mx-35' : 'mx-auto' }`}
+        className={`flex justify-start items-start py-3 px-6  text-white font-semibold bg-[#871be6] hover:bg-[#9a3aed] transition-colors ${props.id === "desktop" ? 'w-fit mx-35 rounded-2xl' : 'mx-auto rounded-md' }`}
         whileHover={{ 
        scale: 1.05,
         boxShadow: "0 5px 15px rgba(135, 27, 230, 0.4)"

@@ -4,7 +4,8 @@ import {motion} from 'framer-motion'
 function Darkbtn(props) {
   return (
     <motion.button 
-          className='w-full sm:w-fit flex justify-center items-center py-3 px-4 rounded-md text-white font-semibold border border-[#871be6] cursor-pointer gap-3'
+          className={`w-full sm:w-fit flex justify-center items-center py-3 px-4 rounded-md text-white font-semibold border border-[#871be6] cursor-pointer gap-3 ${props.id === 'cv' ?'' :'' }`}
+          id={props.id}
           whileHover={{ 
             scale: 1.05,
             boxShadow: "0 5px 15px rgba(135, 27, 230, 0.4)"
