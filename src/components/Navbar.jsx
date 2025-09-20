@@ -17,8 +17,8 @@ const Navigate = () => {
       variants={navBarVariants}
       className='flex w-fit mx-auto items-center 
       bg-transparent absolute right-8 lg:top-10  lg:right-1/2 
-      lg:translate-x-1/2 justify-between rounded-3xl 
-      px-4 lg:px-3 border-black/50 border-l-3 border-b-3 shadow-[-6px_6px_12px_rgba(0,0,0,0.2)]'
+      lg:translate-x-1/2 justify-between rounded-full lg:rounded-3xl 
+      p-1 lg:px-3 border-black/50 border-l-3 border-b-3 shadow-[-6px_6px_12px_rgba(0,0,0,0.2)]'
     >
       {/* Logo Section */}
       {/* <motion.div 
@@ -74,7 +74,7 @@ const Navigate = () => {
 
       {/* Mobile Menu Button */}
       <motion.button 
-        className='lg:hidden text-[#ccc] p-2'
+        className='lg:hidden text-[#ccc] p-2 cursor-pointer'
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         whileTap={{ scale: 0.9 }}

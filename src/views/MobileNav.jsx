@@ -11,7 +11,7 @@ function MobileNav() {
      <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            className='absolute top-14 left-0 w-fit bg-[#2a2c38] py-4 px-4 lg:hidden z-50  shadow-[6px_6px_12px_rgba(0,0,0,0.2)]'
+            className='absolute top-14 -left-7 w-fit bg-[#2a2c38] py-4 px-4 lg:hidden z-50  shadow-[6px_6px_12px_rgba(0,0,0,0.2)] '
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}

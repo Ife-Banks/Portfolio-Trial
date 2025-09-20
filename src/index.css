@@ -11,10 +11,10 @@
 }
 
 .h1{
-  @apply text-[#cbd6e8] font-workSan text-xl lg:text-3xl font-semibold lg:w-[70%] tracking-wide;
+  @apply text-[#cbd6e8] font-workSan text-2xl lg:text-3xl font-semibold lg:w-[70%] tracking-wide;
 }
 .paragraph{
-  @apply flex flex-col gap-3 lg:gap-1 text-[#929aa7] font-workSan text-sm lg:text-sm/6 font-normal ;
+  @apply flex flex-col gap-3 lg:gap-1 text-[#929aa7] font-workSan font-normal ;
 }
 
 :root {

@@ -10,31 +10,13 @@ import Icons from './Icons'
 function SecondHero() {
   return (
     <motion.div 
-    className='flex flex-col lg:flex-row lg:w-[65%] rounded-xl bg-[#2a2c38] -z-0 lg:z-2 shadow-[0_36px_105px_0_rgba(43,56,76,0.1)] lg:-mb-20 p-6 lg:pt-5 lg:pb-2 lg:px-0 place-self-end items-center justify-evenly'
+    className='flex flex-col lg:flex-row lg:w-[65%] lg:rounded-xl bg-[#2a2c38] -z-0 lg:z-2 shadow-[0_36px_105px_0_rgba(43,56,76,0.1)] lg:-mb-20 p-6 lg:pt-5 lg:pb-2 lg:px-0 lg:place-self-end items-center justify-evenly '
     variants={containerVariants}
     initial="hidden"
     animate="visible"
     id='about'
   >
-    {/* Image section */}
-    {/* <motion.div 
-      className='z-1 rounded-2xl w-[280px] h-[320px] lg:w-auto lg:h-auto relative'
-      variants={imageVariants}
-    >
-      <img 
-        src={potrait} 
-        alt="Professional UX Designer" 
-        className='rounded-xl object-cover object-top w-full h-full lg:h-110 lg:w-90 -z-1'
-      />
-      
-      <motion.div 
-        className='absolute bottom-10 place-self-center inset-x-0 inline-flex px-3 py-2 items-center justify-center rounded-lg bg-[#2a2c38] shadow-[0_12px_64px_0_rgba(28,25,25,0.12)] gap-3'
-        variants={itemVariants}
-      >
-        
-      </motion.div>
-    </motion.div> */}
-    <div className='flex flex-col gap-5 lg:w-[10%] items-center'>
+    <div className='hidden lg:flex flex-col gap-5 lg:w-[10%] items-center'>
         {Socials.map((item) => (
           <motion.a 
             key={item.key}
@@ -59,7 +41,7 @@ function SecondHero() {
       >
         <Icons/>  
           
-        <p className='text-[#95A3B9]'>Specializes in building modern websites, fullstack applications, and scalable web services. Experienced with a wide range of frontend technologies including HTML, CSS, JavaScript, React, Tailwind CSS, and component-based frameworks. Backend expertise includes working with Node.js, Express, MongoDB, and integrating RESTful APIs and third-party services. Focuses on creating responsive, user-friendly experiences with clean architecture, efficient data handling, and smooth deployment workflows. Projects are built with performance, usability, and long-term scalability in mind, delivering solutions that meet real-world needs.</p>
+        <p className='text-[#95A3B9] text-justify'>Specializes in building modern websites, fullstack applications, and scalable web services. Experienced with a wide range of frontend technologies including HTML, CSS, JavaScript, React, Tailwind CSS, and component-based frameworks. Backend expertise includes working with Node.js, Express, MongoDB, and integrating RESTful APIs and third-party services. Focuses on creating responsive, user-friendly experiences with clean architecture, efficient data handling, and smooth deployment workflows. Projects are built with performance, usability, and long-term scalability in mind, delivering solutions that meet real-world needs.</p>
       </motion.div>
       
       <motion.div 

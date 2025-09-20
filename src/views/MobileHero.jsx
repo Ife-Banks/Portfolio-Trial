@@ -1,76 +1,91 @@
-import React from 'react'
+import React, { useState } from 'react'
 // eslint-disable-next-line no-unused-vars
-import {motion} from 'framer-motion'
-import potrait from "../assets/potrait.png";
+import { motion } from 'framer-motion'
+import potrait from "../assets/IfeBanks.jpg";
 import Lightbtn from '../Resuables/Lightbtn';
 import { Typewriter } from 'react-simple-typewriter';
 // eslint-disable-next-line no-unused-vars
-import {containerVariants,itemVariants,imageVariants,statItemVariants,socialCardVariants } from "../components/Animations/Animate"
+import { containerVariants, itemVariants, imageVariants, statItemVariants, socialCardVariants } from "../components/Animations/Animate"
+import Socials from '../data/Socials';
+
 function Mobile() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Full description
+  const description = `I'm a Web Developer based in Lagos, Nigeria. 
+  I focus on building responsive and functional web applications using clean code 
+  and user-centered logic. My goal is to create immersive digital experiences 
+  by combining frontend tools like React and Tailwind CSS with backend technologies 
+  such as Express and MongoDB. Every project I work on is crafted with care from 
+  dynamic interfaces to fullstack systems that solve real-world problems.`;
+
+  // Utility function to truncate to 20 words
+  const truncateText = (text, wordLimit) => {
+    const words = text.split(" ");
+    if (words.length <= wordLimit) return text;
+    return words.slice(0, wordLimit).join(" ") + "...";
+  };
+
   return (
-     <div className='lg:hidden flex flex-col items-center px-4 gap-8 z-1'>
-                {/* Image with animation */}
-                <motion.div 
-                    className='w-[280px] h-[320px] rounded-2xl overflow-hidden lg:shadow-lg z-1'
-                    variants={imageVariants}
-                >
-                    <motion.img 
-                        src={potrait} 
-                        alt="Bankole Ifeoluwa" 
-                        className='w-full h-full object-cover object-top z-1'
-                        whileHover={{ scale: 1.03 }}
-                        transition={{ duration: 0.3 }}
-                    />
-                </motion.div>
+    <div className='lg:hidden flex flex-col items-center justify-center px-4 gap-10 z-1'>
+      {/* Image with animation */}
+      <div className='flex flex-col items-center justify-center gap-2'>
+        <motion.img
+          src={potrait}
+          alt=""
+          className='rounded-full bg-gradient-to-tr from-black via-black/15 to-[#2A2C38] object-contain object-center h-30 w-30 hover transition transform z-1 mt-10'
+          whileHover={{ scale: 1.03 }}
+          transition={{ type: "spring", stiffness: 200 }}
+        />
+        <div className='flex gap-1 lg:w-[10%] items-center bg-black/20 backdrop-blur-sm z-1 p-1 rounded-4xl px-2'>
+          {Socials.map((item) => (
+            <motion.a
+              key={item.key}
+              href={item.link}
+              className={`p-1 flex flex-col justify-center items-center gap-2 h-10 w-10 ${item.bg ? 'bg-[#871be6] rounded-md shadow-[0_12px_64px_0_rgba(28,25,25,0.12)]' : ''}`}
+              variants={socialCardVariants}
+              whileHover="hover"
+            >
+              {item.img}
+            </motion.a>
+          ))}
+        </div>
+      </div>
 
-                {/* Text Content - Modified to include greeting */}
-                <motion.div className='flex flex-col gap-4 text-center z-1 ' variants={itemVariants}>
-                    <motion.h1 
-                        className='text-[#cbd6e8] font-workSan text-3xl font-semibold tracking-wide'
-                        whileHover={{ scale: 1.02 }}
-                    >
-                       
-                        <div className="">
-                          <Typewriter 
-                          words={['Hello,', 'Halo,', 'Bonjour,', 'Hallo,']}
-                          cursor = 'true'
-                          cursorStyle= '_'
-                          loop= {0}
-                          delaySpeed={3000}
-                          />
-                          </div>
-                        <Typewriter 
-                        words={[`I'm Bankole Ifeoluwa`]}
-                         />
-                    </motion.h1>
-                    <motion.p className='text-[#808080] font-workSan text-base font-light'>
-                        I'm a Freelance <span className='text-[#871BE6]'>UI/UX Designer </span>and <span className='text-[#871BE6]'>Developer</span> based in London, England.
-                    </motion.p>
-                    {/* ... rest of your mobile layout */}
-                    <Lightbtn text={'Say Hello!'}/>
-                </motion.div>
+      {/* Text Content */}
+      <motion.div className='flex flex-col gap-10 text-center z-1 items-center' variants={itemVariants}>
+        <motion.h1
+          className='text-[#cbd6e8] font-workSan text-3xl font-semibold tracking-wide place-self-center'
+          whileHover={{ scale: 1.02 }}
+        >
+          <div className="">
+            <Typewriter
+              words={['Hello,', 'Halo,', 'Bonjour,', 'Hallo,']}
+              cursor='true'
+              cursorStyle='_'
+              loop={0}
+              delaySpeed={3000}
+            />
+          </div>
+          <Typewriter words={[`I'm Bankole Ifeoluwa`]} />
+        </motion.h1>
 
-                {/* Stats with animations */}
-                <motion.div className='w-full grid grid-cols-1 gap-2 mt-4 z-1' variants={containerVariants}>
-                    {[
-                        { value: "15 Y.", label: "Experience" },
-                        { value: "250+", label: "Project Completed" },
-                        { value: "58", label: "Happy Client" }
-                    ].map((stat, index) => (
-                        <motion.div 
-                            key={index}
-                            className='rounded-lg p-4 bg-[rgba(67,13,114,0.5)] shadow-md text-center'
-                            variants={itemVariants}
-                            whileHover="hover"
-                            variants={statItemVariants}
-                        >
-                            <h1 className='text-white text-xl font-bold'>{stat.value}</h1>
-                            <p className='text-[#cbd6e8] text-sm'>{stat.label}</p>
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </div>
+        {/* Description with Read More toggle */}
+        <motion.p className='text-[#95A3B9] font-workSan text-sm font-light rounded-lg p-2 px-3 bg-black/20 backdrop-blur-sm'>
+          {isExpanded ? description : truncateText(description, 30)}{" "}
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-[#871be6] font-semibold hover:underline"
+          >
+            {isExpanded ? "Read Less" : "Read More"}
+          </button>
+        </motion.p>
+
+        {/* Button */}
+        <Lightbtn text={'Say Hello!'} />
+      </motion.div>
+    </div>
   )
 }
 
-export default Mobile
+export default Mobile;

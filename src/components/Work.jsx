@@ -11,7 +11,7 @@ const Work = () => {
 
     return (
          <motion.div 
-            className='relative bg-[#27292F] flex justify-center gap-15 py-30 lg:pt-50 z-1 px-4 lg:px-0'
+            className='relative bg-[#27292F] flex justify-center gap-15 py-30 lg:pt-50 z-1 px-4 lg:px-0 '
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -20,7 +20,7 @@ const Work = () => {
         >
            <div className='relative flex w-full lg:w-[70%] mx-auto items-center justify-evenly overflow-visible flex-col lg:flex-row gap-8 lg:gap-0  p-2'>
                 {/* Text Content */}
-                <Headings text={'Work Process'} subText={'Every project is approached with clarity, precision, and purpose guided by a structured workflow that ensures delivery with performance, usability, and long-term scalability from concept to deployment.'} sty={'lg:text-left w-[80%]'}/>
+                <Headings text={'Work Process'} subText={'Every project is approached with clarity, precision, and purpose guided by a structured workflow that ensures delivery with performance, usability, and long-term scalability from concept to deployment.'} styp={'lg:text-left w-[90%] mx-auto lg:mx-0 text-center lg:text-lg'} styh1={'lg:text-left'}/>
                 {/* Cards Grid */}
                 <div className="slider w-[80%] lg:w-[30%] p-2 bg-transparent relative  gradient-border">
   {/* Blur border effect */}
