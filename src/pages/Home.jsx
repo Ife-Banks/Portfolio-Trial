@@ -48,7 +48,7 @@ const Home = () => {
             <Work />
             <Portfolio />
             <HaveProject/>
-            <Job/>
+            {/* <Job/> */}
             <Footer/>
             </LangContext.Provider>
         </div>

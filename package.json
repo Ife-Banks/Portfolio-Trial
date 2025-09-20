@@ -22,6 +22,7 @@
     "owl.carousel": "^2.3.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-fast-marquee": "^1.6.5",
     "react-icons": "^5.5.0",
     "react-scroll": "^1.9.3",
     "react-simple-typewriter": "^5.0.1",

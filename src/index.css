@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 @import "tailwindcss";
 
 @theme{
   --font-poppins: "Poppins", sans-serif;
   --font-workSan:"Work Sans", sans-serif;
+  --font-IBM: "IBM Plex Mono", monospace;
 }
 
 .h1{
   @apply text-[#cbd6e8] font-workSan text-xl lg:text-3xl font-semibold lg:w-[70%] tracking-wide;
 }
 .paragraph{
-  @apply flex flex-col gap-3 lg:gap-1 text-[#929aa7] font-workSan text-sm lg:text-sm/6 font-normal   lg:w-[91%];
+  @apply flex flex-col gap-3 lg:gap-1 text-[#929aa7] font-workSan text-sm lg:text-sm/6 font-normal ;
 }
 
 :root {
@@ -22,6 +25,17 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+@layer base {
+.marquee {
+  display: inline-flex;
+  animation: scroll 20s linear infinite; /* longer if many icons */
+}
+
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); } /* full width, not 50% */
+}
 }
 
 

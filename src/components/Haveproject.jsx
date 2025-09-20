@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
 const HaveProject = () => {
@@ -22,8 +23,7 @@ const HaveProject = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          There are many variations of passages of Lorem Ipsum available,
-          but the majority have suffered alteration.
+          Have a project in mind? Let’s bring it to life. Whether it’s a website, web service, or fullstack application, tailored solutions are built to match your goals and deliver real impact. 
         </motion.p>
         
         <motion.a
@@ -36,10 +36,9 @@ const HaveProject = () => {
     boxShadow: "0 5px 15px rgba(135, 27, 230, 0.4)"
   }}
   whileTap={{ scale: 0.98 }}
-  transition={{ type: "spring", stiffness: 300 }}
+  transition={{ type: "spring", stiffness: 300,duration: 0.5, delay: 0.2 }}
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5, delay: 0.2 }}
   viewport={{ once: true }}
 >
   <span className='font-workSan text-md font-medium'>Let's work together</span>

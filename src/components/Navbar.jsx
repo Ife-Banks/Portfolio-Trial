@@ -18,7 +18,7 @@ const Navigate = () => {
       className='flex w-fit mx-auto items-center 
       bg-transparent absolute right-8 lg:top-10  lg:right-1/2 
       lg:translate-x-1/2 justify-between rounded-3xl 
-      px-4 lg:px-3 border-black/50 border-r-3 border-b-3 shadow-[6px_6px_12px_rgba(0,0,0,0.2)]'
+      px-4 lg:px-3 border-black/50 border-l-3 border-b-3 shadow-[-6px_6px_12px_rgba(0,0,0,0.2)]'
     >
       {/* Logo Section */}
       {/* <motion.div 

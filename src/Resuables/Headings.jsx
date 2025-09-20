@@ -8,7 +8,7 @@ function Headings(props) {
         className='w-full lg:w-[45%] flex flex-col p-1 gap-4 lg:gap-2 '
         variants={containerVariants}>
         <motion.h1 
-        className='h1 lg:text-left text-center'
+        className={`h1 ${props.sty} text-center`}
         variants={itemVariants}>
             {props.text}
         </motion.h1>
