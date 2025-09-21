@@ -8,7 +8,7 @@ const Hero = () => {
     // Language greeting state
     return (
         <motion.div 
-            className='w-full lg:w-[85%] mx-auto mt-10 lg:mt-30 flex flex-col gap-20 lg:gap-30 overflow-visible'
+            className='w-full lg:w-[85%] mx-auto mt-10 lg:mt-30 flex flex-col gap-20 lg:gap-30 overflow-visible select-none'
             initial="hidden"
             animate="visible"
             variants={containerVariants}

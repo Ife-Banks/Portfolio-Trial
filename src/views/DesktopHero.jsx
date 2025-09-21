@@ -23,7 +23,7 @@ function Desktop() {
     },[])
 
   return (
-     <div className='hidden lg:grid grid-flow-col grid-rows-1.5 gap-10 z-1 pt-10'>
+     <div className='hidden lg:grid grid-flow-col grid-rows-1.5 gap-10 z-1 pt-10 min-h-90'>
                 <motion.div 
                     className='w-[93%] p-1 flex flex-col gap-5'
                     initial={{ x: -50, opacity: 0 }}
@@ -64,7 +64,7 @@ function Desktop() {
                     </motion.h1>
                     </div>
                     {bio && <motion.p 
-                        className='px-35 text-justify text-[#95A3B9] font-workSan text-md/5 font-light w-[80%]'
+                        className='px-35 text-justify text-[#95A3B9] font-workSan text-md/5 font-light w-[80%] transition-all duration-300 ease-in-out'
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3 }}

@@ -44,7 +44,10 @@ function MobileNav() {
     {item.name}
   </Link>
 ))}
-              <motion.button
+              <Link
+              to='contact'
+              smooth={true}
+              duration={500}
                 variants={itemVariants2}
                 whileHover={{ 
                   backgroundColor: '#9a3aed',
@@ -52,10 +55,14 @@ function MobileNav() {
                   transition: { duration: 0.2 }
                 }}
                 whileTap={{ scale: 0.98 }}
-                className='w-full flex justify-center items-center py-3 mt-2 rounded-md text-white font-semibold bg-[#871be6] cursor-pointer'
+               className="inline-flex items-center justify-center py-3 px-2 rounded-md text-white font-semibold bg-[#871be6] gap-2 
+  hover:bg-[#9a3aed] hover:scale-105 hover:shadow-[0_5px_15px_rgba(135,27,230,0.4)]
+  active:scale-95 
+  transition-all duration-300 ease-out cursor-pointer"
+
               >
                 Contact
-              </motion.button>
+              </Link>
             </motion.ul>
           </motion.div>
         )}

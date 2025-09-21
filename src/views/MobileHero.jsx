@@ -71,7 +71,7 @@ function Mobile() {
         </motion.h1>
 
         {/* Description with Read More toggle */}
-        <motion.p className='text-[#95A3B9] font-workSan text-sm font-light rounded-lg p-2 px-3 bg-black/20 backdrop-blur-sm'>
+        <motion.p className='text-[#95A3B9] font-workSan text-sm font-light rounded-lg p-2 px-3 bg-black/20 backdrop-blur-sm w-[80%]'>
           {isExpanded ? description : truncateText(description, 30)}{" "}
           <button
             onClick={() => setIsExpanded(!isExpanded)}

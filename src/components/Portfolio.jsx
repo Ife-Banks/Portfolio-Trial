@@ -40,12 +40,12 @@ const Portfolio = () => {
         subText={
           'A collection of selected projects showcasing expertise in frontend and backend development, API integration, and responsive design.'
         }
-        styp={'text-center mx-auto lg:w-[30%]'}
+        styp={'text-center mx-auto w-[50%] lg:w-[30%]'}
         styh1={'place-self-center'}
       />
 
       <motion.main
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-[70%] mt-10 z-2"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 w-[70%] mt-10 z-2"
         variants={containerVariants}
       >
         {/* Always render first 3 */}
@@ -62,7 +62,7 @@ const Portfolio = () => {
         <AnimatePresence>
           {showAll && (
             <motion.div
-              className="contents"
+              className="contents "
               variants={{
                 hidden: { opacity: 0 },
                 visible: {

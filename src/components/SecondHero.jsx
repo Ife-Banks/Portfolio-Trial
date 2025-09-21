@@ -36,7 +36,7 @@ function SecondHero() {
       variants={containerVariants}
     >
       <motion.div 
-        className='paragraph lg:text-left text-center w-[100%] p-1'
+        className='paragraph xl:text-left text-center w-[80%] mx-auto xl:w-[100%] p-1'
         variants={itemVariants}
       >
         <Icons/>  

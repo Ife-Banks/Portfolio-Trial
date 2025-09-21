@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import Contact from './Contact';
+import { Link } from 'react-scroll';
 
 const HaveProject = () => {
   return (
@@ -27,20 +28,17 @@ const HaveProject = () => {
           Have a project in mind? Let’s bring it to life. Whether it’s a website, web service, or fullstack application, tailored solutions are built to match your goals and deliver real impact. 
         </motion.p>
         
-        <motion.a
-  href='https://wa.link/msu7w0'
+        <Link
+  to='contact'
+   smooth={true}
+  duration={500}
   target='_blank'
   rel='noopener noreferrer'
-  className='inline-flex items-center justify-center py-3 px-6 rounded-md text-white font-semibold bg-[#871be6] gap-2 hover:bg-[#9a3aed] transition-colors duration-300'
-  whileHover={{ 
-    scale: 1.05,
-    boxShadow: "0 5px 15px rgba(135, 27, 230, 0.4)"
-  }}
-  whileTap={{ scale: 0.98 }}
-  transition={{ type: "spring", stiffness: 300,duration: 0.5, delay: 0.2 }}
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
+  className="inline-flex items-center justify-center py-3 px-6 rounded-md text-white font-semibold bg-[#871be6] gap-2 
+  hover:bg-[#9a3aed] hover:scale-105 hover:shadow-[0_5px_15px_rgba(135,27,230,0.4)]
+  active:scale-95 
+  transition-all duration-300 ease-out cursor-pointer"
+
 >
   <span className='font-workSan text-md font-medium'>Let's work together</span>
   <motion.div
@@ -76,7 +74,7 @@ const HaveProject = () => {
       />
     </motion.svg>
   </motion.div>
-</motion.a>
+</Link>
       </div>
       <Contact/>
     </section>

@@ -18,7 +18,7 @@ const Navigate = () => {
       className='flex w-fit mx-auto items-center 
       bg-transparent absolute right-8 lg:top-10  lg:right-1/2 
       lg:translate-x-1/2 justify-between rounded-full lg:rounded-3xl 
-      p-1 lg:px-3 border-black/50 border-l-3 border-b-3 shadow-[-6px_6px_12px_rgba(0,0,0,0.2)]'
+      p-1 lg:px-3 border-gray-900 border-l-3 border-b-3 shadow-[-6px_6px_12px_rgba(0,0,0,0.2)]'
     >
       {/* Logo Section */}
       {/* <motion.div 
@@ -59,7 +59,10 @@ const Navigate = () => {
     {item.name}
   </Link>
 ))}
-        <motion.button 
+        <Link 
+          to='contact'
+          smooth={true}
+          duration={500}
           whileHover={{ 
             
             scale: 1.05,
@@ -69,7 +72,7 @@ const Navigate = () => {
           className='flex justify-center items-center py-2 px-4 rounded-md text-white font-semibold cursor-pointer bg-gradient-to-r from-[#871be6] via-[#871be6]/50 to-transparent backdrop-blur-sm'
         >
           Contact
-        </motion.button>
+        </Link>
       </motion.ul>
 
       {/* Mobile Menu Button */}
