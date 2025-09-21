@@ -1,9 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+import Contact from './Contact';
 
 const HaveProject = () => {
   return (
-    <section className='relative z-2 bg-[#0E141F] py-20 px-4'
+    <section className='relative z-2 bg-[#0E141F] pt-20 pb-10 px-4 flex flex-col gap-20'
     id='have-project'>
       <div className='max-w-6xl mx-auto flex flex-col items-center gap-6 text-center'>
         <motion.h1 
@@ -77,6 +78,7 @@ const HaveProject = () => {
   </motion.div>
 </motion.a>
       </div>
+      <Contact/>
     </section>
   );
 }

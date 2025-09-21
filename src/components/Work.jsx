@@ -20,7 +20,7 @@ const Work = () => {
         >
            <div className='relative flex w-full lg:w-[70%] mx-auto items-center justify-evenly overflow-visible flex-col lg:flex-row gap-8 lg:gap-0  p-2'>
                 {/* Text Content */}
-                <Headings text={'Work Process'} subText={'Every project is approached with clarity, precision, and purpose guided by a structured workflow that ensures delivery with performance, usability, and long-term scalability from concept to deployment.'} styp={'lg:text-left w-[90%] mx-auto lg:mx-0 text-center lg:text-lg'} styh1={'lg:text-left'}/>
+                <Headings text={'Work Process'} subText={'Every project is approached with clarity, precision, and purpose guided by a structured workflow that ensures delivery with performance, usability, and long-term scalability from concept to deployment.'} styp={'lg:text-left lg:w-[70%] mx-auto lg:mx-0 text-center lg:text-lg'} styh1={'lg:text-left'}/>
                 {/* Cards Grid */}
                 <div className="slider w-[80%] lg:w-[30%] p-2 bg-transparent relative  gradient-border">
   {/* Blur border effect */}

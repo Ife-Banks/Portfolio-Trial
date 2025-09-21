@@ -5,7 +5,7 @@ import {itemVariants,containerVariants} from "../components/Animations/WorkAnima
 function Headings(props) {
   return (
      <motion.main 
-        className='w-full lg:w-[45%] flex flex-col p-1 gap-4 lg:gap-2 '
+        className='w-full flex flex-col p-1 gap-4 lg:gap-2 '
         variants={containerVariants}>
         <motion.h1 
         className={`h1 ${props.styh1} text-center`}

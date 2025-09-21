@@ -22,7 +22,7 @@ const Footer = () => {
       initial="hidden"
       animate="visible"
       variants={navBarVariants}
-      className="flex w-full flex-col lg:flex-row items-center relative justify-evenly py-4 px-4 lg:px-40 bg-[#1C222C] gap-3"
+      className="flex w-full flex-col lg:flex-row items-center relative justify-evenly py-4 px-4 lg:px-40 bg-[#1C222C] gap-3 lg:pt-40"
     >
       {/* Copyright - Enhanced for mobile */}
       <motion.div

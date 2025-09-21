@@ -40,7 +40,8 @@ const Portfolio = () => {
         subText={
           'A collection of selected projects showcasing expertise in frontend and backend development, API integration, and responsive design.'
         }
-        styp={'text-center mx-auto w-[90%]'}
+        styp={'text-center mx-auto lg:w-[30%]'}
+        styh1={'place-self-center'}
       />
 
       <motion.main

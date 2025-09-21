@@ -10,7 +10,7 @@ function Icons() {
       <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#2a2c38] to-transparent z-10 pointer-events-none"></div>
          <div className="w-[100%] mx-auto">
       <Marquee
-        speed={30}          // control speed (px/sec)
+        speed={20}          // control speed (px/sec)
         gradient={false}    // disable fade edges
         pauseOnHover={true} // stop when hovering
         loop={0}            // infinite loop
