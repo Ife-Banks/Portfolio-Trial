@@ -23,7 +23,7 @@ function PortfolioLayout(props) {
   };
   return (
      <motion.div 
-      className='border flex flex-col gap-4 rounded-lg border-[#474C54] shadow-[0_12px_64px_0_rgba(28,25,25,0.12)] pb-5  lg:w-full w-[90%] h-auto mx-auto'
+      className='border flex flex-col gap-4 rounded-lg border-[#474C54] shadow-[0_12px_64px_0_rgba(28,25,25,0.12)] pb-5  lg:w-full w-[100%] h-auto mx-auto'
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"

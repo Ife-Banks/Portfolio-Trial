@@ -36,12 +36,12 @@ function SecondHero() {
       variants={containerVariants}
     >
       <motion.div 
-        className='paragraph xl:text-left text-center w-[80%] mx-auto xl:w-[100%] p-1'
+        className='paragraph xl:text-left text-center w-[90%] mx-auto xl:w-[100%] p-1'
         variants={itemVariants}
       >
         <Icons/>  
           
-        <p className='text-[#95A3B9] text-justify'>Specializes in building modern websites, fullstack applications, and scalable web services. Experienced with a wide range of frontend technologies including HTML, CSS, JavaScript, React, Tailwind CSS, and component-based frameworks. Backend expertise includes working with Node.js, Express, MongoDB, and integrating RESTful APIs and third-party services. Focuses on creating responsive, user-friendly experiences with clean architecture, efficient data handling, and smooth deployment workflows. Projects are built with performance, usability, and long-term scalability in mind, delivering solutions that meet real-world needs.</p>
+        <p className='text-[#95A3B9] text-sm lg:text-md'>Specializes in building modern websites, fullstack applications, and scalable web services. Experienced with a wide range of frontend technologies including HTML, CSS, JavaScript, React, Tailwind CSS, and component-based frameworks. Backend expertise includes working with Node.js, Express, MongoDB, and integrating RESTful APIs and third-party services. Focuses on creating responsive, user-friendly experiences with clean architecture, efficient data handling, and smooth deployment workflows. Projects are built with performance, usability, and long-term scalability in mind, delivering solutions that meet real-world needs.</p>
       </motion.div>
       
       <motion.div 

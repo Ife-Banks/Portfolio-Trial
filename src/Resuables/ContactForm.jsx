@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 function ContactForm() {
   const [result, setResult] = useState("");
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
   const onSubmit = async (data) => {
     setResult("Sending...");
@@ -16,7 +17,7 @@ function ContactForm() {
         Accept: "application/json",
       },
       body: JSON.stringify({
-        access_key: "8a749388-bc6b-4408-b08b-3211b9644f0e", // replace with Web3Forms key
+        access_key: accessKey || "YOUR_ACCESS_KEY_HERE", // replace with Web3Forms key
          from_name: "IfeBanks' Portfolio",
         ...data,
       }),

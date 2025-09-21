@@ -29,15 +29,15 @@ function Contact() {
           return () => clearInterval(intervalId);
       }, []);
   return (
-    <div className="w-[80%] lg:w-[60%] border border-[#474C54] mx-auto lg:-mb-40 p-5 flex flex-col gap-5 rounded-2xl relative bg-black/20 backdrop-blur-sm shadow-[0_8px_32px_rgba(255,255,255,0.2)]"
+    <div className="w-[90%] lg:w-[60%] border border-[#474C54] mx-auto lg:-mb-40 p-5 flex flex-col gap-5 rounded-2xl relative bg-black/20 backdrop-blur-sm shadow-[0_8px_32px_rgba(255,255,255,0.2)]"
     id='contact'>
        <div 
         ref={bg1Ref}
         className="absolute w-50 h-[800px] lg:w-[100px] lg:h-[800px] border rotate-[-100deg] top-0 right-1/2 lg:-top-25 lg:right-1/2 translate-x-1/2 transition-all duration-500 blur-[250px] lg:blur-[150px] -z-2" 
         ></div>
       <main className='flex flex-col xl:flex-row items-center justify-evenly'>
-        <Headings text={'Get In Touch'} subText={'Open to new opportunities, collaborations, and meaningful conversations with forward-thinking individuals and teams. To view the portfolio deck or discuss a potential project, feel free to reach out via email or book a call.' } styp={'w-[80%]'} styh1={'text-left'} />
-        <ul className='flex xl:flex-col gap-5 border-white p-2 text-white w-full xl:w-fit place-self-end'>
+        <Headings text={'Get In Touch'} subText={'Open to new opportunities, collaborations, and meaningful conversations with forward-thinking individuals and teams. To view the portfolio deck or discuss a potential project, feel free to reach out via email or book a call.' } styp={'w-[100%] text-sm'} styh1={'text-left'} />
+        <ul className='flex flex-col gap-5 border-white p-2 text-white w-full xl:w-fit place-self-end'>
           <li className='flex flex-col '>
             <h1 className='font-workSan text-lg font-medium'>Email:</h1>
             <span className='font-IBM italic text-sm -mt-1 font-light'>Ifeoluwa.bankole05@gmail.com</span>
