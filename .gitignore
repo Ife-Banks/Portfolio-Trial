@@ -1,6 +1,6 @@
-# Node.js dependencies
-node_modules/
+# ==========================
 # Logs
+# ==========================
 logs
 *.log
 npm-debug.log*
@@ -9,18 +9,64 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# ==========================
+# Dependency directories
+# ==========================
+node_modules/
+
+# ==========================
+# Build / Dist files
+# ==========================
+dist/
+dist-ssr/
+build/
+.cache/
+.next/
+out/
+
+# ==========================
+# Environment files
+# ==========================
 .env
-# Editor directories and files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ==========================
+# Coverage / Testing
+# ==========================
+coverage/
+*.lcov
+
+# ==========================
+# Database files
+# ==========================
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# ==========================
+# System files
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# Editor / IDE settings
+# ==========================
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# ==========================
+# Misc
+# ==========================
+*.tgz
+*.tar.gz
