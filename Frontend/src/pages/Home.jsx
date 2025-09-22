@@ -8,6 +8,7 @@ import Job from '../components/WhatIdo';
 import Work from '../components/Work';
 import Gradients from '../Resuables/Gradients';
 import LangContext from "../components/context/LangContext"
+import ModalMain from '../Resuables/ModalMain';
 
 const Home = () => {
      const [currentGreeting, setCurrentGreeting] = useState({ lang: "English", text: "Hello" });
@@ -47,6 +48,7 @@ const Home = () => {
             </main>
             <Work />
             <Portfolio />
+            <ModalMain/>
             <HaveProject/>
             {/* <Job/> */}
             <Footer/>
