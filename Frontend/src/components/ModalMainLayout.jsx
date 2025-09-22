@@ -16,7 +16,7 @@ function ModalMainLayout(props) {
         <p className="text-white font-IBM text-sm text-justify">
           {props.description}
         </p>
-        <a href={props.link} target='#' className="text-blue-400 hover:underline break-all">
+        <a href={props.link} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline break-all">
           {props.link}
         </a>
       </aside>
