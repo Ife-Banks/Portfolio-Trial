@@ -29,7 +29,7 @@ import smart from "/smartnotes.png";
       category: "Web Utility ",
       title: "Devalyze – Fast & Simple URL Shortening for Developers",
       description: "Devalyze is a lightweight, developer-friendly URL shortener built for speed, simplicity, and clarity. Designed with a clean interface and intuitive flow, users can instantly convert long URLs into compact, shareable links. The platform supports real-time link generation, copy-to-clipboard functionality, and a responsive design that works seamlessly across devices. Whether you're streamlining links for social media, analytics, or internal tools, Devalyze offers a no-frills solution that gets the job done with elegance and efficiency",
-      link:"https://devalyze-url-shortener.vercel.app/"
+      link:"https://devalyze.vercel.app/"
 
     },
     {

@@ -9,10 +9,13 @@ import Work from '../components/Work';
 import Gradients from '../Resuables/Gradients';
 import LangContext from "../components/context/LangContext"
 import ModalMain from '../Resuables/ModalMain';
+import Modal from '../components/Modal';
 
 const Home = () => {
      const [currentGreeting, setCurrentGreeting] = useState({ lang: "English", text: "Hello" });
      const [isMenuOpen, setIsMenuOpen] = useState(false);
+     const [ide, setIde] = useState('PDM project')
+     const [isModalOpen, setIsModalOpen ] = useState(false);
 
     // Language greeting changing effect
     useEffect(() => {
@@ -36,7 +39,11 @@ const Home = () => {
     const NavContext = {
         currentGreeting,
         isMenuOpen,
-        setIsMenuOpen    }
+        setIsMenuOpen,
+        ide,
+        setIde,
+        setIsModalOpen,
+        isModalOpen }
     return ( 
         <div className="bg-[#2A2C38] relative z-0" id="three">
             <LangContext.Provider value={NavContext}>
@@ -48,7 +55,7 @@ const Home = () => {
             </main>
             <Work />
             <Portfolio />
-            <ModalMain/>
+            <Modal/>
             <HaveProject/>
             {/* <Job/> */}
             <Footer/>
