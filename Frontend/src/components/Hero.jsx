@@ -12,7 +12,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            id='hero'
+            
         >
             {/* Mobile Layout (lg:hidden) */}
             <Mobile/>

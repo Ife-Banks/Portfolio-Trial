@@ -24,7 +24,7 @@ function PortfolioLayout(props) {
     }
   };
     const settingIDE = () => {
-        setIde(props.alt)
+        setIde(props.id)
         setIsModalOpen(prev => !prev)
         
     }
@@ -36,7 +36,7 @@ function PortfolioLayout(props) {
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
       whileHover="hover"
-      id='portfolio'
+      
     >
       <motion.div 
         className='overflow-hidden rounded-t-lg'

@@ -14,7 +14,7 @@ import Modal from '../components/Modal';
 const Home = () => {
      const [currentGreeting, setCurrentGreeting] = useState({ lang: "English", text: "Hello" });
      const [isMenuOpen, setIsMenuOpen] = useState(false);
-     const [ide, setIde] = useState('PDM project')
+     const [ide, setIde] = useState(0)
      const [isModalOpen, setIsModalOpen ] = useState(false);
 
     // Language greeting changing effect

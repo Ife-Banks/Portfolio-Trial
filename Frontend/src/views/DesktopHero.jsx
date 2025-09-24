@@ -23,7 +23,8 @@ function Desktop() {
     },[])
 
   return (
-     <div className='hidden lg:grid grid-flow-col grid-rows-1.5 gap-10 z-1 pt-10 min-h-90'>
+     <div className='hidden lg:grid grid-flow-col grid-rows-1.5 gap-10 z-1 pt-10 min-h-90' id='hero'>
+        
                 <motion.div 
                     className='w-[93%] p-1 flex flex-col gap-5'
                     initial={{ x: -50, opacity: 0 }}

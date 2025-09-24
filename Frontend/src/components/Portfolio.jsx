@@ -34,6 +34,7 @@ const Portfolio = () => {
       whileInView="visible"
       viewport={{ once: true }}
       variants={containerVariants}
+      id='portfolio'
     >
       <Headings
         text={'Portfolio'}

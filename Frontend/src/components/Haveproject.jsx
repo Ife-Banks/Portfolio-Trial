@@ -6,8 +6,9 @@ import { Link } from 'react-scroll';
 const HaveProject = () => {
   return (
     <section className='relative z-2 bg-[#0E141F] pt-20 pb-10 px-4 flex flex-col gap-20'
-    id='have-project'>
-      <div className='max-w-6xl mx-auto flex flex-col items-center gap-6 text-center'>
+    >
+      <div className='max-w-6xl mx-auto flex flex-col items-center gap-6 text-center'
+      id='have-project'>
         <motion.h1 
           className='text-white font-workSan text-3xl md:text-4xl font-semibold max-w-xl'
           initial={{ opacity: 0, y: 20 }}

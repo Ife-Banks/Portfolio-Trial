@@ -8,6 +8,7 @@ import Finance from "/finance.png";
 import smart from "/smartnotes.png";
  const Projects = [
     {
+      id:1,
       image: Vex,
       alt: "Vex Car project",
       category: "Transportation Tech",
@@ -16,6 +17,7 @@ import smart from "/smartnotes.png";
       link:"https://vexcar.netlify.app/"
     },
     {
+      id:2,
       image: pdm,
       alt: "PDM project",
       category: "EdTech",
@@ -24,6 +26,7 @@ import smart from "/smartnotes.png";
       link:"https://join-mypdmtutor.netlify.app/"
     },
     {
+      id:3,
       image: devalyze,
       alt: "Devalyze project",
       category: "Web Utility ",
@@ -33,7 +36,8 @@ import smart from "/smartnotes.png";
 
     },
     {
-      image: crypto,
+      id:4,
+      image:crypto,
       alt: "Crypto project",
       category: "Cryptocurrency Wallet",
       title: "XCrypto Wallet – Secure & Seamless Crypto Management",
@@ -41,6 +45,7 @@ import smart from "/smartnotes.png";
       link:"https://xcrypto-wallet.netlify.app/"
     },
     {
+      id:5,
       image: cybergenz,
       alt: "Cybergenz project",
       category: "Cybersecurity Education",
@@ -49,6 +54,7 @@ import smart from "/smartnotes.png";
       link:"https://join-cybergenz.netlify.app/"
     },
     {
+      id:6,
       image: Trust,
       alt: "Trust project",
       category: "Digital Identity & Asset Management",
@@ -57,6 +63,7 @@ import smart from "/smartnotes.png";
       link:"https://trustvaulte.netlify.app/"
     },
     {
+      id:7,
       image:Finance,
       alt:"Finance Daily",
       category:"Financial News & Market Insights",
@@ -65,6 +72,7 @@ import smart from "/smartnotes.png";
       link:"https://financedaily.netlify.app/"
     },
     {
+      id:8,
       image:smart,
       alt: "smart-notes",
       category:"Productivity ",

@@ -16,9 +16,9 @@ const Navigate = () => {
       animate="visible"
       variants={navBarVariants}
       className='flex w-fit mx-auto items-center 
-      bg-transparent absolute right-8 lg:top-10  lg:right-1/2 
+      bg-transparent backdrop-blur-sm fixed right-8 lg:top-6  lg:right-1/2 
       lg:translate-x-1/2 justify-between rounded-full lg:rounded-3xl 
-      p-1 lg:px-3 border-gray-900 border-l-3 border-b-3 shadow-[-6px_6px_12px_rgba(0,0,0,0.2)]'
+      p-1 lg:px-3 border-gray-900 border-l-3 border-b-3 shadow-[-6px_6px_12px_rgba(0,0,0,0.2)] z-50'
     >
       {/* Logo Section */}
       {/* <motion.div 
@@ -47,32 +47,31 @@ const Navigate = () => {
 ].map((item) => (
   <Link 
     key={item.name}
-    to={item.path || item.id}
-    smooth={true} duration={500}
+      to={item.path || item.id}
+      spy={true}
+      smooth={true}
+      duration={500}
+      activeClass="active-link"
     whileHover={{ 
       color: '#fff',
       scale: 1.05,
       transition: { duration: 0.2 }
     }}
-    className='cursor-pointer'
+    className="cursor-pointer transition-all px-3 py-1 rounded-md"
   >
     {item.name}
   </Link>
 ))}
-        <Link 
-          to='contact'
-          smooth={true}
-          duration={500}
-          whileHover={{ 
-            
-            scale: 1.05,
-            transition: { duration: 0.2 }
-          }}
-          whileTap={{ scale: 0.95 }}
-          className='flex justify-center items-center py-2 px-4 rounded-md text-white font-semibold cursor-pointer bg-gradient-to-r from-[#871be6] via-[#871be6]/50 to-transparent backdrop-blur-sm'
-        >
-          Contact
-        </Link>
+        <Link
+    to="contact"
+    spy={true}
+    smooth={true}
+    duration={500}
+    activeClass="active-link"
+    className="flex justify-center items-center py-2 px-4 rounded-md text-white font-semibold cursor-pointer bg-transparent transition-all"
+  >
+    Contact
+  </Link>
       </motion.ul>
 
       {/* Mobile Menu Button */}

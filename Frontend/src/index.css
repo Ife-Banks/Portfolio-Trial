@@ -16,6 +16,10 @@
 .paragraph{
   @apply flex flex-col gap-3 lg:gap-1 text-[#929aa7] font-workSan font-normal ;
 }
+.active-link {
+  @apply bg-gradient-to-r from-[#871be6] via-[#871be6]/50 to-transparent text-white;
+}
+
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
