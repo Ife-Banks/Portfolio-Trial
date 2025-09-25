@@ -11,7 +11,7 @@ const Work = () => {
 
     return (
          <motion.div 
-            className='relative bg-[#27292F] flex justify-center gap-15 py-30 lg:pt-50 z-1 px-4 lg:px-0 '
+            className='relative bg-[#27292F] flex justify-center gap-15 py-40  lg:pt-50 z-1 px-4 lg:px-0 '
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}

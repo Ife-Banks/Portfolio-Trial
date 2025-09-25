@@ -10,6 +10,7 @@ import Gradients from '../Resuables/Gradients';
 import LangContext from "../components/context/LangContext"
 import ModalMain from '../Resuables/ModalMain';
 import Modal from '../components/Modal';
+import InstagramFeed from '../components/InstagramFeed';
 
 const Home = () => {
      const [currentGreeting, setCurrentGreeting] = useState({ lang: "English", text: "Hello" });
@@ -54,11 +55,16 @@ const Home = () => {
                 <Hero className="" />
             </main>
             <Work />
+            <InstagramFeed/>
             <Portfolio />
+            
             <Modal/>
+            
             <HaveProject/>
             {/* <Job/> */}
+             
             <Footer/>
+           
             </LangContext.Provider>
         </div>
     );

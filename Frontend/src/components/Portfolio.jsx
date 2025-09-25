@@ -29,7 +29,7 @@ const Portfolio = () => {
   return (
     <motion.div
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center py-20 gap-10"
+      className="relative flex flex-col items-center justify-center pt-10 pb-10 gap-10"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
