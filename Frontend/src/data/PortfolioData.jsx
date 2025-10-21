@@ -6,6 +6,7 @@ import cybergenz from "/cybergenz.png";
 import Trust from "/Trust.png";
 import Finance from "/finance.png";
 import smart from "/smartnotes.png";
+import Adi from "/img.png"
  const Projects = [
     {
       id:1,
@@ -35,6 +36,15 @@ import smart from "/smartnotes.png";
       link:"https://devalyze.vercel.app/"
 
     },
+     {
+         id:9,
+         image:Adi,
+         alt: "adi stores",
+         category: "Ecommerce",
+         title: "AdiStores – Modern eCommerce Platform for Seamless Shopping",
+         description: "AdiStores is a sleek and responsive eCommerce web application designed to deliver a smooth and intuitive shopping experience. Built with modern web technologies, it enables users to browse, search, and purchase products effortlessly. With a clean interface, fast performance, and secure checkout, AdiStores sets a new standard for simplicity and reliability in online retail.",
+         link: "https://adi-stores.vercel.app/"
+     },
     {
       id:4,
       image:crypto,

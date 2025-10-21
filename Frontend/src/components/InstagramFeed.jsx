@@ -63,7 +63,7 @@ function InstagramFeed() {
         {posts.map((post) => (
           <div
             key={post.id}
-            className="w-[400px] flex-shrink-0 rounded-xl shadow-lg p-1 bg-white "
+            className="w-[400px] flex-shrink-0 rounded-xl  p-2 items-center justify-center flex flex-col gap-2 bg-black/20 backdrop-blur-sm"
           >
             {/* Album (carousel) */}
             {post.media_type === "CAROUSEL_ALBUM" && post.children?.data ? (
@@ -129,7 +129,7 @@ function InstagramFeed() {
               href={post.permalink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 text-sm font-semibold mt-2 inline-block"
+              className="text-blue-600 text-sm font-semibold mt-2 inline-block text-center place-self-center"
             >
               View on Instagram
             </a>
