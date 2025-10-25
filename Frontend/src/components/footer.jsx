@@ -10,7 +10,7 @@ const Footer = () => {
       opacity: 1,
       transition: {
         type: "spring",
-        stiffness: 100,
+        stiffness: 99,
         damping: 10,
         mass: 0.5
       }
