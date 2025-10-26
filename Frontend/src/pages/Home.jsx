@@ -49,9 +49,9 @@ const Home = () => {
         setIsModalOpen,
         isModalOpen }
     return ( 
-        <div className="bg-[#27292F] relative z-0" id="three">
+        <div className="bg-[#1f2128] relative z-0" id="three">
             <LangContext.Provider value={NavContext}>
-                <main className="bg-[#27292F] relative pt-5" id="two">
+                <main className="bg-[#1f2128] relative pt-5" id="two">
                 
                 {/*<Gradients/>*/}
                 <Navigate />

@@ -64,7 +64,8 @@ const FuturisticContact = () => {
     };
 
     return (
-        <section className="relative bg-[#1a1c23] pt-10 pb-20 px-4 overflow-hidden">
+        <section className="relative bg-[#1a1c23] pt-10 pb-20 px-4 overflow-hidden"
+        id={`contact`}>
             {/* Animated Background Blobs */}
             <div
                 ref={bg1Ref}

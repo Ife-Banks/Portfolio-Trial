@@ -41,9 +41,8 @@ const Navigate = () => {
       {[
   { name: 'Home', path: 'hero' },
   { name: 'About', id: 'about' },
-  { name: 'Process', id: 'work' },
+  { name: 'Experience', id: 'work' },
   { name: 'Portfolio', id: 'portfolio' },
-  { name: 'Services', id: 'have-project' }
 ].map((item) => (
   <Link 
     key={item.name}

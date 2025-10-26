@@ -123,7 +123,8 @@ const WorkExperience = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1a1c23]  py-20 px-4 lg:px-8">
+    <div className="min-h-screen bg-[#1a1c23]  pt-30 py-20 px-4 lg:px-8"
+    id={`work`}>
       <motion.div
         className="max-w-7xl mx-auto"
         initial="hidden"
@@ -137,7 +138,7 @@ const WorkExperience = () => {
             className="inline-block mt-4 px-4 py-2 bg-[#2A2C38] rounded-full text-white"
             whileHover={{ scale: 1.05 }}
           >
-            <span className="text-white font-mono text-sm tracking-wider uppercase">
+            <span className="text-[#871BE6] font-mono text-sm tracking-wider uppercase">
               WORK EXPERIENCE
             </span>
           </motion.div>

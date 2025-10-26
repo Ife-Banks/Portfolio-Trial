@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 function Icons() {
   return (
    <div className='relative overflow-hidden bg-transparent p-1 w-[50%] lg:w-[40%] mx-auto mb-2'>
-     <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#2a2c38] to-transparent z-10 pointer-events-none "></div>
+     <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#2A2C38]/40 via[#2A2C38]/90 to-transparent z-10 pointer-events-none "></div>
       {/* Right fade edge */}
       <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#2a2c38] to-transparent z-10 pointer-events-none"></div>
          <div className="w-[100%] mx-auto">
