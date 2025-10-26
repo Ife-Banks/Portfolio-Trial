@@ -10,7 +10,7 @@ import Icons from './Icons'
 function SecondHero() {
   return (
     <motion.div 
-    className='flex flex-col lg:flex-row lg:w-[65%] lg:rounded-xl bg-[#2a2c38] -z-0 lg:z-2 shadow-[0_36px_105px_0_rgba(43,56,76,0.1)] lg:-mb-20 p-6 lg:pt-5 lg:pb-2 lg:px-0 lg:place-self-end items-center justify-evenly '
+    className='flex flex-col lg:flex-row lg:w-[65%] lg:rounded-xl bg-gradient-to-br from-[#1f2128] to-[#2A2C38] -z-0 lg:z-2 shadow-[0_0_105px_0_rgba(43,56,76,0.1)] lg:-mb-20 p-6 lg:pt-5 lg:pb-2 lg:px-0 lg:place-self-end items-center justify-evenly '
     variants={containerVariants}
     initial="hidden"
     animate="visible"

@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
-import FuturisticContact from './Contact.jsx';
+import Contact from './Contact.jsx';
 import { Link } from 'react-scroll';
 import Headings from '../Resuables/Headings';
 
@@ -70,7 +70,7 @@ const HaveProject = () => {
                 </motion.div>
             </Link>
         </div>
-        <FuturisticContact/>
+        <Contact/>
     </section>
   );
 }

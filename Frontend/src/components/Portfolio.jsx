@@ -128,7 +128,7 @@ const Portfolio = () => {
         {showAll ? 'Show Less' : 'More Projects'}
       </motion.button>
 
-      <PortfolioGradient />
+      {/*<PortfolioGradient />*/}
     </motion.div>
   );
 };

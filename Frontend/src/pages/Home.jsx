@@ -11,6 +11,9 @@ import LangContext from "../components/context/LangContext"
 import ModalMain from '../Resuables/ModalMain';
 import Modal from '../components/Modal';
 import InstagramFeed from '../components/InstagramFeed';
+import FuturisticContact from '../components/MergedConntactSection.jsx';
+
+
 
 const Home = () => {
      const [currentGreeting, setCurrentGreeting] = useState({ lang: "English", text: "Hello" });
@@ -46,11 +49,11 @@ const Home = () => {
         setIsModalOpen,
         isModalOpen }
     return ( 
-        <div className="bg-[#2A2C38] relative z-0" id="three">
+        <div className="bg-[#27292F] relative z-0" id="three">
             <LangContext.Provider value={NavContext}>
-                <main className="bg-[#2A2C38] relative pt-5" id="two">
+                <main className="bg-[#27292F] relative pt-5" id="two">
                 
-                <Gradients/>
+                {/*<Gradients/>*/}
                 <Navigate />
                 <Hero className="" />
             </main>
@@ -60,8 +63,10 @@ const Home = () => {
             
             <Modal/>
             
-            <HaveProject/>
+            {/*<HaveProject/>*/}
             {/* <Job/> */}
+            {/*<MergedContactSection/>*/}
+                <FuturisticContact/>
              
             <Footer/>
            
