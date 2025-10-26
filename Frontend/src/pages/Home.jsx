@@ -55,7 +55,7 @@ const Home = () => {
                 <Hero className="" />
             </main>
             <Work />
-            <InstagramFeed/>
+            {/*<InstagramFeed/>*/}
             <Portfolio />
             
             <Modal/>

@@ -36,14 +36,22 @@ const Portfolio = () => {
       variants={containerVariants}
       id='portfolio'
     >
-      <Headings
-        text={'Portfolio'}
-        subText={
-          'A collection of selected projects showcasing expertise in frontend and backend development, API integration, and responsive design.'
-        }
-        styp={'text-center mx-auto w-[90%] lg:w-[30%]'}
-        styh1={'place-self-center'}
-      />
+      {/*<Headings*/}
+      {/*  text={'Portfolio'}*/}
+      {/*  subText={*/}
+      {/*    'A collection of selected projects showcasing expertise in frontend and backend development, API integration, and responsive design.'*/}
+      {/*  }*/}
+      {/*  styp={'text-center mx-auto w-[90%] lg:w-[30%]'}*/}
+      {/*  styh1={'place-self-center'}*/}
+      {/*/>*/}
+        <Headings
+            badge="Portfolio"
+            text="Projects"
+            highlightText="Highlight"
+            subText="A journey through innovation, collaboration, and impact-driven development across diverse tech ecosystems"
+            styh1="text-center"
+            styp="text-center"
+        />
 
       <motion.main
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-[70%] mt-10 z-2"
