@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import LangContext from './context/LangContext';
+import ResponsiveImage from "./responsiveImage.jsx";
 
 function PortfolioLayout(props) {
   const {setIde,setIsModalOpen} =useContext(LangContext)
@@ -43,11 +44,16 @@ function PortfolioLayout(props) {
         whileHover={{ scale: 1.03 }}
         transition={{ type: "spring", stiffness: 200 }}
       >
-        <img 
-          src={props.image} 
-          alt={props.alt}  
-          className='object-cover object-center h-48 w-full'
-        />
+        {/*<img */}
+        {/*  src={props.image} */}
+        {/*  alt={props.alt}  */}
+        {/*  className='object-cover object-center h-48 w-full'*/}
+        {/*/>*/}
+          <ResponsiveImage
+              publicId={props.image}
+              alt={props.alt}
+              className='object-cover object-center h-48 w-full'
+          />
       </motion.div>
       <div className='flex flex-col gap-3 px-2'>
         <div className='flex flex-col gap-3'>

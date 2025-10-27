@@ -10,7 +10,8 @@ import Adi from "/img.png"
  const Projects = [
     {
       id:1,
-      image: Vex,
+      image:
+      'VexCar_itrutx',
       alt: "Vex Car project",
       category: "Transportation Tech",
       title: "VexCar – Premium Car Rentals Made Effortles",
@@ -19,7 +20,7 @@ import Adi from "/img.png"
     },
     {
       id:2,
-      image: pdm,
+      image: 'pdm_lsnlcv',
       alt: "PDM project",
       category: "EdTech",
       title: "PDM Tutor – Learn Data Analytics with Real-World...",
@@ -28,7 +29,7 @@ import Adi from "/img.png"
     },
     {
       id:3,
-      image: devalyze,
+      image:'devalyze_avzost',
       alt: "Devalyze project",
       category: "Web Utility ",
       title: "Devalyze – Fast & Simple URL Shortening for Developers",
@@ -38,7 +39,7 @@ import Adi from "/img.png"
     },
      {
          id:9,
-         image:Adi,
+         image:'img_nvfav7',
          alt: "adi stores",
          category: "Ecommerce",
          title: "AdiStores – Modern eCommerce Platform for Seamless Shopping",
@@ -47,7 +48,7 @@ import Adi from "/img.png"
      },
     {
       id:4,
-      image:crypto,
+      image:'crypto_e1lzxv',
       alt: "Crypto project",
       category: "Cryptocurrency Wallet",
       title: "XCrypto Wallet – Secure & Seamless Crypto Management",
@@ -56,7 +57,7 @@ import Adi from "/img.png"
     },
     {
       id:5,
-      image: cybergenz,
+      image: 'cybergenz_uzcwyd',
       alt: "Cybergenz project",
       category: "Cybersecurity Education",
       title: "Cybergenz – Shaping Tomorrow’s Cybersecurity Leaders",
@@ -65,7 +66,7 @@ import Adi from "/img.png"
     },
     {
       id:6,
-      image: Trust,
+      image: 'Trust_gljqm8',
       alt: "Trust project",
       category: "Digital Identity & Asset Management",
       title: "TrustVaulte – Your Secure Vault for Digital Trust",
@@ -74,7 +75,7 @@ import Adi from "/img.png"
     },
     {
       id:7,
-      image:Finance,
+      image:'finance_fmsqkj',
       alt:"Finance Daily",
       category:"Financial News & Market Insights",
       title: "FinanceDaily – Your Morning Edge in the Markets",
@@ -83,7 +84,7 @@ import Adi from "/img.png"
     },
     {
       id:8,
-      image:smart,
+      image:'smartnotes_shzoal',
       alt: "smart-notes",
       category:"Productivity ",
       title:"SmartsNote – Organize Your Thoughts Smarter",

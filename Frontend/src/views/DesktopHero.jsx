@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import potrait from "../../public/WhatsApp Image 2025-10-10 at 23.29.30_67e6cb04.jpg";
 import { Typewriter } from 'react-simple-typewriter';
+import ResponsiveImage from "../components/responsiveImage.jsx";
 
 function FuturisticDesktopHero() {
     const [name, setName] = useState(false);
@@ -199,16 +199,23 @@ function FuturisticDesktopHero() {
                             />
 
                             {/* Image with Border */}
-                            <div className="relative">
-                                <div className="absolute -inset-1 bg-gradient-to-br from-[#1a1c23]  to-[#2A2C38] rounded-full blur " />
-                                <motion.img
-                                    src={potrait}
-                                    alt="Bankole Ifeoluwa"
-                                    className='relative rounded-full object-cover object-bottom w-full aspect-square border-4 border-[#2A2C38]'
-                                    whileHover={{ scale: 1.05 }}
-                                    transition={{ type: "spring", stiffness: 200 }}
-                                />
-                            </div>
+                            {/*<div className="relative">*/}
+                            {/*    <div className="absolute -inset-1 bg-gradient-to-br from-[#1a1c23]  to-[#2A2C38] rounded-full blur " />*/}
+                            {/*    <motion.img*/}
+                            {/*        src={potrait}*/}
+                            {/*        alt="Bankole Ifeoluwa"*/}
+                            {/*        className='relative rounded-full object-cover object-bottom w-full aspect-square border-4 border-[#2A2C38]'*/}
+                            {/*        whileHover={{ scale: 1.05 }}*/}
+                            {/*        transition={{ type: "spring", stiffness: 200 }}*/}
+                            {/*    />*/}
+                            {/*</div>*/}
+                            <ResponsiveImage
+                            publicId={`WhatsApp_Image_2025-10-10_at_23.29.30_67e6cb04_pzy6yh`}
+                            alt="Bankole Ifeoluwa"
+                            className='relative rounded-full object-cover object-bottom w-full aspect-square border-4 border-[#2A2C38]'
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: "spring", stiffness: 200 }}
+                            />/>
 
                             {/* Floating Tech Icons */}
                             <motion.div

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import potrait from "../../public/WhatsApp Image 2025-10-10 at 23.29.30_67e6cb04.jpg";
 import { Typewriter } from 'react-simple-typewriter';
 import Socials from '../data/Socials';
+import ResponsiveImage from "../components/responsiveImage.jsx"
 
 function FuturisticMobileHero() {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -102,13 +102,15 @@ Mentor & Intern Lead at Opex Consulting, 🌍 Active contributor to CyberGenz, K
                         {/* Image Border Effect */}
                         <div className="relative">
                             <div className="absolute -inset-1  rounded-full blur-3xl opacity-50" />
-                            <motion.img
-                                src={potrait}
-                                alt="Bankole Ifeoluwa"
-                                className='relative rounded-full object-cover object-bottom h-40 w-40 sm:h-48 sm:w-48 border-4 border-[#2A2C38]'
-                                whileHover={{ scale: 1.05 }}
-                                transition={{ type: "spring", stiffness: 200 }}
-                            />
+                            {/*<motion.img*/}
+                            {/*    src={potrait}*/}
+                            {/*    alt="Bankole Ifeoluwa"*/}
+                            {/*    className='relative rounded-full object-cover object-bottom h-40 w-40 sm:h-48 sm:w-48 border-4 border-[#2A2C38]'*/}
+                            {/*    whileHover={{ scale: 1.05 }}*/}
+                            {/*    transition={{ type: "spring", stiffness: 200 }}*/}
+                            {/*/>*/}
+                            <ResponsiveImage publicId={`WhatsApp_Image_2025-10-10_at_23.29.30_67e6cb04_pzy6yh`} alt={`Image`}
+                                             className='relative rounded-full object-cover object-bottom h-40 w-40 sm:h-48 sm:w-48 border-4 border-[#2A2C38]'/>
                         </div>
 
                         {/* Floating Tech Icons */}
