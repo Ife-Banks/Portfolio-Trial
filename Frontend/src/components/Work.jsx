@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Headings from "../Resuables/Headings.jsx";
 
 const experienceData = [
   // {
@@ -123,7 +124,7 @@ const WorkExperience = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1a1c23]  pt-30 py-20 px-4 lg:px-8"
+    <div className="min-h-screen bg-[#1a1c23]  pt-10 py-20 px-4 lg:px-8"
     id={`work`}>
       <motion.div
         className="max-w-7xl mx-auto"
@@ -133,25 +134,17 @@ const WorkExperience = () => {
         variants={containerVariants}
       >
         {/* Header */}
-        <motion.div className="text-center mb-16" variants={itemVariants}>
-          <motion.div
-            className="inline-block mt-4 px-4 py-2 bg-[#2A2C38] rounded-full text-white"
-            whileHover={{ scale: 1.05 }}
-          >
-            <span className="text-[#871BE6] font-mono text-sm tracking-wider uppercase">
-              WORK EXPERIENCE
-            </span>
-          </motion.div>
-          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-            Employment <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#871BE6] to-[#C4B5FD]">History</span>
-          </h2>
-          <p className="text-[#95A3B9] text-lg max-w-3xl mx-auto leading-relaxed">
-            A journey through innovation, collaboration, and impact-driven development across diverse tech ecosystems
-          </p>
-        </motion.div>
+          <Headings
+              badge="WORK EXPERIENCE"
+              text=" Employment "
+              highlightText="History"
+              subText="A journey through innovation, collaboration, and impact-driven development across diverse tech ecosystems"
+              styh1="text-center"
+              styp="text-center"
+          />
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-5 gap-8 items-center">
+        <div className="grid lg:grid-cols-5 gap-8 items-center mt-5">
           {/* Timeline Sidebar */}
           <motion.div
             className="lg:col-span-2 space-y-4"
