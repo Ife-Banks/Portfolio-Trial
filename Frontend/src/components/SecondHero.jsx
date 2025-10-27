@@ -106,21 +106,23 @@ function FuturisticSecondHero() {
                     className="text-[#95A3B9] font-sans text-sm sm:text-base lg:text-lg leading-relaxed max-w-3xl mx-auto lg:mx-0 text-justify sm:text-center lg:text-left px-2 sm:px-0"
                     variants={itemVariants}
                 >
-                    Specializes in building modern websites, fullstack applications, and
-                    scalable web services. Experienced with a wide range of frontend
-                    technologies including{' '}
-                    <span className="text-[#cbd6e8] font-medium">
-                        HTML, CSS, JavaScript, React, Tailwind CSS
-                    </span>
-                    , and component-based frameworks. Backend expertise includes working
-                    with{' '}
-                    <span className="text-[#cbd6e8] font-medium">
-                        Node.js, Express, MongoDB
-                    </span>
-                    , and integrating RESTful APIs and third-party services. Focuses on
-                    creating responsive, user-friendly experiences with clean
-                    architecture, efficient data handling, and smooth deployment
-                    workflows.
+                    I'm a fullstack developer passionate about solving problems through code and driving social impact.
+                    I founded  <span className="text-[#cbd6e8] font-medium">
+                       Devalyze
+                    </span>, a smart link utility app turned startup, which won top honors at <span className="text-[#cbd6e8] font-medium">
+                      Selfless Heart TechCon '25
+                    </span>.
+                    I've built platforms like  <span className="text-[#cbd6e8] font-medium">
+                      MyPDMTutors (Phoenix Technologies), Finance Daily (Opex Consulting), and SheInnovate (ATC Africa)
+                    </span>, focusing on responsive design, accessibility, and regional tech growth. As a software tester at <span className="text-[#cbd6e8] font-medium">
+                      Test.io
+                    </span>, I ensured quality across global platforms.
+                    Beyond development, I lead at <span className="text-[#cbd6e8] font-medium">
+                     CyberGenz
+                    </span>, mentor interns, and actively contribute to communities like <span className="text-[#cbd6e8] font-medium">
+                    KodeBlock
+                    </span> —all while turning ideas into immersive digital experiences.
+
                 </motion.p>
 
                 {/* Buttons */}

@@ -120,10 +120,10 @@ function FuturisticDesktopHero() {
 
                             {/* Role/Title */}
                             <motion.p
-                                className='text-[#cbd6e8] font-workSan text-2xl font-medium'
+                                className='text-[#cbd6e8] font-workSan text-xl font-medium'
                                 variants={itemVariants}
                             >
-                                Fullstack Web Developer
+                                Fullstack Web Developer | Founder | Tech Community Builder
                             </motion.p>
                         </div>
 
@@ -140,7 +140,13 @@ function FuturisticDesktopHero() {
                                     <p className='text-[#95A3B9] font-workSan text-base leading-relaxed'>
                                         <Typewriter
                                             words={[
-                                                "I'm a Web Developer based in Lagos, Nigeria. I focus on building responsive and functional web applications using clean code and user-centered logic. My goal is to create immersive digital experiences by combining frontend tools like React and Tailwind CSS with backend technologies such as Express and MongoDB."
+                                                "I craft scalable digital solutions that drive innovation and social impact.  \n" +
+                                                "From building smart utility apps to mentoring future developers, I bring ideas to life with clean code and modern tech stacks like MERN & PERN.\n" +
+                                                "\n" +
+                                                "🚀 Founder of Devalyze, winner of Selfless Heart TechCon '25  \n" +
+                                                "💡 Frontend Developer at Phoenix Technologies & ATC Africa  \n" +
+                                                "🎓 Mentor & Intern Lead at Opex Consulting  \n" +
+                                                "🌍 Active contributor to CyberGenz, KodeBlock\n"
                                             ]}
                                             cursor={true}
                                             typeSpeed={20}
