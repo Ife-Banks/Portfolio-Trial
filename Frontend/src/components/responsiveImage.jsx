@@ -1,7 +1,7 @@
 // src/components/ResponsiveImage.jsx
 import { cld } from '../config/cloudinary';
 import { scale } from '@cloudinary/url-gen/actions/resize';
-import { auto } from '@cloudinary/url-gen/qualifiers/quality';
+import { autoGood } from '@cloudinary/url-gen/qualifiers/quality';
 import { auto as autoFormat } from '@cloudinary/url-gen/qualifiers/format';
 
 function ResponsiveImage({ publicId, alt, className }) {
@@ -10,7 +10,7 @@ function ResponsiveImage({ publicId, alt, className }) {
         const image = cld.image(publicId);
         image
             .resize(scale().width(width))
-            .quality(auto())
+            .quality(autoGood())
             .format(autoFormat());
         return image.toURL();
     };
