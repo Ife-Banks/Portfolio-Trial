@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import Headings from '../Resuables/Headings.jsx';
 

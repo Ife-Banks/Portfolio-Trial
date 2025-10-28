@@ -16,9 +16,9 @@
 .paragraph{
   @apply flex flex-col gap-3 lg:gap-1 text-[#929aa7] font-workSan font-normal ;
 }
-.active-link {
-  @apply bg-gradient-to-r from-[#871be6] via-[#871be6]/50 to-transparent text-white;
-}
+/* .active-link {
+  @apply absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#871BE6] to-[#C4B5FD] group-active:w-3/4 transition-all duration-300 rounded-full;
+} */
 
 
 :root {

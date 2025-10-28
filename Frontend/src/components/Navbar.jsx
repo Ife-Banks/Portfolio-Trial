@@ -51,28 +51,30 @@ const Navigate = () => {
                     >
                         {navItems.map((item, index) => (
                             <motion.li
-                                key={item.name}
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.1 * index }}
-                            >
-                                <Link
-                                    to={item.path || item.id}
-                                    spy={true}
-                                    smooth={true}
-                                    duration={500}
-                                    activeClass="active-link"
-                                    className="group relative cursor-pointer px-4 py-2 rounded-2xl transition-all duration-300 hover:text-white block"
-                                >
-                                    {/* Hover Background Effect */}
-                                    <span className='absolute inset-0 bg-gradient-to-r from-[#871BE6]/10 to-[#C4B5FD]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+  key={item.name}
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.1 * index }}
+>
+  <Link
+    to={item.path || item.id}
+    spy={true}
+    smooth={true}
+    duration={500}
+    activeClass="active-link"
+    className="group relative cursor-pointer px-4 py-2 rounded-2xl transition-all duration-300 hover:text-white block"
+  >
+    {/* Hover Background Effect */}
+    <span className="absolute inset-0 bg-gradient-to-r from-[#871BE6]/10 to-[#C4B5FD]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                                    {/* Active Indicator */}
-                                    <span className='absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#871BE6] to-[#C4B5FD] group-hover:w-3/4 transition-all duration-300 rounded-full' />
+    {/* Underline (Hover + Active) */}
+    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#871BE6] to-[#C4B5FD] transition-all duration-300 rounded-full group-hover:w-3/4 group-[.active-link]:w-3/4" />
 
-                                    <span className='relative'>{item.name}</span>
-                                </Link>
-                            </motion.li>
+    {/* Text */}
+    <span className="relative group-[.active-link]:text-white">{item.name}</span>
+  </Link>
+</motion.li>
+
                         ))}
 
                         {/* Contact Button */}
