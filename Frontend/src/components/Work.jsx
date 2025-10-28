@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import Headings from "../Resuables/Headings.jsx";
-
+import ResponsiveImage from "./responsiveImage.jsx"
 const experienceData = [
   // {
   //   id: 1,
@@ -20,6 +21,7 @@ const experienceData = [
   {
     id: 2,
     role: "Developer",
+    image: "Screenshot_2025-10-28_120830_jkiq3z",
     company: "KodeBlock",
     location: "Nigeria",
     period: "Oct 2025 - Present",
@@ -33,6 +35,7 @@ const experienceData = [
   {
     id: 3,
     role: "Development Team Lead",
+    image: "og-image_y2kddh",
     company: "Devalyze",
     location: "Lagos, Nigeria",
     period: "Aug 2025 - Present",
@@ -47,6 +50,7 @@ const experienceData = [
   {
     id: 4,
     role: "FullStack Developer",
+    image:'opex_consulting_ng_logo_jmurms',
     company: "Opex Consulting",
     location: "Lagos State, Nigeria",
     period: "Aug 2025 - Present",
@@ -60,6 +64,7 @@ const experienceData = [
   {
     id: 5,
     role: "Frontend Developer",
+    image:"images_smwjzy",
     company: "ATC Africa",
     location: "Nigeria",
     period: "Feb 2025 - Present",
@@ -74,6 +79,7 @@ const experienceData = [
   {
     id: 6,
     role: "Frontend Web Developer",
+    image:"a241b3e95ac0b980fddc08671e7c8631c49ac9b6_1_xzjdz8",
     company: "Pheonix Technologies",
     location: "Ibadan, Oyo State, Nigeria",
     period: "Nov 2024 - Present",
@@ -238,16 +244,18 @@ const WorkExperience = () => {
 
                 <div className="relative z-10">
                   {/* Header */}
-                  <div className="mb-6">
+                  <div className="mb-6 ">
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#871BE6] to-[#6B46C1] flex items-center justify-center mb-4 shadow-lg"
+                      className="relative w-16 h-16 rounded-2xl bg-transparent flex items-center justify-center mb-4 shadow-lg overflow-hidden"
                     >
-                      <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
+                      <ResponsiveImage 
+                        publicId={selectedExp.image}
+                        className="w-full h-full object-cover rounded-2xl"
+                      />
                     </motion.div>
+
 
                     <h3 className="text-3xl font-bold text-white mb-2">
                       {selectedExp.role}
