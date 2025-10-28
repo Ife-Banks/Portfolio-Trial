@@ -77,26 +77,6 @@ const Navigate = () => {
 
                         ))}
 
-                        {/* Contact Button */}
-                        {/*<motion.li*/}
-                        {/*    initial={{ opacity: 0, scale: 0.8 }}*/}
-                        {/*    animate={{ opacity: 1, scale: 1 }}*/}
-                        {/*    transition={{ delay: 0.4 }}*/}
-                        {/*>*/}
-                        {/*    <Link*/}
-                        {/*        to="contact"*/}
-                        {/*        spy={true}*/}
-                        {/*        smooth={true}*/}
-                        {/*        duration={500}*/}
-                        {/*        activeClass="active-link"*/}
-                        {/*        className="group relative cursor-pointer ml-2"*/}
-                        {/*    >*/}
-                        {/*        <div className='absolute -inset-0.5 bg-gradient-to-r from-[#871BE6] to-[#C4B5FD] rounded-2xl opacity-0 group-hover:opacity-100 blur transition duration-300' />*/}
-                        {/*        <div className='relative flex justify-center items-center py-2 px-6 rounded-2xl text-white font-semibold bg-[#871BE6] hover:bg-[#9a3aed] transition-all duration-300'>*/}
-                        {/*            Contact*/}
-                        {/*        </div>*/}
-                        {/*    </Link>*/}
-                        {/*</motion.li>*/}
                     </motion.ul>
 
                     {/* Mobile Menu Button */}

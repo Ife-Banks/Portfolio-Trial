@@ -153,7 +153,7 @@ function FuturisticSecondHero() {
                      <motion.a
                                             href="#portfolio"
                                                 
-                                                                                className="relative group px-8 py-4 rounded-xl font-semibold text-white overflow-hidden w-fit"
+                                                                                className="relative group px-8 py-4 rounded-xl font-semibold text-white overflow-hidden lg:w-fit flex items-center justify-center"
                                                                                 onHoverStart={() => setIsHovered(true)}
                                                                                 onHoverEnd={() => setIsHovered(false)}
                                                                                 whileHover={{ scale: 1.02 }}
