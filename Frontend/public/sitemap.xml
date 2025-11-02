@@ -5,9 +5,105 @@
   <!-- Homepage -->
   <url>
     <loc>https://ifebanks.vercel.app/</loc>
-    <lastmod>2025-02-15</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2025-11-02</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
+  <!-- About Section -->
+  <url>
+    <loc>https://ifebanks.vercel.app/#about</loc>
+    <lastmod>2025-11-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Work Experience Section -->
+  <url>
+    <loc>https://ifebanks.vercel.app/#work</loc>
+    <lastmod>2025-11-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Portfolio Section -->
+  <url>
+    <loc>https://ifebanks.vercel.app/#portfolio</loc>
+    <lastmod>2025-11-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Contact Section -->
+  <url>
+    <loc>https://ifebanks.vercel.app/#contact</loc>
+    <lastmod>2025-11-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Individual Projects -->
+  <url>
+    <loc>https://vexcar.netlify.app/</loc>
+    <lastmod>2025-11-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://join-mypdmtutor.netlify.app/</loc>
+    <lastmod>2025-11-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://devalyze.vercel.app/</loc>
+    <lastmod>2025-11-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://adi-stores.vercel.app/</loc>
+    <lastmod>2025-11-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://xcrypto-wallet.netlify.app/</loc>
+    <lastmod>2025-11-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://join-cybergenz.netlify.app/</loc>
+    <lastmod>2025-11-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://trustvaulte.netlify.app/</loc>
+    <lastmod>2025-11-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://financedaily.netlify.app/</loc>
+    <lastmod>2025-11-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://smarts-note.netlify.app/</loc>
+    <lastmod>2025-11-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>
