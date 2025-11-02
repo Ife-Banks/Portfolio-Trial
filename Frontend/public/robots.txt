@@ -1,0 +1,29 @@
+# Robots.txt for Ifebanks Portfolio
+User-agent: *
+Allow: /
+
+# Allow all important sections
+Allow: /#about
+Allow: /#work
+Allow: /#portfolio
+Allow: /#contact
+
+# Sitemap
+Sitemap: https://ifebanks.vercel.app/sitemap.xml
+
+# Crawl-delay for server optimization
+Crawl-delay: 1
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block resource-heavy bots (optional)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
