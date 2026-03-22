@@ -31,7 +31,7 @@ function PortfolioLayout(props) {
     }
   return (
      <motion.div 
-      className='border flex flex-col gap-4 rounded-lg border-[#474C54] shadow-[0_12px_64px_0_rgba(28,25,25,0.12)] pb-5  lg:w-full w-[100%] h-auto mx-auto'
+      className='border flex flex-col gap-4 rounded-lg border-slate-200 dark:border-[#474C54] shadow-[0_12px_64px_0_rgba(28,25,25,0.12)] pb-5  lg:w-full w-[100%] h-auto mx-auto'
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
@@ -59,9 +59,9 @@ function PortfolioLayout(props) {
         <div className='flex flex-col gap-3'>
           <div className='flex flex-col '>
             {/* <p className='uppercase font-workSan text-xs font-light text-[#646B76]'>{props.category}</p> */}
-            <h2 className='font-workSan text-xl font-medium text-[#CBD6E8]'>{props.title}</h2>
+            <h2 className='font-workSan text-xl font-medium text-slate-900 dark:text-[#CBD6E8]'>{props.title}</h2>
           </div>
-          <p className='text-[#929aa7] font-workSan text-xs/5 font-normal'>
+          <p className='text-slate-600 dark:text-[#929aa7] font-workSan text-xs/5 font-normal'>
             {props.description}
           </p>
         </div>

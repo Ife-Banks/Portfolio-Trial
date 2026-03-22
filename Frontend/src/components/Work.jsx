@@ -130,7 +130,7 @@ const WorkExperience = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1a1c23]  pt-10 py-20 px-4 lg:px-8"
+    <div className="min-h-screen bg-transparent transition-colors duration-300 pt-10 py-20 px-4 lg:px-8"
     id={`work`}>
       <motion.div
         className="max-w-7xl mx-auto"
@@ -167,7 +167,7 @@ const WorkExperience = () => {
                 className={`cursor-pointer p-4 rounded-xl border transition-all duration-300 ${
                   selectedExp.id === exp.id
                     ? 'bg-gradient-to-r from-[#871BE6]/20 to-transparent border-[#871BE6]'
-                    : 'bg-[#2A2C38]/50 border-white/5 hover:border-white/20'
+                    : 'bg-white/50 border-slate-200 hover:border-slate-400 dark:bg-[#2A2C38]/50 dark:border-white/5 dark:hover:border-white/20'
                 }`}
               >
                 <div className="flex items-start gap-3">
@@ -195,7 +195,7 @@ const WorkExperience = () => {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <h3 className={`font-semibold text-lg mb-1 transition-colors ${
-                      selectedExp.id === exp.id ? 'text-white' : 'text-[#cbd6e8]'
+                      selectedExp.id === exp.id ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-[#cbd6e8]'
                     }`}>
                       {exp.role}
                     </h3>
@@ -227,7 +227,7 @@ const WorkExperience = () => {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="bg-gradient-to-br from-[#2A2C38] to-[#1f2128] rounded-2xl p-8 shadow-2xl border border-white/10 relative overflow-hidden"
+                className="bg-gradient-to-br from-white/90 to-slate-100/90 border-slate-200 dark:from-[#2A2C38] dark:to-[#1f2128] rounded-2xl p-8 shadow-2xl border dark:border-white/10 relative overflow-hidden"
               >
                 {/* Animated Background Gradient */}
                 <motion.div
@@ -257,7 +257,7 @@ const WorkExperience = () => {
                     </motion.div>
 
 
-                    <h3 className="text-3xl font-bold text-white mb-2">
+                    <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
                       {selectedExp.role}
                     </h3>
                     <div className="flex flex-wrap items-center gap-3 text-[#95A3B9]">
@@ -286,7 +286,7 @@ const WorkExperience = () => {
                         <div className="mt-2">
                           <div className="w-2 h-2 rounded-full bg-[#871BE6]" />
                         </div>
-                        <p className="text-[#cbd6e8] leading-relaxed flex-1">
+                        <p className="text-slate-700 dark:text-[#cbd6e8] leading-relaxed flex-1">
                           {desc}
                         </p>
                       </motion.div>
@@ -295,7 +295,7 @@ const WorkExperience = () => {
 
                   {/* Tech Stack */}
                   <div>
-                    <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
+                    <h4 className="text-slate-900 dark:text-white font-semibold mb-3 flex items-center gap-2">
                       <svg className="w-5 h-5 text-[#871BE6]" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M13 7H7v6h6V7z" />
                         <path fillRule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z" clipRule="evenodd" />
@@ -310,7 +310,7 @@ const WorkExperience = () => {
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 0.3 + idx * 0.05 }}
                           whileHover={{ scale: 1.1, y: -2 }}
-                          className="px-4 py-2 bg-gradient-to-r from-[#2A2C38] to-[#1f2128] border border-white/10 rounded-lg text-[#cbd6e8] text-sm font-medium hover:border-[#871BE6]/50 transition-all cursor-default"
+                          className="px-4 py-2 bg-gradient-to-r from-slate-100 to-slate-200 border-slate-300 dark:from-[#2A2C38] dark:to-[#1f2128] border dark:border-white/10 rounded-lg text-slate-700 dark:text-[#cbd6e8] text-sm font-medium hover:dark:border-[#871BE6]/50 transition-all cursor-default"
                         >
                           {tech}
                         </motion.span>

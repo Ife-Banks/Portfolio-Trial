@@ -84,7 +84,7 @@ function FuturisticSecondHero() {
 
     return (
         <motion.div
-            className="relative flex flex-col lg:flex-row w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] xl:w-[75%] rounded-xl sm:rounded-2xl lg:rounded-3xl bg-gradient-to-br from-[#1f2128]/90 to-[#2A2C38]/90 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(135,27,230,0.15)] lg:-mb-20 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 lg:place-self-end items-center justify-between z-10 mx-auto lg:mx-0"
+            className="relative flex flex-col lg:flex-row w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] xl:w-[75%] rounded-xl sm:rounded-2xl lg:rounded-3xl bg-gradient-to-br from-white/90 to-slate-100/90 dark:from-[#1f2128]/90 dark:to-[#2A2C38]/90 backdrop-blur-xl border border-slate-200 dark:border-white/10 shadow-[0_8px_32px_rgba(135,27,230,0.15)] lg:-mb-20 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 lg:place-self-end items-center justify-between z-10 mx-auto lg:mx-0"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -128,8 +128,8 @@ function FuturisticSecondHero() {
                         <div
                             className={`relative p-2 xl:p-3 flex items-center justify-center h-10 w-10 xl:h-12 xl:w-12 rounded-lg transition-all duration-300 ${
                                 item.bg
-                                    ? 'bg-[#871be6] shadow-lg'
-                                    : 'bg-[#2A2C38]/80 border border-white/10 group-hover:border-[#871BE6]/50'
+                                    ? 'bg-[#871be6] shadow-lg text-white'
+                                    : 'bg-slate-100 dark:bg-[#2A2C38]/80 border border-slate-200 dark:border-white/10 group-hover:border-purple-400 dark:group-hover:border-[#871BE6]/50 text-slate-700 dark:text-white'
                             }`}
                         >
                             {item.img}
@@ -145,7 +145,7 @@ function FuturisticSecondHero() {
             >
                 {/* About Badge */}
                 <motion.div
-                    className="inline-block mx-auto lg:mx-0 w-fit px-3 sm:px-4 py-1.5 sm:py-2 bg-[#2A2C38]/50 backdrop-blur-sm rounded-full border border-white/10"
+                    className="inline-block mx-auto lg:mx-0 w-fit px-3 sm:px-4 py-1.5 sm:py-2 bg-white/50 dark:bg-[#2A2C38]/50 backdrop-blur-sm rounded-full border border-slate-200 dark:border-white/10"
                     variants={itemVariants}
                     whileHover={{ scale: 1.05, borderColor: 'rgba(135, 27, 230, 0.5)' }}
                 >
@@ -164,13 +164,13 @@ function FuturisticSecondHero() {
 
                 {/* Description */}
                 <motion.p
-                    className="text-[#95A3B9] font-sans text-sm sm:text-base lg:text-lg leading-relaxed max-w-3xl mx-auto lg:mx-0 text-justify sm:text-center lg:text-left px-2 sm:px-0"
+                    className="text-slate-600 dark:text-[#95A3B9] font-sans text-sm sm:text-base lg:text-lg leading-relaxed max-w-3xl mx-auto lg:mx-0 text-justify sm:text-center lg:text-left px-2 sm:px-0"
                     variants={itemVariants}
                 >
                     I'm a fullstack developer passionate about solving problems through code and driving social impact.
-                    I founded <span className="text-[#cbd6e8] font-medium">Devalyze</span>, a smart link utility app turned startup, which won top honors at <span className="text-[#cbd6e8] font-medium">Selfless Heart TechCon '25</span>.
-                    I've built platforms like <span className="text-[#cbd6e8] font-medium">MyPDMTutors (Phoenix Technologies), Finance Daily (Opex Consulting), and SheInnovate (ATC Africa)</span>, focusing on responsive design, accessibility, and regional tech growth. As a software tester at <span className="text-[#cbd6e8] font-medium">Test.io</span>, I ensured quality across global platforms.
-                    Beyond development, I lead at <span className="text-[#cbd6e8] font-medium">CyberGenz</span>, mentor interns, and actively contribute to communities like <span className="text-[#cbd6e8] font-medium">KodeBlock</span> —all while turning ideas into immersive digital experiences.
+                    I founded <span className="text-slate-900 dark:text-[#cbd6e8] font-medium">Devalyze</span>, a smart link utility app turned startup, which won top honors at <span className="text-slate-900 dark:text-[#cbd6e8] font-medium">Selfless Heart TechCon '25</span>.
+                    I've built platforms like <span className="text-slate-900 dark:text-[#cbd6e8] font-medium">MyPDMTutors (Phoenix Technologies), Finance Daily (Opex Consulting), and SheInnovate (ATC Africa)</span>, focusing on responsive design, accessibility, and regional tech growth. As a software tester at <span className="text-slate-900 dark:text-[#cbd6e8] font-medium">Test.io</span>, I ensured quality across global platforms.
+                    Beyond development, I lead at <span className="text-slate-900 dark:text-[#cbd6e8] font-medium">CyberGenz</span>, mentor interns, and actively contribute to communities like <span className="text-slate-900 dark:text-[#cbd6e8] font-medium">KodeBlock</span> —all while turning ideas into immersive digital experiences.
                 </motion.p>
 
                 {/* Buttons */}
@@ -274,8 +274,8 @@ function FuturisticSecondHero() {
                             <div
                                 className={`relative p-2 sm:p-2.5 flex items-center justify-center h-10 w-10 sm:h-11 sm:w-11 rounded-lg transition-all duration-300 ${
                                     item.bg
-                                        ? 'bg-[#871be6] shadow-lg'
-                                        : 'bg-[#2A2C38]/80 border border-white/10 group-hover:border-[#871BE6]/50'
+                                        ? 'bg-[#871be6] shadow-lg text-white'
+                                        : 'bg-slate-100 dark:bg-[#2A2C38]/80 border border-slate-200 dark:border-white/10 group-hover:border-purple-400 dark:group-hover:border-[#871BE6]/50 text-slate-700 dark:text-white'
                                 }`}
                             >
                                 {item.img}

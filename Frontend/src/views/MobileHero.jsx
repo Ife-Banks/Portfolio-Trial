@@ -74,7 +74,7 @@ Mentor & Intern Lead at Opex Consulting, 🌍 Active contributor to CyberGenz, K
             >
                 {/* Badge */}
                 <motion.div
-                    className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-[#2A2C38]/50 backdrop-blur-sm rounded-full border border-white/10"
+                    className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-white/50 dark:bg-[#2A2C38]/50 backdrop-blur-sm rounded-full border border-slate-200 dark:border-white/10"
                     variants={itemVariants}
                     whileHover={{ scale: 1.05, borderColor: 'rgba(135, 27, 230, 0.5)' }}
                 >
@@ -111,12 +111,12 @@ Mentor & Intern Lead at Opex Consulting, 🌍 Active contributor to CyberGenz, K
                             {/*    transition={{ type: "spring", stiffness: 200 }}*/}
                             {/*/>*/}
                             <ResponsiveImage publicId={`WhatsApp_Image_2025-10-10_at_23.29.30_67e6cb04_pzy6yh`} alt={`Image`}
-                                             className='relative rounded-full object-cover object-bottom h-40 w-40 sm:h-48 sm:w-48 border-4 border-[#2A2C38]'/>
+                                             className='relative rounded-full object-cover object-bottom h-40 w-40 sm:h-48 sm:w-48 border-4 border-white dark:border-[#2A2C38]'/>
                         </div>
 
                         {/* Floating Tech Icons */}
                         <motion.div
-                            className="absolute -top-2 -right-2 w-12 h-12 bg-[#2A2C38]/80 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/10"
+                            className="absolute -top-2 -right-2 w-12 h-12 bg-white/80 dark:bg-[#2A2C38]/80 backdrop-blur-sm rounded-xl flex items-center justify-center border border-slate-200 dark:border-white/10"
                             animate={{
                                 y: [0, -8, 0],
                                 rotate: [0, 5, 0]
@@ -127,7 +127,7 @@ Mentor & Intern Lead at Opex Consulting, 🌍 Active contributor to CyberGenz, K
                         </motion.div>
 
                         <motion.div
-                            className="absolute -bottom-2 -left-2 w-12 h-12 bg-[#2A2C38]/80 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/10"
+                            className="absolute -bottom-2 -left-2 w-12 h-12 bg-white/80 dark:bg-[#2A2C38]/80 backdrop-blur-sm rounded-xl flex items-center justify-center border border-slate-200 dark:border-white/10"
                             animate={{
                                 y: [0, 8, 0],
                                 rotate: [0, -5, 0]
@@ -140,7 +140,7 @@ Mentor & Intern Lead at Opex Consulting, 🌍 Active contributor to CyberGenz, K
 
                     {/* Social Links */}
                     <motion.div
-                        className='flex gap-2 items-center bg-[#2A2C38]/50 backdrop-blur-sm rounded-full p-2 border border-white/10'
+                        className='flex gap-2 items-center bg-white/50 dark:bg-[#2A2C38]/50 backdrop-blur-sm rounded-full p-2 border border-slate-200 dark:border-white/10'
                         variants={itemVariants}
                     >
                         {Socials.map((item, index) => (
@@ -151,8 +151,8 @@ Mentor & Intern Lead at Opex Consulting, 🌍 Active contributor to CyberGenz, K
                                 rel="noopener noreferrer"
                                 className={`group relative p-2 flex gap-2 items-center justify-center h-7 w-7 rounded-lg transition-all duration-300 ${
                                     item.bg
-                                        ? 'bg-[#871be6] shadow-lg'
-                                        : 'bg-[#1f2128] border border-white/10'
+                                        ? 'bg-[#871be6] shadow-lg text-white'
+                                        : 'bg-slate-100 dark:bg-[#1f2128] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-white'
                                 }`}
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
@@ -174,7 +174,7 @@ Mentor & Intern Lead at Opex Consulting, 🌍 Active contributor to CyberGenz, K
                 >
                     {/* Greeting */}
                     <motion.div
-                        className='text-[#95A3B9] font-workSan text-lg sm:text-xl font-light'
+                        className='text-slate-600 dark:text-[#95A3B9] font-workSan text-lg sm:text-xl font-light'
                         variants={itemVariants}
                     >
                         <Typewriter
@@ -189,7 +189,7 @@ Mentor & Intern Lead at Opex Consulting, 🌍 Active contributor to CyberGenz, K
                     {/* Name */}
                     {showContent && (
                         <motion.h1
-                            className='text-white font-poppins text-3xl sm:text-4xl font-bold tracking-tight'
+                            className='text-slate-900 dark:text-white font-clash text-3xl sm:text-4xl font-bold tracking-tight'
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
@@ -203,7 +203,7 @@ Mentor & Intern Lead at Opex Consulting, 🌍 Active contributor to CyberGenz, K
 
                     {/* Role */}
                     <motion.p
-                        className='text-[#cbd6e8] font-workSan text-sm sm:text-base font-medium'
+                        className='text-slate-700 dark:text-[#cbd6e8] font-workSan text-sm sm:text-base font-medium'
                         variants={itemVariants}
                     >
                         Fullstack Web Developer
@@ -215,11 +215,11 @@ Mentor & Intern Lead at Opex Consulting, 🌍 Active contributor to CyberGenz, K
                         variants={itemVariants}
                     >
                         <div className='absolute -inset-1 bg-gradient-to-r from-[#871BE6]/20 to-[#C4B5FD]/20 rounded-2xl blur-lg' />
-                        <div className='relative bg-gradient-to-br from-[#2A2C38]/80 to-[#1f2128]/80 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-white/10'>
+                        <div className='relative bg-gradient-to-br from-white/80 to-slate-100/80 dark:from-[#2A2C38]/80 dark:to-[#1f2128]/80 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-white/10'>
                             <AnimatePresence mode='wait'>
                                 <motion.p
                                     key={isExpanded ? 'expanded' : 'collapsed'}
-                                    className='text-[#95A3B9] font-workSan text-sm sm:text-base font-light leading-relaxed'
+                                    className='text-slate-700 dark:text-[#95A3B9] font-workSan text-sm sm:text-base font-light leading-relaxed'
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}

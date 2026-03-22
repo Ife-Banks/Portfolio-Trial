@@ -4,10 +4,43 @@
 
 @import "tailwindcss";
 
+/* ✅ Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('/fonts/ClashDisplay-Semibold.woff2') format('woff2'),
+       url('/fonts/ClashDisplay-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('/fonts/ClashDisplay-Bold.woff2') format('woff2'),
+       url('/fonts/ClashDisplay-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('/fonts/ClashDisplay-Extrabold.woff2') format('woff2'),
+       url('/fonts/ClashDisplay-Extrabold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme{
   --font-poppins: "Poppins", sans-serif;
   --font-workSan:"Work Sans", sans-serif;
   --font-IBM: "IBM Plex Mono", monospace;
+  --font-clash: "ClashDisplay", sans-serif;
+  --font-mono2: "JetBrains Mono", monospace;
 }
 
 .h1{
@@ -132,3 +165,31 @@
                 background-position: 0% 50%;
             }
         }
+
+/* Preloader custom styles */
+.gradient-text {
+  background: linear-gradient(90deg, #a855f7, #06b6d4, #a855f7);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.progress-bar-fill {
+  transition: width 0.4s ease;
+}
+
+@keyframes fadeSlideUp {
+  to { opacity: 0; transform: translateY(-20px); }
+}
+
+.preloader-exit {
+  animation: fadeSlideUp 0.6s ease forwards;
+}

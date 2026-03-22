@@ -1,13 +1,15 @@
 import { useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiMoon, FiSun } from 'react-icons/fi';
 import { Link } from 'react-scroll';
 import { navBarVariants } from './Animations/Animate';
 import MobileNav from '../views/MobileNav';
+import { ThemeContext } from './context/ThemeContext';
 import LangContext from './context/LangContext';
 
 const Navigate = () => {
     const { isMenuOpen, setIsMenuOpen } = useContext(LangContext);
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
     const navItems = [
         { name: 'Home', path: 'hero' },
@@ -43,41 +45,64 @@ const Navigate = () => {
                 />
 
                 {/* Main Nav Container */}
-                <div className='relative bg-[#1f2128]/95 backdrop-blur-xl rounded-full lg:rounded-3xl border border-white/10 shadow-[0_8px_32px_rgba(135,27,230,0.2)]'>
-                    {/* Desktop Navigation */}
-                    <motion.ul
-                        className='hidden lg:flex gap-2 items-center p-2 text-[#95A3B9] font-workSan text-sm font-medium'
-                        transition={{ delay: 0.3 }}
-                    >
-                        {navItems.map((item, index) => (
-                            <motion.li
-  key={item.name}
-  initial={{ opacity: 0, y: -20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.1 * index }}
->
-  <Link
-    to={item.path || item.id}
-    spy={true}
-    smooth={true}
-    duration={500}
-    activeClass="active-link"
-    className="group relative cursor-pointer px-4 py-2 rounded-2xl transition-all duration-300 hover:text-white block"
-  >
-    {/* Hover Background Effect */}
-    <span className="absolute inset-0 bg-gradient-to-r from-[#871BE6]/10 to-[#C4B5FD]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className='relative bg-white/70 dark:bg-[#1f2128]/95 backdrop-blur-xl rounded-full lg:rounded-3xl border border-slate-200 dark:border-white/10 shadow-[0_8px_32px_rgba(135,27,230,0.2)]'>
+                    {/* Desktop Navigation Structure */}
+                    <div className='hidden lg:flex items-center px-4 py-2 w-fit'>
+                        {/* Left Section - Avatar/Logo */}
+                        <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className='flex items-center shrink-0'>
+                            <img src='/Ife.png' alt='Avatar' className='w-7 h-7 rounded-full object-cover border border-white/20' />
+                        </motion.div>
 
-    {/* Underline (Hover + Active) */}
-    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#871BE6] to-[#C4B5FD] transition-all duration-300 rounded-full group-hover:w-3/4 group-[.active-link]:w-3/4" />
+                        {/* Vertical Divider */}
+                        <div className='w-[1px] h-4 bg-slate-300 dark:bg-white/20 mx-4 shrink-0'></div>
 
-    {/* Text */}
-    <span className="relative group-[.active-link]:text-white">{item.name}</span>
-  </Link>
-</motion.li>
+                        {/* Middle Section - Nav Links */}
+                        <motion.ul
+                            className='flex gap-6 items-center text-slate-600 dark:text-[#95A3B9] font-workSan text-sm font-medium'
+                            transition={{ delay: 0.3 }}
+                        >
+                            {navItems.map((item, index) => (
+                                <motion.li
+                                    key={item.name}
+                                    initial={{ opacity: 0, y: -20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.1 * index }}
+                                >
+                                    <Link
+                                        to={item.path || item.id}
+                                        spy={true}
+                                        smooth={true}
+                                        duration={500}
+                                        activeClass="active-link"
+                                        className="group relative cursor-pointer px-4 py-2 rounded-2xl transition-all duration-300 hover:text-slate-900 dark:hover:text-white block whitespace-nowrap"
+                                    >
+                                        {/* Hover Background Effect */}
+                                        <span className="absolute inset-0 bg-gradient-to-r from-[#871BE6]/10 to-[#C4B5FD]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        
+                                        {/* Underline (Hover + Active) */}
+                                        <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#871BE6] to-[#C4B5FD] transition-all duration-300 rounded-full group-hover:w-3/4 group-[.active-link]:w-3/4" />
+                                        
+                                        {/* Text */}
+                                        <span className="relative group-[.active-link]:text-slate-900 dark:group-[.active-link]:text-white">{item.name}</span>
+                                    </Link>
+                                </motion.li>
+                            ))}
+                        </motion.ul>
 
-                        ))}
+                        {/* Vertical Divider */}
+                        <div className='w-[1px] h-4 bg-slate-300 dark:bg-white/20 mx-4 shrink-0'></div>
 
-                    </motion.ul>
+                        {/* Right Section - Theme Toggle */}
+                        <motion.button 
+                            className='text-slate-500 hover:text-slate-900 dark:text-[#cbd6e8] dark:hover:text-white transition-colors p-1 flex items-center justify-center shrink-0'
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            onClick={toggleTheme}
+                            aria-label='Toggle theme'
+                        >
+                            {theme === 'dark' ? <FiSun size={18} /> : <FiMoon size={18} />}
+                        </motion.button>
+                    </div>
 
                     {/* Mobile Menu Button */}
                     <motion.button

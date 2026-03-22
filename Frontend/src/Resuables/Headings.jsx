@@ -32,7 +32,7 @@ function Headings(props) {
             {/* Badge/Label */}
             {props.badge && (
                 <motion.div
-                    className="inline-block mb-2 px-4 py-2 bg-[#2A2C38]/50 backdrop-blur-sm rounded-full border border-white/10"
+                    className="inline-block mb-2 px-4 py-2 bg-white/50 dark:bg-[#2A2C38]/50 backdrop-blur-sm rounded-full border border-slate-200 dark:border-white/10"
                     variants={itemVariants}
                     whileHover={{
                         scale: 1.05,
@@ -48,7 +48,7 @@ function Headings(props) {
 
             {/* Main Heading */}
             <motion.h1
-                className={`text-3xl lg:text-5xl xl:text-6xl font-bold text-white ${props.styh1 || 'text-center'}`}
+                className={`text-3xl lg:text-5xl xl:text-6xl font-clash font-semibold text-slate-900 dark:text-white ${props.styh1 || 'text-center'}`}
                 variants={itemVariants}
             >
                 {props.text}
@@ -62,7 +62,7 @@ function Headings(props) {
             {/* Subtext/Description */}
             {props.subText && (
                 <motion.div
-                    className={`text-[#95A3B9] text-base lg:text-lg max-w-3xl leading-relaxed ${props.styp || 'text-center'} px-4`}
+                    className={`text-slate-600 dark:text-[#95A3B9] text-base lg:text-lg max-w-3xl leading-relaxed ${props.styp || 'text-center'} px-4`}
                     variants={itemVariants}
                 >
                     <p>{props.subText}</p>

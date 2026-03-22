@@ -66,7 +66,7 @@ const FuturisticContact = () => {
     };
 
     return (
-        <section className="relative bg-[#1a1c23] pt-10 pb-20 px-4 overflow-hidden"
+        <section className="relative bg-slate-50 dark:bg-[#1a1c23] transition-colors duration-300 pt-10 pb-20 px-4 overflow-hidden"
         id={`contact`}>
             {/* Animated Background Blobs */}
             <div
@@ -126,7 +126,7 @@ const FuturisticContact = () => {
                 {/* Glowing Border Effect */}
                 <div className="absolute -inset-[1px] bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 rounded-3xl opacity-20 blur-sm" />
 
-                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
+                <div className="relative bg-gradient-to-br from-white/90 via-slate-50/90 to-white/90 dark:from-gray-900/90 dark:via-gray-800/90 dark:to-gray-900/90 backdrop-blur-xl rounded-3xl border border-slate-200 dark:border-white/10 shadow-2xl overflow-hidden">
                     {/* Mesh Gradient Overlay */}
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(135,27,230,0.1),transparent_50%)] pointer-events-none" />
 
@@ -135,7 +135,7 @@ const FuturisticContact = () => {
                         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-12">
                             <div className="flex-1">
                                 <motion.h2
-                                    className="text-white text-4xl lg:text-5xl font-bold mb-4"
+                                    className="text-slate-900 dark:text-white text-4xl lg:text-5xl font-bold mb-4"
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.3 }}
@@ -143,7 +143,7 @@ const FuturisticContact = () => {
                                     Get In Touch
                                 </motion.h2>
                                 <motion.p
-                                    className="text-gray-400 text-base leading-relaxed max-w-2xl"
+                                    className="text-slate-600 dark:text-gray-400 text-base leading-relaxed max-w-2xl"
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.4 }}
@@ -161,19 +161,19 @@ const FuturisticContact = () => {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.5 }}
                             >
-                                <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 p-4 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300">
+                                <div className="group relative overflow-hidden rounded-xl bg-purple-50 dark:bg-transparent dark:bg-gradient-to-br from-purple-500/10 to-pink-500/10 p-4 border border-purple-200 dark:border-purple-500/20 hover:border-purple-400 transition-all duration-300">
                                     <div className="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/10 to-purple-600/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                                     <div className="relative">
-                                        <p className="text-purple-400 text-sm font-medium mb-1">Email</p>
-                                        <p className="text-white text-sm">Ifeoluwa.bankole05@gmail.com</p>
+                                        <p className="text-purple-600 dark:text-purple-400 text-sm font-medium mb-1">Email</p>
+                                        <p className="text-slate-900 dark:text-white text-sm">Ifeoluwa.bankole05@gmail.com</p>
                                     </div>
                                 </div>
 
-                                <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 p-4 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300">
+                                <div className="group relative overflow-hidden rounded-xl bg-blue-50 dark:bg-transparent dark:bg-gradient-to-br from-blue-500/10 to-cyan-500/10 p-4 border border-blue-200 dark:border-blue-500/20 hover:border-blue-400 transition-all duration-300">
                                     <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/10 to-blue-600/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                                     <div className="relative">
-                                        <p className="text-blue-400 text-sm font-medium mb-1">Phone No</p>
-                                        <p className="text-white text-sm">+234 706 777 0855</p>
+                                        <p className="text-blue-600 dark:text-blue-400 text-sm font-medium mb-1">Phone No</p>
+                                        <p className="text-slate-900 dark:text-white text-sm">+234 706 777 0855</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -190,7 +190,7 @@ const FuturisticContact = () => {
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                                 {/* Name Field */}
                                 <div className="group relative">
-                                    <label htmlFor="name" className="block text-gray-400 text-sm font-medium mb-2 group-focus-within:text-purple-400 transition-colors">
+                                    <label htmlFor="name" className="block text-slate-700 dark:text-gray-400 text-sm font-medium mb-2 group-focus-within:text-purple-600 dark:group-focus-within:text-purple-400 transition-colors">
                                         Name*
                                     </label>
                                     <div className="relative">
@@ -198,7 +198,7 @@ const FuturisticContact = () => {
                                             id="name"
                                             type="text"
                                             {...register("name", { required: true })}
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 focus:bg-white/10 transition-all duration-300"
+                                            className="w-full px-4 py-3 bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-400 dark:focus:border-purple-500/50 focus:bg-white dark:focus:bg-white/10 transition-all duration-300"
                                             placeholder="John Doe"
                                         />
                                         <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-purple-500/0 opacity-0 group-focus-within:opacity-100 transition-opacity pointer-events-none" />
@@ -208,7 +208,7 @@ const FuturisticContact = () => {
 
                                 {/* Email Field */}
                                 <div className="group relative">
-                                    <label htmlFor="email" className="block text-gray-400 text-sm font-medium mb-2 group-focus-within:text-purple-400 transition-colors">
+                                    <label htmlFor="email" className="block text-slate-700 dark:text-gray-400 text-sm font-medium mb-2 group-focus-within:text-purple-600 dark:group-focus-within:text-purple-400 transition-colors">
                                         Email*
                                     </label>
                                     <div className="relative">
@@ -216,7 +216,7 @@ const FuturisticContact = () => {
                                             id="email"
                                             type="email"
                                             {...register("email", { required: true })}
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 focus:bg-white/10 transition-all duration-300"
+                                            className="w-full px-4 py-3 bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-400 dark:focus:border-purple-500/50 focus:bg-white dark:focus:bg-white/10 transition-all duration-300"
                                             placeholder="john@example.com"
                                         />
                                         <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-purple-500/0 opacity-0 group-focus-within:opacity-100 transition-opacity pointer-events-none" />
@@ -228,7 +228,7 @@ const FuturisticContact = () => {
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                                 {/* Location Field */}
                                 <div className="group relative">
-                                    <label htmlFor="location" className="block text-gray-400 text-sm font-medium mb-2 group-focus-within:text-purple-400 transition-colors">
+                                    <label htmlFor="location" className="block text-slate-700 dark:text-gray-400 text-sm font-medium mb-2 group-focus-within:text-purple-600 dark:group-focus-within:text-purple-400 transition-colors">
                                         Location
                                     </label>
                                     <div className="relative">
@@ -236,7 +236,7 @@ const FuturisticContact = () => {
                                             id="location"
                                             type="text"
                                             {...register("location")}
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 focus:bg-white/10 transition-all duration-300"
+                                            className="w-full px-4 py-3 bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-400 dark:focus:border-purple-500/50 focus:bg-white dark:focus:bg-white/10 transition-all duration-300"
                                             placeholder="City, Country"
                                         />
                                         <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-purple-500/0 opacity-0 group-focus-within:opacity-100 transition-opacity pointer-events-none" />
@@ -245,7 +245,7 @@ const FuturisticContact = () => {
 
                                 {/* Subject Field */}
                                 <div className="group relative">
-                                    <label htmlFor="subject" className="block text-gray-400 text-sm font-medium mb-2 group-focus-within:text-purple-400 transition-colors">
+                                    <label htmlFor="subject" className="block text-slate-700 dark:text-gray-400 text-sm font-medium mb-2 group-focus-within:text-purple-600 dark:group-focus-within:text-purple-400 transition-colors">
                                         Subject*
                                     </label>
                                     <div className="relative">
@@ -253,7 +253,7 @@ const FuturisticContact = () => {
                                             id="subject"
                                             type="text"
                                             {...register("subject", { required: true })}
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 focus:bg-white/10 transition-all duration-300"
+                                            className="w-full px-4 py-3 bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-400 dark:focus:border-purple-500/50 focus:bg-white dark:focus:bg-white/10 transition-all duration-300"
                                             placeholder="Project Inquiry"
                                         />
                                         <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-purple-500/0 opacity-0 group-focus-within:opacity-100 transition-opacity pointer-events-none" />
@@ -264,7 +264,7 @@ const FuturisticContact = () => {
 
                             {/* Message Field */}
                             <div className="group relative">
-                                <label htmlFor="message" className="block text-gray-400 text-sm font-medium mb-2 group-focus-within:text-purple-400 transition-colors">
+                                <label htmlFor="message" className="block text-slate-700 dark:text-gray-400 text-sm font-medium mb-2 group-focus-within:text-purple-600 dark:group-focus-within:text-purple-400 transition-colors">
                                     Message*
                                 </label>
                                 <div className="relative">
@@ -272,7 +272,7 @@ const FuturisticContact = () => {
                       id="message"
                       rows={5}
                       {...register("message", { required: true })}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 focus:bg-white/10 transition-all duration-300 resize-none"
+                      className="w-full px-4 py-3 bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-400 dark:focus:border-purple-500/50 focus:bg-white dark:focus:bg-white/10 transition-all duration-300 resize-none"
                       placeholder="Tell me about your project..."
                   />
                                     <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-purple-500/0 opacity-0 group-focus-within:opacity-100 transition-opacity pointer-events-none" />

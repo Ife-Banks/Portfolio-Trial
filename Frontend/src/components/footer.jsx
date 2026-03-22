@@ -22,11 +22,11 @@ const Footer = () => {
       initial="hidden"
       animate="visible"
       variants={navBarVariants}
-      className="flex w-full flex-col lg:flex-row items-center relative justify-evenly py-4 px-4 lg:px-40 bg-[#1f2128] gap-3 "
+      className="flex w-full flex-col lg:flex-row items-center relative justify-evenly py-4 px-4 lg:px-40 bg-slate-100 dark:bg-[#1f2128] gap-3 transition-colors duration-300"
     >
       {/* Copyright - Enhanced for mobile */}
       <motion.div
-        className="flex gap-1 items-center p-2 text-[#ccc] tracking-wide text-lg font-light"
+        className="flex gap-1 items-center p-2 text-slate-600 dark:text-[#ccc] tracking-wide text-lg font-light"
         transition={{ delay: 0.4 }}
       >
         <span className='font-poppins italic'>Copyright © {new Date().getFullYear()}</span><span className='font-IBM italic'>Ife-Banks.</span>

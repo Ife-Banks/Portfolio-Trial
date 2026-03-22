@@ -81,7 +81,7 @@ function FuturisticDesktopHero() {
                     >
                         {/* Badge */}
                         <motion.div
-                            className="inline-block w-fit px-4 py-2 bg-[#2A2C38]/50 backdrop-blur-sm rounded-full border border-white/10"
+                            className="inline-block w-fit px-4 py-2 bg-white/50 dark:bg-[#2A2C38]/50 backdrop-blur-sm rounded-full border border-slate-200 dark:border-white/10"
                             whileHover={{ scale: 1.05, borderColor: 'rgba(135, 27, 230, 0.5)' }}
                         >
                             <span className="text-[#871BE6] font-mono text-sm tracking-wider uppercase font-semibold">
@@ -92,7 +92,7 @@ function FuturisticDesktopHero() {
                         {/* Greeting with Typewriter */}
                         <div className='flex flex-col gap-2'>
                             <motion.div
-                                className='text-[#95A3B9] font-workSan text-2xl font-light'
+                                className='text-slate-600 dark:text-[#95A3B9] font-workSan text-2xl font-light'
                                 variants={itemVariants}
                             >
                                 <Typewriter
@@ -107,7 +107,7 @@ function FuturisticDesktopHero() {
                             {/* Name */}
                             {name && (
                                 <motion.h1
-                                    className='text-white font-poppins text-6xl font-bold tracking-tight'
+                                    className='text-slate-900 dark:text-white font-clash text-6xl font-bold tracking-tight'
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ duration: 0.8 }}
@@ -121,7 +121,7 @@ function FuturisticDesktopHero() {
 
                             {/* Role/Title */}
                             <motion.p
-                                className='text-[#cbd6e8] font-workSan text-xl font-medium'
+                                className='text-slate-700 dark:text-[#cbd6e8] font-workSan text-xl font-medium'
                                 variants={itemVariants}
                             >
                                 Fullstack Web Developer | Founder | Tech Community Builder
@@ -137,8 +137,8 @@ function FuturisticDesktopHero() {
                                 transition={{ delay: 0.3, duration: 0.8 }}
                             >
                                 <div className='absolute -inset-1 bg-gradient-to-r from-[#871BE6]/20 to-[#C4B5FD]/20 rounded-2xl blur-3xl' />
-                                <div className='relative bg-gradient-to-br from-[#2A2C38]/80 to-[#1f2128]/80 backdrop-blur-sm p-6 rounded-2xl border border-white/10'>
-                                    <p className='text-[#95A3B9] font-workSan text-base leading-relaxed'>
+                                <div className='relative bg-gradient-to-br from-white/80 to-slate-100/80 dark:from-[#2A2C38]/80 dark:to-[#1f2128]/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 dark:border-white/10'>
+                                    <p className='text-slate-700 dark:text-[#95A3B9] font-workSan text-base leading-relaxed'>
                                         <Typewriter
                                             words={[
                                                 "I craft scalable digital solutions that drive innovation and social impact.  \n" +
@@ -234,7 +234,7 @@ function FuturisticDesktopHero() {
                             <ResponsiveImage
                             publicId={`WhatsApp_Image_2025-10-10_at_23.29.30_67e6cb04_pzy6yh`}
                             alt="Bankole Ifeoluwa"
-                            className='relative rounded-full object-cover object-bottom w-full aspect-square border-4 border-[#2A2C38]'
+                            className='relative rounded-full object-cover object-bottom w-full aspect-square border-4 border-white dark:border-[#2A2C38]'
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 200 }}
                             />

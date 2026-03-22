@@ -21,7 +21,7 @@ function FuturisticModalMainLayout(props) {
         {/* Glow Border */}
         <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-purple-300 rounded-2xl opacity-0 group-hover:opacity-30 blur-lg transition duration-500" />
 
-        <div className="relative rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
+        <div className="relative rounded-2xl border border-slate-300 dark:border-white/10 shadow-2xl overflow-hidden">
           <ResponsiveImage
             publicId={props.image}
             alt={props.alt}
@@ -79,7 +79,7 @@ function FuturisticModalMainLayout(props) {
             {props.tags.map((tag, index) => (
               <span
                 key={index}
-                className="px-3 py-1 text-xs font-medium bg-purple-600/20 text-purple-300 rounded-full border border-purple-600/30 hover:bg-purple-600/30 transition-colors cursor-default"
+                className="px-3 py-1 text-xs font-medium bg-purple-100 dark:bg-purple-600/20 text-purple-700 dark:text-purple-300 rounded-full border border-purple-200 dark:border-purple-600/30 hover:bg-purple-200 dark:hover:bg-purple-600/30 transition-colors cursor-default"
               >
                 {tag}
               </span>
@@ -97,17 +97,17 @@ function FuturisticModalMainLayout(props) {
       >
         {/* Category Badge */}
         <motion.div
-          className="mx-auto lg:mx-0 inline-block w-fit px-4 py-2 bg-gray-800/50 backdrop-blur-sm rounded-full border border-white/10"
+          className="mx-auto lg:mx-0 inline-block w-fit px-4 py-2 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-slate-300 dark:border-white/10"
           whileHover={{ scale: 1.05 }}
         >
-          <span className="text-purple-600 font-mono text-xs tracking-wider uppercase font-semibold">
+          <span className="text-purple-700 dark:text-purple-600 font-mono text-xs tracking-wider uppercase font-semibold">
             💼 Case Study
           </span>
         </motion.div>
 
         {/* Title */}
         <motion.h1
-          className="text-white text-2xl md:text-3xl lg:text-4xl font-bold leading-snug"
+          className="text-slate-900 dark:text-white text-2xl md:text-3xl lg:text-4xl font-bold leading-snug"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
@@ -123,8 +123,8 @@ function FuturisticModalMainLayout(props) {
           transition={{ delay: 0.5 }}
         >
           <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/10 to-purple-300/10 rounded-2xl blur" />
-          <div className="relative bg-gray-800/50 backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 shadow-md">
-            <p className="text-gray-400 text-sm sm:text-base leading-relaxed text-left">
+          <div className="relative bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-slate-300 dark:border-white/10 shadow-md">
+            <p className="text-slate-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed text-left">
               {props.description}
             </p>
           </div>
