@@ -149,7 +149,7 @@ function FuturisticSecondHero() {
                             disabled={isDownloading}
                             className={downloadBtnClass}
                         >
-                            <span className= absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-50 transition-opacity duration-300 aria-hidden=true />
+                            <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-50 transition-opacity duration-300" aria-hidden="true" />
                             <span className="relative inline-flex items-center gap-2 z-10">
                                 {isDownloading ? (
                                     <>
