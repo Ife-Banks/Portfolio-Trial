@@ -4,34 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Headings from "../Resuables/Headings.jsx";
 import ResponsiveImage from "./responsiveImage.jsx"
 const experienceData = [
-  // {
-  //   id: 1,
-  //   role: "Frontend Developer",
-  //   company: "Skite Technologies",
-  //   location: "Ibadan",
-  //   period: "2023-10 — Current",
-  //   type: "Full-time",
-  //   description: [
-  //     "Work on several apps mainly dedicated to administrative/management operations, using many different technologies and playing several roles.",
-  //     "Involved in most of the company projects, from inception to final delivery, helping gathering requirements, and driving the execution and delivery roadmaps."
-  //   ],
-  //   techStack: ["TypeScript", "React", "VS Code", "Sass", "Google Cloud Platform"],
-  //   color: "#871BE6"
-  // },
-  {
-    id: 2,
-    role: "Developer",
-    image: "Screenshot_2025-10-28_120830_jkiq3z",
-    company: "KodeBlock",
-    location: "Nigeria",
-    period: "Oct 2025 - Present",
-    type: "Full-time",
-    description: [
-      "Collaborate on problem-solving initiatives and technical challenges within a community-driven development environment."
-    ],
-    techStack: ["Front-End Development", "Problem Solving"],
-    color: "#6B46C1"
-  },
+
   {
     id: 3,
     role: "Development Team Lead",
@@ -80,7 +53,7 @@ const experienceData = [
     id: 6,
     role: "Frontend Web Developer",
     image:"a241b3e95ac0b980fddc08671e7c8631c49ac9b6_1_xzjdz8",
-    company: "Pheonix Technologies",
+    company: "Phoenix Technologies",
     location: "Ibadan, Oyo State, Nigeria",
     period: "Nov 2024 - Present",
     type: "Contract",
@@ -130,7 +103,7 @@ const WorkExperience = () => {
   };
 
   return (
-    <div className="min-h-screen bg-transparent transition-colors duration-300 pt-10 py-20 px-4 lg:px-8"
+    <div className="min-h-screen bg-transparent transition-colors duration-300 pt-25 py-20 px-4 lg:px-8"
     id={`work`}>
       <motion.div
         className="max-w-7xl mx-auto"
@@ -141,12 +114,12 @@ const WorkExperience = () => {
       >
         {/* Header */}
           <Headings
-              badge="WORK EXPERIENCE"
-              text=" Employment "
-              highlightText="History"
+              // badge="WORK EXPERIENCE"
+              text=" Work "
+              highlightText="Experience"
               subText="A journey through innovation, collaboration, and impact-driven development across diverse tech ecosystems"
               styh1="text-center"
-              styp="text-center"
+              styp="text-center text-base lg:text-lg max-w-3xl leading-relaxed"
           />
 
         {/* Main Content Grid */}
@@ -166,7 +139,7 @@ const WorkExperience = () => {
                 onMouseLeave={() => setHoveredId(null)}
                 className={`cursor-pointer p-4 rounded-xl border transition-all duration-300 ${
                   selectedExp.id === exp.id
-                    ? 'bg-gradient-to-r from-[#871BE6]/20 to-transparent border-[#871BE6]'
+                    ? 'bg-[#7C3AED]/10 border-[#7C3AED]/40 text-white'
                     : 'bg-white/50 border-slate-200 hover:border-slate-400 dark:bg-[#2A2C38]/50 dark:border-white/5 dark:hover:border-white/20'
                 }`}
               >
@@ -175,20 +148,20 @@ const WorkExperience = () => {
                   <div className="relative mt-2">
                     <motion.div
                       className={`w-3 h-3 rounded-full ${
-                        selectedExp.id === exp.id ? 'bg-[#871BE6]' : 'bg-[#95A3B9]'
+                        selectedExp.id === exp.id ? 'bg-[#7C3AED]' : 'bg-[#95A3B9]'
                       }`}
                       animate={selectedExp.id === exp.id ? {
                         scale: [1, 1.3, 1],
                         boxShadow: [
-                          '0 0 0 0 rgba(135, 27, 230, 0.7)',
-                          '0 0 0 10px rgba(135, 27, 230, 0)',
-                          '0 0 0 0 rgba(135, 27, 230, 0)'
+                          '0 0 0 0 rgba(124, 58, 237, 0.7)',
+                          '0 0 0 10px rgba(124, 58, 237, 0)',
+                          '0 0 0 0 rgba(124, 58, 237, 0)'
                         ]
                       } : {}}
                       transition={{ duration: 2, repeat: Infinity }}
                     />
                     {index !== experienceData.length - 1 && (
-                      <div className="absolute top-5 left-1/2 w-px h-16 bg-gradient-to-b from-white/20 to-transparent" />
+                      <div className="absolute top-5 left-1/2 w-px h-16 bg-white/20" />
                     )}
                   </div>
 
@@ -227,13 +200,13 @@ const WorkExperience = () => {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="bg-gradient-to-br from-white/90 to-slate-100/90 border-slate-200 dark:from-[#2A2C38] dark:to-[#1f2128] rounded-2xl p-8 shadow-2xl border dark:border-white/10 relative overflow-hidden"
+                className="bg-white/95 border border-slate-200 rounded-2xl p-8 shadow-2xl relative overflow-hidden dark:bg-[#0d1117] dark:border-white/10"
               >
-                {/* Animated Background Gradient */}
+                {/* Animated Background Accent */}
                 <motion.div
                   className="absolute inset-0 opacity-10"
                   style={{
-                    background: `radial-gradient(circle at 50% 50%, ${selectedExp.color}, transparent 70%)`
+                    backgroundColor: '#7C3AED'
                   }}
                   animate={{
                     scale: [1, 1.2, 1],
@@ -310,7 +283,7 @@ const WorkExperience = () => {
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 0.3 + idx * 0.05 }}
                           whileHover={{ scale: 1.1, y: -2 }}
-                          className="px-4 py-2 bg-gradient-to-r from-slate-100 to-slate-200 border-slate-300 dark:from-[#2A2C38] dark:to-[#1f2128] border dark:border-white/10 rounded-lg text-slate-700 dark:text-[#cbd6e8] text-sm font-medium hover:dark:border-[#871BE6]/50 transition-all cursor-default"
+                          className="px-4 py-2 bg-white/90 border border-[#7C3AED]/30 dark:bg-[#11121b] dark:border-[#7C3AED]/30 rounded-lg text-slate-700 dark:text-white/60 text-sm font-medium hover:border-[#7C3AED]/50 transition-all cursor-default"
                         >
                           {tech}
                         </motion.span>
@@ -323,7 +296,7 @@ const WorkExperience = () => {
                 <motion.div
                   className="absolute top-0 right-0 w-32 h-32 opacity-20"
                   style={{
-                    background: `radial-gradient(circle at top right, ${selectedExp.color}, transparent 70%)`
+                    backgroundColor: '#7C3AED'
                   }}
                   animate={{
                     rotate: [0, 360],

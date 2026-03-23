@@ -36,22 +36,10 @@ function MobileNav() {
                         exit={{ opacity: 0, y: -20, scale: 0.95 }}
                         transition={{ duration: 0.3, ease: 'easeOut' }}
                     >
-                        {/* Gradient Border Container */}
+                        {/* Glow Border Container */}
                         <div className="relative">
-                            {/* Animated Gradient Border */}
                             <motion.div
-                                className="absolute -inset-[1px] bg-gradient-to-br from-[#871BE6] via-[#C4B5FD] to-[#871BE6] rounded-2xl opacity-60 blur-sm"
-                                animate={{
-                                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                                }}
-                                transition={{
-                                    duration: 3,
-                                    repeat: Infinity,
-                                    ease: 'linear',
-                                }}
-                                style={{
-                                    backgroundSize: '200% 200%',
-                                }}
+                                className="absolute -inset-[1px] rounded-2xl border border-[#7C3AED]/30 opacity-60 blur-sm"
                             />
 
                             {/* Main Menu Container */}
@@ -77,13 +65,13 @@ function MobileNav() {
                                                 duration={500}
                                                 activeClass="active-link-mobile"
                                                 onClick={() => setIsMenuOpen(false)}
-                                                className="group relative cursor-pointer block px-4 py-3 rounded-xl text-[#95A3B9] font-workSan text-sm font-medium transition-all duration-300 hover:text-white"
+                                                className="group relative cursor-pointer block px-4 py-3 rounded-xl text-[#95A3B9] font-mono2 text-sm font-medium transition-all duration-300 hover:text-white"
                                             >
                                                 {/* Hover Background */}
-                                                <span className="absolute inset-0 bg-gradient-to-r from-[#871BE6]/10 to-[#C4B5FD]/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                                <span className="absolute inset-0 bg-[#7C3AED]/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                                                 {/* Active Indicator */}
-                                                <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-gradient-to-b from-[#871BE6] to-[#C4B5FD] rounded-full transition-all duration-300 group-hover:h-8 group-[.active-link-mobile]:h-8" />
+                                                <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#7C3AED] rounded-full transition-all duration-300 group-hover:h-8 group-[.active-link-mobile]:h-8" />
 
                                                 {/* Text */}
                                                 <span className="relative ml-2 group-[.active-link-mobile]:text-white">
@@ -95,7 +83,7 @@ function MobileNav() {
 
                                     {/* Divider */}
                                     <motion.div
-                                        className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-2"
+                                        className="h-px bg-white/20 my-2"
                                         initial={{ scaleX: 0 }}
                                         animate={{ scaleX: 1 }}
                                         transition={{ delay: 0.4 }}
@@ -114,26 +102,26 @@ function MobileNav() {
                                             onClick={() => setIsMenuOpen(false)}
                                             className="relative group cursor-pointer block mt-2"
                                         >
+                                        <motion.div
+                                            className="relative px-4 py-3 rounded-xl bg-[#7C3AED] text-white font-mono2 text-sm font-semibold text-center shadow-[0_4px_16px_rgba(125,61,237,0.3)] overflow-hidden"
+                                            whileHover={{ scale: 1.02 }}
+                                            whileTap={{ scale: 0.98 }}
+                                        >
+                                            {/* Animated Shine Effect */}
                                             <motion.div
-                                                className="relative px-4 py-3 rounded-xl bg-gradient-to-r from-[#871BE6] to-[#9a3aed] text-white font-workSan text-sm font-semibold text-center shadow-[0_4px_16px_rgba(135,27,230,0.4)] overflow-hidden"
-                                                whileHover={{ scale: 1.02 }}
-                                                whileTap={{ scale: 0.98 }}
-                                            >
-                                                {/* Animated Shine Effect */}
-                                                <motion.div
-                                                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                                                    animate={{
-                                                        x: ['-100%', '100%'],
-                                                    }}
-                                                    transition={{
-                                                        duration: 2,
-                                                        repeat: Infinity,
-                                                        repeatDelay: 1,
-                                                        ease: 'easeInOut',
-                                                    }}
-                                                />
-                                                <span className="relative">Contact Me</span>
-                                            </motion.div>
+                                                className="absolute inset-0 bg-white/20 opacity-30"
+                                                animate={{
+                                                    x: ['-100%', '100%'],
+                                                }}
+                                                transition={{
+                                                    duration: 2,
+                                                    repeat: Infinity,
+                                                    repeatDelay: 1,
+                                                    ease: 'easeInOut',
+                                                }}
+                                            />
+                                            <span className="relative">Contact Me</span>
+                                        </motion.div>
                                         </Link>
                                     </motion.li>
                                 </motion.ul>
@@ -141,7 +129,7 @@ function MobileNav() {
 
                             {/* Ambient Glow Effect */}
                             <motion.div
-                                className="absolute -inset-4 bg-gradient-to-br from-[#871BE6]/20 to-[#C4B5FD]/20 rounded-2xl blur-2xl pointer-events-none"
+                                className="absolute -inset-4 bg-[#7C3AED]/20 rounded-2xl blur-2xl pointer-events-none"
                                 animate={{
                                     scale: [1, 1.05, 1],
                                     opacity: [0.3, 0.5, 0.3],

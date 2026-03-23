@@ -1,161 +1,203 @@
-// eslint-disable-next-line no-unused-vars
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useRef } from 'react';
-import PortfolioGradient from '../Resuables/PortfolioGradient';
+import { motion } from 'framer-motion';
+import { useContext, useEffect, useState } from 'react';
 import Projects from '../data/PortfolioData';
-import PortfolioLayout from './PortfolioLayout';
-import Headings from '../Resuables/Headings';
+import { ThemeContext } from './context/ThemeContext';
 import { containerVariants, itemVariants } from './Animations/PortfolioAnimate';
 
-// 🔑 helper function to truncate
-
-const truncateText = (text, wordLimit = 20) => {
-  if (!text) return "";
-  const words = text.split(" ");
-  if (words.length <= wordLimit) return text;
-  return words.slice(0, wordLimit).join(" ") + "...";
-};
-
 const Portfolio = () => {
+  const [showMore, setShowMore] = useState(false);
+  const { theme } = useContext(ThemeContext);
+  const isDark = theme === 'dark';
+  const featuredProject = Projects.find((project) => project.featured);
+  const remainingProjects = Projects.filter((project) => !project.featured);
+  const visibleProjects = showMore ? remainingProjects : remainingProjects.slice(0, 3);
+  const hiddenCount = Math.max(0, remainingProjects.length - 3);
+  const hasMoreProjects = remainingProjects.length > 3;
 
-   const [isHovered, setIsHovered] = useState(false);
-  const [showAll, setShowAll] = useState(false);
-  const sectionRef = useRef(null);
+  useEffect(() => {
+    console.log('Projects total:', Projects.length);
+    console.log('Remaining projects:', remainingProjects.length);
+  }, [remainingProjects.length]);
 
-  const toggleProjects = () => {
-    if (showAll) {
-      sectionRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-    setShowAll((prev) => !prev);
-  };
-
- 
-
-  
   return (
-    <motion.div
-      ref={sectionRef}
-      className="relative flex flex-col items-center justify-center pt-10 pb-10 gap-10"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={containerVariants}
-      id='portfolio'
-    >
-      {/*<Headings*/}
-      {/*  text={'Portfolio'}*/}
-      {/*  subText={*/}
-      {/*    'A collection of selected projects showcasing expertise in frontend and backend development, API integration, and responsive design.'*/}
-      {/*  }*/}
-      {/*  styp={'text-center mx-auto w-[90%] lg:w-[30%]'}*/}
-      {/*  styh1={'place-self-center'}*/}
-      {/*/>*/}
-        <Headings
-            badge="Portfolio"
-            text="Projects"
-            highlightText="Highlight"
-            subText="A journey through innovation, collaboration, and impact-driven development across diverse tech ecosystems"
-            styh1="text-center"
-            styp="text-center"
-        />
-
-      <motion.main
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-[70%] mt-10 z-2"
+      <motion.section
+        id="portfolio"
+        className={`py-24 px-6 md:px-16 max-w-7xl mx-auto min-h-screen relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-[#1a1c23] text-white' : 'bg-white text-slate-900'}`}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, margin: '-100px' }}
         variants={containerVariants}
       >
-        {/* Always render first 3 */}
-        {Projects.slice(0, 3).map((project) => (
-          <PortfolioLayout
-            key={project.index}
-            index={project.index}
-            {...project}
-            description={truncateText(project.description, 20)} // 🔥 truncate here
-          />
-        ))}
+      <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
+        <div className="w-[520px] h-[520px] rounded-full blur-3xl bg-[#7C3AED]/20" />
+      </div>
+        <motion.div variants={itemVariants} className="text-center mb-12">
+          <p className="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3 text-center">
+            $ ls projects/
+          </p>
+          <h2 className={`font-clash font-semibold tracking-wide text-4xl md:text-5xl text-center mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+            Projects <span className="text-[#7C3AED]">Highlight</span>
+          </h2>
+          <p className={`text-sm text-center mb-16 ${isDark ? 'text-white/40' : 'text-slate-500'}`}>
+            A journey through innovation, collaboration, and impact-driven development
+          </p>
+      </motion.div>
 
-        {/* Animate extra ones with stagger + reverse exit */}
-        <AnimatePresence>
-          {showAll && (
-            <motion.div
-              className="contents "
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.2, // enter stagger
-                  },
-                },
-                exit: {
-                  opacity: 0,
-                  transition: {
-                    staggerChildren: 0.2,
-                    staggerDirection: -1, // reverse stagger on exit
-                  },
-                },
-              }}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              {Projects.slice(3).map((project) => (
-                <motion.div
-                  key={project.index}
-                  variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0 },
-                    exit: { opacity: 0, y: 30 },
-                  }}
-                  transition={{ duration: 0.5 }}
+      {featuredProject && (
+        <motion.div
+          variants={itemVariants}
+          className="w-full bg-white/95 border border-[#7C3AED]/30 rounded-2xl overflow-hidden
+                     transition-all duration-300 group mb-6 grid grid-cols-1 md:grid-cols-2 dark:bg-[#0d1117] dark:border-[#7C3AED]/30"
+        >
+          <div className="relative p-8 flex flex-col justify-between bg-[#0f0f1a]">
+            <div className="absolute top-4 left-4 bg-[#0d1117]/80 backdrop-blur-sm border border-white/10 rounded-full px-2 py-0.5 font-mono text-xs text-white/40">
+              {featuredProject.title?.charAt(0).toUpperCase()}
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="font-mono text-xs uppercase tracking-widest text-cyan-400">
+                  {featuredProject.category}
+                </span>
+                <span className="text-[10px] font-mono text-white/60 px-2 py-1 border border-white/10 rounded-full">
+                  Featured
+                </span>
+              </div>
+              <div className="text-9xl font-clash font-black text-white/10 leading-none select-none">
+                {featuredProject.title?.charAt(0)}
+              </div>
+            </div>
+            <div className="mt-6">
+              <p className="text-xs font-mono tracking-[0.4em] uppercase text-white/30">
+                01 — Featured Project
+              </p>
+            </div>
+          </div>
+
+          <div className="p-8 flex flex-col justify-between">
+            <div>
+              <h3 className="font-clash font-semibold text-2xl text-slate-900 mb-3 dark:text-white">
+                {featuredProject.title}
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed mb-6 dark:text-white/50">
+                {featuredProject.description}
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {featuredProject.tags?.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[10px] font-mono text-[#7C3AED] bg-[#7C3AED]/10 border border-[#7C3AED]/30 rounded-full px-2 py-0.5"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <a
+                href={featuredProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#7C3AED] hover:bg-[#6c21d6] text-white px-6 py-2.5
+                           rounded-full font-mono text-xs transition-all duration-200
+                           shadow-[0_0_20px_rgba(124,58,237,0.3)]"
+              >
+                Case Study →
+              </a>
+              <a
+                href={featuredProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-[#7C3AED]/40 hover:border-[#7C3AED]
+                           text-white/60 hover:text-white px-6 py-2.5 rounded-full
+                           font-mono text-xs transition-all duration-200"
+              >
+                Live ↗
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {visibleProjects.map((project, index) => (
+          <motion.div
+            key={project.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: index * 0.05 }}
+            className="relative bg-white/95 border border-[#7C3AED]/20 rounded-2xl overflow-hidden
+                       hover:border-[#7C3AED]/50 hover:shadow-[0_0_30px_rgba(124,58,237,0.15)]
+                       transition-all duration-300 group dark:bg-[#0d1117] dark:border-[#7C3AED]/30"
+          >
+            <span className="absolute top-4 left-4 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-full px-2 py-0.5 font-mono text-xs text-slate-500 dark:bg-[#0d1117]/80 dark:border-white/10 dark:text-white/40">
+              {project.title?.charAt(0).toUpperCase()}
+            </span>
+            <div className="p-5 pt-10">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-clash font-semibold text-base text-slate-900 dark:text-white">
+                  {project.title}
+                </h3>
+                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-[0.3em] dark:text-white/40">
+                  {project.category}
+                </span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed mb-3 dark:text-white/40">
+                {project.description.split(' ').slice(0, 30).join(' ')}...
+              </p>
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {project.tags?.slice(0, 3).map((tag) => (
+                  <span
+                    key={`${project.id}-${tag}`}
+                    className="text-[10px] font-mono text-[#7C3AED] bg-[#7C3AED]/10
+                               border border-[#7C3AED]/30 rounded-full px-2 py-0.5"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="px-5 pb-5 flex items-center gap-3">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-mono text-slate-600 hover:text-slate-900 transition-colors duration-200 dark:text-white/50 dark:hover:text-white"
                 >
-                  <PortfolioLayout
-                    index={project.index}
-                    {...project}
-                    description={truncateText(project.description, 20)} // 🔥 truncate here
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.main>
+                  Case Study →
+                </a>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-mono text-slate-500 hover:text-slate-900/80 transition-colors duration-200 dark:text-white/40 dark:hover:text-white/80"
+                >
+                  Live ↗
+                </a>
+            </div>
+          </motion.div>
+        ))}
+      </div>
 
-      {/* <motion.button
-        onClick={toggleProjects}
-        variants={itemVariants}
-        whileHover={{
-          backgroundColor: '#9a3aed',
-          scale: 1.02,
-          transition: { duration: 0.2 },
-        }}
-        whileTap={{ scale: 0.98 }}
-        className="w-fit flex justify-center items-center py-3 px-3 mt-2 rounded-md text-white font-semibold bg-[#871be6] cursor-pointer"
-      >
-        {showAll ? 'Show Less' : 'More Projects'}
-      </motion.button> */}
-      <motion.button
-  onClick={toggleProjects}
-  className="relative flex justify-center items-center group px-8 py-4 rounded-xl font-semibold text-white overflow-hidden w-fit"
-  onHoverStart={() => setIsHovered(true)}
-  onHoverEnd={() => setIsHovered(false)}
-  whileHover={{ scale: 1.02 }}
-  whileTap={{ scale: 0.98 }}
->
-  {/* Button Background */}
-  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-purple-400 transition-all duration-300" />
-  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-300 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-
-  {/* Shine Effect */}
-  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-
-  {/* Button Text */}
-  <p className="relative z-10 text-white font-workSan text-lg font-semibold">
-    {showAll ? 'Show Less' : 'More Projects'}
-  </p>
-</motion.button>
-
-      {/*<PortfolioGradient />*/}
-    </motion.div>
+      {hasMoreProjects && (
+        <motion.div
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <button
+            type="button"
+            onClick={() => setShowMore((prev) => !prev)}
+            className="border border-[#7C3AED]/40 text-slate-900 hover:border-[#7C3AED] hover:text-white px-8 py-3
+                       rounded-full font-mono text-sm transition-all duration-200 mx-auto block dark:border-[#7C3AED]/40 dark:text-white hover:bg-[#7C3AED]/10 dark:hover:bg-[#7C3AED]/20"
+          >
+            {showMore
+              ? 'Show Less ←'
+              : 'More Projects →' + (hiddenCount > 0 ? ' (' + hiddenCount + ' more)' : '')}
+          </button>
+        </motion.div>
+      )}
+    </motion.section>
   );
 };
 

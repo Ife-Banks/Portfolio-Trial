@@ -15,8 +15,8 @@ function WorkLayout(props) {
                 {props.img}
             </div>
             <div className='gap-2 flex flex-col'>
-                <h1 className='text-[#cbd6e8] font-workSan text-lg lg:text-xl font-semibold'>{props.Title}</h1>
-                <p className='text-[#95A3B9] font-workSan text-sm lg:text-sm/5 font-normal'>
+                <h1 className='text-[#cbd6e8] font-mono2 text-lg lg:text-xl font-semibold'>{props.Title}</h1>
+                <p className='text-[#95A3B9] font-mono2 text-sm lg:text-sm/5 font-normal'>
                 
                 {props.details}
                 </p>

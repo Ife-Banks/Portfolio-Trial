@@ -14,7 +14,7 @@ function Darkbtn(props) {
           transition={{ type: "spring", stiffness: 300 }}
         >
          
-          <p className='text-[#a43dff] font-workSan text-base lg:text-lg font-medium'>{props.text}</p>
+          <p className='text-[#a43dff] font-mono2 text-base lg:text-lg font-medium'>{props.text}</p>
            {props.svg}
         </motion.button>
   )

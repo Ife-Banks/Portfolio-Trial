@@ -15,9 +15,9 @@ function Icons() {
       {/* ─── MARQUEE (always in document flow) ─── */}
       <div className="relative w-full overflow-hidden h-[56px]">
         {/* Left fade */}
-        <div className="absolute inset-y-0 left-0 w-16 sm:w-24 bg-gradient-to-r from-white dark:from-[#1f2128] via-white/80 dark:via-[#1f2128]/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-16 sm:w-24 bg-white/80 dark:bg-[#1f2128]/80 z-10 pointer-events-none" />
         {/* Right fade */}
-        <div className="absolute inset-y-0 right-0 w-16 sm:w-24 bg-gradient-to-l from-white dark:from-[#1f2128] via-white/80 dark:via-[#1f2128]/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-16 sm:w-24 bg-white/80 dark:bg-[#1f2128]/80 z-10 pointer-events-none" />
 
         <Marquee
           speed={35}
@@ -44,7 +44,7 @@ function Icons() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="text-[10px] font-mono text-slate-400 dark:text-white/20 text-center mt-1.5 select-none"
+            className="text-[10px] font-mono2 text-slate-400 dark:text-white/20 text-center mt-1.5 select-none"
           >
             hover to explore full stack
           </motion.p>
@@ -76,7 +76,7 @@ function Icons() {
                     <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
                       {icon.img}
                     </div>
-                    <span className="text-[9px] sm:text-[10px] text-slate-500 dark:text-white/50 font-mono text-center leading-tight group-hover:text-slate-800 dark:group-hover:text-white/80 transition-colors">
+                    <span className="text-[9px] sm:text-[10px] text-slate-500 dark:text-white/50 font-mono2 text-center leading-tight group-hover:text-slate-800 dark:group-hover:text-white/80 transition-colors">
                       {icon.name}
                     </span>
                   </motion.div>

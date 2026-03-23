@@ -87,13 +87,13 @@ const Preloader = ({ onExitComplete }) => {
           className="h-full progress-bar-fill"
           style={{ 
             width: `${progress}%`,
-            background: 'linear-gradient(90deg, #a855f7, #06b6d4)'
+            backgroundColor: '#7C3AED'
           }}
         />
       </div>
 
       {/* Status Text */}
-      <div className="mt-3 text-[10px] font-mono tracking-[0.3em] uppercase text-white/40 h-4 flex items-center gap-2">
+      <div className="mt-3 text-[10px] font-mono2 tracking-[0.3em] uppercase text-white/40 h-4 flex items-center gap-2">
         <span>&gt; {getStatusText()}</span>
       </div>
     </div>

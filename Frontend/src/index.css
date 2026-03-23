@@ -37,17 +37,17 @@
 
 @theme{
   --font-poppins: "Poppins", sans-serif;
-  --font-workSan:"Work Sans", sans-serif;
+  --font-mono2:"Work Sans", sans-serif;
   --font-IBM: "IBM Plex Mono", monospace;
   --font-clash: "ClashDisplay", sans-serif;
   --font-mono2: "JetBrains Mono", monospace;
 }
 
 .h1{
-  @apply text-[#cbd6e8] font-workSan text-2xl lg:text-3xl font-semibold lg:w-[70%] tracking-wide;
+  @apply text-[#cbd6e8] font-mono2 text-2xl lg:text-3xl font-semibold lg:w-[70%] tracking-wide;
 }
 .paragraph{
-  @apply flex flex-col gap-3 lg:gap-1 text-[#929aa7] font-workSan font-normal ;
+  @apply flex flex-col gap-3 lg:gap-1 text-[#929aa7] font-mono2 font-normal ;
 }
 /* .active-link {
   @apply absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#871BE6] to-[#C4B5FD] group-active:w-3/4 transition-all duration-300 rounded-full;
@@ -62,6 +62,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --color-primary: #7C3AED;
+  --color-secondary: #06B6D4;
 }
 @layer base {
 .marquee {
@@ -133,53 +135,9 @@
 
 
 
-.gradient-border {
-            --borderWidth: 3px;
-            background: #27292F;
-            position: relative;
-            border-radius: var(--borderWidth);
-        }
-        
-        .gradient-border:after {
-            content: '';
-            position: absolute;
-            top: calc(-1 * var(--borderWidth));
-            left: calc(-1 * var(--borderWidth));
-            height: calc(100% + var(--borderWidth) * 2);
-            width: calc(100% + var(--borderWidth) * 2);
-            background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-            border-radius: calc(2 * var(--borderWidth));
-            z-index: -1;
-            animation: animatedgradient 3s ease alternate infinite;
-            background-size: 300% 300%;
-        }
-        
-        @keyframes animatedgradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
 /* Preloader custom styles */
 .gradient-text {
-  background: linear-gradient(90deg, #a855f7, #06b6d4, #a855f7);
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 3s ease infinite;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  color: var(--color-primary);
 }
 
 .progress-bar-fill {
@@ -193,3 +151,21 @@
 .preloader-exit {
   animation: fadeSlideUp 0.6s ease forwards;
 }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-blink { 
+  animation: blink 1s step-end infinite; 
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Additional utility gradients have been removed to keep the palette solid. */

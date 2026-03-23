@@ -38,10 +38,10 @@ function FuturisticModalMain() {
       }}
     >
       {/* Animated Glow Border */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-purple-300 to-purple-600 rounded-t-3xl md:rounded-3xl opacity-30 blur-xl" />
+      <div className="absolute -inset-1 bg-[#7C3AED]/30 rounded-t-3xl md:rounded-3xl opacity-30 blur-xl" />
 
       {/* Main Modal Container */}
-      <div className="relative bg-gradient-to-br from-white via-slate-50 to-white dark:from-gray-900 dark:to-gray-800 rounded-t-3xl md:rounded-3xl border border-slate-200 dark:border-white/10 shadow-2xl overflow-hidden">
+      <div className="relative bg-white dark:bg-[#0f0f1d] rounded-t-3xl md:rounded-3xl border border-slate-200 dark:border-[#7C3AED]/40 shadow-2xl overflow-hidden">
         {/* Close Button */}
         <motion.button
           onClick={closeModal}
@@ -49,7 +49,7 @@ function FuturisticModalMain() {
           whileHover={{ scale: 1.1, rotate: 90 }}
           whileTap={{ scale: 0.9 }}
         >
-          <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-purple-300 rounded-full opacity-0 group-hover:opacity-30 blur transition duration-500" />
+          <div className="absolute -inset-2 bg-[#7C3AED]/20 rounded-full opacity-0 group-hover:opacity-30 blur transition duration-500" />
           <div className="relative w-10 h-10 rounded-full bg-white dark:bg-gray-800 border border-slate-300 dark:border-white/10 flex items-center justify-center group-hover:border-purple-400 dark:group-hover:border-purple-600/50 transition-colors">
             <svg className="w-5 h-5 text-slate-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -66,7 +66,7 @@ function FuturisticModalMain() {
             whileHover={{ scale: ide > 1 ? 1.1 : 1, x: ide > 1 ? -5 : 0 }}
             whileTap={{ scale: ide > 1 ? 0.9 : 1 }}
           >
-            <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-purple-300 rounded-full opacity-0 group-hover:opacity-30 blur transition duration-500" />
+            <div className="absolute -inset-2 bg-[#7C3AED]/20 rounded-full opacity-0 group-hover:opacity-30 blur transition duration-500" />
             <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border border-slate-300 dark:border-white/10 flex items-center justify-center group-hover:border-purple-400 dark:group-hover:border-purple-600/50 transition-colors">
               <svg className="w-5 h-5 md:w-6 md:h-6 text-slate-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -83,7 +83,7 @@ function FuturisticModalMain() {
             whileHover={{ scale: ide < Projects.length ? 1.1 : 1, x: ide < Projects.length ? 5 : 0 }}
             whileTap={{ scale: ide < Projects.length ? 0.9 : 1 }}
           >
-            <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-purple-300 rounded-full opacity-0 group-hover:opacity-30 blur transition duration-500" />
+            <div className="absolute -inset-2 bg-[#7C3AED]/20 rounded-full opacity-0 group-hover:opacity-30 blur transition duration-500" />
             <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border border-slate-300 dark:border-white/10 flex items-center justify-center group-hover:border-purple-400 dark:group-hover:border-purple-600/50 transition-colors">
               <svg className="w-5 h-5 md:w-6 md:h-6 text-slate-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -100,7 +100,7 @@ function FuturisticModalMain() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <span className="text-purple-600 font-mono text-sm font-semibold">
+            <span className="text-purple-600 font-mono2 text-sm font-semibold">
               {ide} / {Projects.length}
             </span>
           </motion.div>

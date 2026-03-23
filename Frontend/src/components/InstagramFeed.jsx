@@ -55,9 +55,9 @@ function InstagramFeed() {
 
   return (
     <div className="relative -mt-30">
-        <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#2a2c38] to-transparent z-10 pointer-events-none "></div>
+        <div className="absolute inset-y-0 left-0 w-20 bg-[#0f0f16]/80 z-10 pointer-events-none"></div>
       {/* Right fade edge */}
-      <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#2a2c38] to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute inset-y-0 right-0 w-20 bg-[#0f0f16]/80 z-10 pointer-events-none"></div>
     <Marquee pauseOnHover={true} speed={50} gradient={false}>
       <div className="relative flex gap-6">
         {posts.map((post) => (

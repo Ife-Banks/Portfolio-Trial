@@ -1,17 +1,13 @@
 import { useState,useEffect } from 'react';
 import Footer from '../components/footer';
-import HaveProject from '../components/Haveproject';
 import Hero from "../components/Hero";
 import Navigate from '../components/Navbar';
 import Portfolio from '../components/Portfolio';
-import Job from '../components/WhatIdo';
 import Work from '../components/Work';
-import Gradients from '../Resuables/Gradients';
 import LangContext from "../components/context/LangContext"
-import ModalMain from '../Resuables/ModalMain';
 import Modal from '../components/Modal';
-import InstagramFeed from '../components/InstagramFeed';
 import FuturisticContact from '../components/MergedConntactSection.jsx';
+import TechStack from '../components/TechStack.jsx';
 
 
 
@@ -53,20 +49,17 @@ const Home = () => {
             <LangContext.Provider value={NavContext}>
                 <main className="bg-slate-50 dark:bg-[#1f2128] relative pt-5 transition-colors duration-300" id="two">
                 
-                {/*<Gradients/>*/}
                 <Navigate />
                 <Hero className="" />
             </main>
             <Work />
-            {/*<InstagramFeed/>*/}
+            <TechStack />
+            
             <Portfolio />
             
-            <Modal/>
+            <Modal />
             
-            {/*<HaveProject/>*/}
-            {/* <Job/> */}
-            {/*<MergedContactSection/>*/}
-                <FuturisticContact/>
+            <FuturisticContact />
              
             <Footer/>
            

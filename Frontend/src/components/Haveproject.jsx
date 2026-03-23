@@ -17,8 +17,8 @@ const HaveProject = () => {
                 text="Let's discuss "
                 highlightText="your project!"
                 subText="Have a project in mind? Let’s bring it to life. Whether it’s a website, web service, or fullstack application, tailored solutions are built to match your goals and deliver real impact."
-                styh1="text-white font-workSan text-2xl md:text-2xl font-semibold max-w-4xl"
-                styp="text-[#a5acb5] font-workSan text-lg font-light max-w-xl"
+                styh1="text-white font-mono2 text-2xl md:text-2xl font-semibold max-w-4xl"
+                styp="text-[#a5acb5] font-mono2 text-lg font-light max-w-xl"
                 animate={true} // Optional: if your Headings component supports animation props
             />
 
@@ -33,7 +33,7 @@ const HaveProject = () => {
     active:scale-95
     transition-all duration-300 ease-out cursor-pointer"
             >
-                <span className='font-workSan text-md font-medium'>Let's work together</span>
+                <span className='font-mono2 text-md font-medium'>Let's work together</span>
                 <motion.div
                     style={{
                         width: "25px",

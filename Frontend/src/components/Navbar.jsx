@@ -26,22 +26,11 @@ const Navigate = () => {
             variants={navBarVariants}
             className='flex w-fit mx-auto items-center fixed right-4 top-4 lg:top-6 lg:right-1/2 lg:translate-x-1/2 z-50'
         >
-            {/* Glassmorphic Container with Gradient Border */}
+            {/* Glassmorphic Container */}
             <div className='relative'>
-                {/* Animated Gradient Border */}
+                {/* Soft Glow Border */}
                 <motion.div
-                    className='absolute -inset-[1px] bg-gradient-to-r from-[#871BE6] via-[#C4B5FD] to-[#871BE6] rounded-full lg:rounded-3xl opacity-60 blur-sm'
-                    animate={{
-                        backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                    }}
-                    transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: 'linear',
-                    }}
-                    style={{
-                        backgroundSize: '200% 200%',
-                    }}
+                    className='absolute -inset-[1px] rounded-full lg:rounded-3xl border border-[#7C3AED]/30 opacity-60 blur-sm'
                 />
 
                 {/* Main Nav Container */}
@@ -58,7 +47,7 @@ const Navigate = () => {
 
                         {/* Middle Section - Nav Links */}
                         <motion.ul
-                            className='flex gap-6 items-center text-slate-600 dark:text-[#95A3B9] font-workSan text-sm font-medium'
+                            className='flex gap-6 items-center text-slate-600 dark:text-[#95A3B9] font-mono2 text-sm font-medium'
                             transition={{ delay: 0.3 }}
                         >
                             {navItems.map((item, index) => (
@@ -77,10 +66,10 @@ const Navigate = () => {
                                         className="group relative cursor-pointer px-4 py-2 rounded-2xl transition-all duration-300 hover:text-slate-900 dark:hover:text-white block whitespace-nowrap"
                                     >
                                         {/* Hover Background Effect */}
-                                        <span className="absolute inset-0 bg-gradient-to-r from-[#871BE6]/10 to-[#C4B5FD]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        <span className="absolute inset-0 bg-[#7C3AED]/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                         
                                         {/* Underline (Hover + Active) */}
-                                        <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#871BE6] to-[#C4B5FD] transition-all duration-300 rounded-full group-hover:w-3/4 group-[.active-link]:w-3/4" />
+                                        <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#7C3AED] transition-all duration-300 rounded-full group-hover:w-3/4 group-[.active-link]:w-3/4" />
                                         
                                         {/* Text */}
                                         <span className="relative group-[.active-link]:text-slate-900 dark:group-[.active-link]:text-white">{item.name}</span>
@@ -131,7 +120,7 @@ const Navigate = () => {
 
                 {/* Ambient Glow Effect */}
                 <motion.div
-                    className='absolute -inset-4 bg-gradient-to-r from-[#871BE6]/10 to-[#C4B5FD]/10 rounded-full blur-2xl pointer-events-none opacity-50'
+                    className='absolute -inset-4 rounded-full blur-2xl pointer-events-none opacity-40 bg-[#7C3AED]/20'
                     animate={{
                         scale: [1, 1.1, 1],
                         opacity: [0.3, 0.5, 0.3],

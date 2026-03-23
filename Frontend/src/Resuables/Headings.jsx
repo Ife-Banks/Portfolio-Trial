@@ -40,7 +40,7 @@ function Headings(props) {
                         transition: { duration: 0.3 }
                     }}
                 >
-          <span className="text-[#871BE6] font-mono text-xs lg:text-sm tracking-wider uppercase font-semibold">
+          <span className="text-[#871BE6] font-mono2 text-xs lg:text-sm tracking-wider uppercase font-semibold">
             {props.badge}
           </span>
                 </motion.div>
@@ -53,7 +53,7 @@ function Headings(props) {
             >
                 {props.text}
                 {props.highlightText && (
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#871BE6] to-[#C4B5FD]">
+                    <span className="text-[#7C3AED]">
             {' '}{props.highlightText}
           </span>
                 )}
@@ -62,7 +62,7 @@ function Headings(props) {
             {/* Subtext/Description */}
             {props.subText && (
                 <motion.div
-                    className={`text-slate-600 dark:text-[#95A3B9] text-base lg:text-lg max-w-3xl leading-relaxed ${props.styp || 'text-center'} px-4`}
+                    className={`text-slate-600 dark:text-[#95A3B9] text-base lg:text-lg max-w-3xl leading-relaxed ${props.styp || 'text-center'} px-4 font-mono2`}
                     variants={itemVariants}
                 >
                     <p>{props.subText}</p>
