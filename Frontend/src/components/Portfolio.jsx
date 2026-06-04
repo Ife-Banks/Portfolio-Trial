@@ -22,7 +22,7 @@ const Portfolio = () => {
   return (
       <motion.section
         id="portfolio"
-        className={`py-24 px-6 md:px-16 max-w-7xl mx-auto min-h-screen relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-[#1a1c23] text-white' : 'bg-white text-slate-900'}`}
+        className={`py-10 px-6 md:px-16 max-w-7xl mx-auto min-h-screen relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-[#1a1c23] text-white' : 'bg-white text-slate-900'}`}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, margin: '-100px' }}

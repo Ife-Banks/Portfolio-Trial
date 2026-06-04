@@ -13,6 +13,16 @@ const Projects = [
   {
     id: 2,
     image: '',
+    alt: "Payforms project",
+    category: "FinTech / EdTech",
+    title: "Payforms – Precision Payments for Modern Education",
+    description: "The Architectural Ledger for schools and universities—create forms, automate reconciliations, and manage tuition with surgical precision. An institutional payment platform featuring a no-code form builder, Paystack integration, real-time analytics, and a full email verification workflow. Built to meet international banking and educational compliance standards.",
+    link: "https://www.payforms.com.ng/",
+    tags: ["React", "TypeScript", "Tailwind CSS", "NestJS", "PostgreSQL", "TypeORM", "Paystack", "Redis"]
+  },
+  {
+    id: 3,
+    image: '',
     alt: "Wyvadot PR project",
     category: "Business / Engineering",
     title: "Wyvadot PR – Reliable Project Delivery Built on Excellence",
@@ -21,7 +31,7 @@ const Projects = [
     tags: ["React.Js", "Node.js", "Express.Js", "MongoDB"]
   },
   {
-    id: 3,
+    id: 4,
     image: '',
     alt: "OpexCal project",
     category: "SaaS / Productivity",
@@ -31,7 +41,17 @@ const Projects = [
     tags: ["React.Js", "Node.js", "Express.Js", "MongoDB"]
   },
   {
-    id: 4,
+    id: 5,
+    image: '',
+    alt: "PTLPOS project",
+    category: "POS / Retail SaaS",
+    title: "PTLPOS – All-in-One POS for Modern Retailers",
+    description: "The all-in-one point of sale, inventory, and analytics platform built for modern retailers. Features lightning-fast touch-optimized checkout, real-time stock tracking across unlimited branches, powerful sales analytics, customer management with purchase history, and production tracking for recipes and raw materials. Multi-tenant SaaS backend with RBAC, inventory ledger, and Redis-backed caching.",
+    link: "https://ptlpos.vercel.app/",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "NestJS", "Prisma", "PostgreSQL", "Redis"]
+  },
+  {
+    id: 6,
     image: '',
     alt: "ATrackSys project",
     category: "HR / Operations",
@@ -41,7 +61,7 @@ const Projects = [
     tags: ["React.Js", "Supabase"]
   },
   {
-    id: 5,
+    id: 7,
     image: '',
     alt: "A-Mentra project",
     category: "EdTech / HR Operations",
@@ -51,7 +71,7 @@ const Projects = [
     tags: ["React", "TypeScript", "TailwindCSS", "Express.Js"]
   },
   {
-    id: 6,
+    id: 8,
     image: 'devalyze_avzost',
     alt: "Devalyze project",
     category: "Web Utility",
@@ -61,7 +81,7 @@ const Projects = [
     tags: ["React.Js", "Node.js", "MongoDB", "Express.Js"]
   },
   {
-    id: 7,
+    id: 9,
     image: 'finance_fmsqkj',
     alt: "Finance Daily",
     category: "Financial News & Market Insights",
@@ -71,7 +91,7 @@ const Projects = [
     tags: ["React.Js", "Node.js", "MongoDB", "Express.Js", "Nodemailer"]
   },
   {
-    id: 8,
+    id: 10,
     image: 'pdm_lsnlcv',
     alt: "PDM project",
     category: "EdTech",
@@ -81,7 +101,7 @@ const Projects = [
     tags: ["React.Js", "Javascript", "TailwindCSS"]
   },
   {
-    id: 9,
+    id: 11,
     image: 'img_nvfav7',
     alt: "adi stores",
     category: "Ecommerce",
@@ -91,7 +111,7 @@ const Projects = [
     tags: ["React.Js", "Docker", "Modern UI libaries", "Azure", "SSMS"]
   },
   {
-    id: 10,
+    id: 12,
     image: 'VexCar_itrutx',
     alt: "Vex Car project",
     category: "Transportation Tech",
@@ -101,7 +121,7 @@ const Projects = [
     tags: ["React.Js", "Tailwind"]
   },
   {
-    id: 11,
+    id: 13,
     image: 'crypto_e1lzxv',
     alt: "Crypto project",
     category: "Cryptocurrency Wallet",
@@ -111,7 +131,7 @@ const Projects = [
     tags: ["React.Js", "Tailwind"]
   },
   {
-    id: 12,
+    id: 14,
     image: 'cybergenz_uzcwyd',
     alt: "Cybergenz project",
     category: "Cybersecurity Education",
@@ -121,7 +141,7 @@ const Projects = [
     tags: ["React.Js", "Tailwind"]
   },
   {
-    id: 13,
+    id: 15,
     image: 'Trust_gljqm8',
     alt: "Trust project",
     category: "Digital Identity & Asset Management",
@@ -131,7 +151,7 @@ const Projects = [
     tags: ["React.Js", "Tailwind"]
   },
   {
-    id: 14,
+    id: 16,
     image: 'smartnotes_shzoal',
     alt: "smart-notes",
     category: "Productivity",
