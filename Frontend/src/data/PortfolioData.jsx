@@ -3,22 +3,37 @@ const Projects = [
     id: 1,
     image: 'aimher_hero',
     alt: "AIMHER project",
-    category: "Healthcare AI",
-    title: "AIMHER-Health",
-    description: "An AI-driven, clinical-grade diagnostic platform engineered for early detection of PCOS. A software-as-a-medical-device (SaMD) built to help real people with real health problems.",
+    category: "AI · Digital Health",
+    title: "AIMHER",
+    description: "An AI-powered health platform focused on supporting earlier PCOS detection. I work across the product experience, API, and machine-learning pipeline.",
     link: "https://awhares.vercel.app/",
     tags: ["Python", "ExpressJS", "XGBoost", "React", "PostgreSQL", "ONNX"],
-    featured: true
+    featured: true,
+    contribution: "AI product · Full-stack engineering"
   },
   {
     id: 2,
     image: '',
     alt: "Payforms project",
-    category: "FinTech / EdTech",
-    title: "Payforms – Precision Payments for Modern Education",
-    description: "The Architectural Ledger for schools and universities—create forms, automate reconciliations, and manage tuition with surgical precision. An institutional payment platform featuring a no-code form builder, Paystack integration, real-time analytics, and a full email verification workflow. Built to meet international banking and educational compliance standards.",
+    category: "Payments · Education",
+    title: "Payforms",
+    description: "A payment and form-management platform for schools. It brings form creation, Paystack collections, reconciliation, and payment analytics into one workflow.",
     link: "https://www.payforms.com.ng/",
-    tags: ["React", "TypeScript", "Tailwind CSS", "NestJS", "PostgreSQL", "TypeORM", "Paystack", "Redis"]
+    tags: ["React", "TypeScript", "NestJS", "PostgreSQL", "Paystack"],
+    featured: true,
+    contribution: "Product engineering · Payments"
+  },
+  {
+    id: 17,
+    image: '',
+    alt: "Tender Intelligence project preview",
+    category: "AI Systems · RegTech",
+    title: "Tender Intelligence",
+    description: "A tender-monitoring system in active development. It gathers opportunities and documents, then prepares structured AI-assisted assessments for people to review and act on.",
+    repoLink: "https://github.com/Ife-Banks/tender-intelligence",
+    tags: ["Python", "FastAPI", "SQLAlchemy", "Alembic", "AI", "Testing"],
+    featured: true,
+    contribution: "System design · AI workflow · Backend"
   },
   {
     id: 3,

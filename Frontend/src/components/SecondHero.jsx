@@ -7,12 +7,12 @@ function FuturisticSecondHero() {
     const [isDownloading, setIsDownloading] = useState(false);
     const { theme } = useContext(ThemeContext);
     const isDark = theme === 'dark';
-    const accentTextClass = isDark ? 'text-white font-semibold' : 'text-slate-900 font-semibold';
+    const accentTextClass = 'font-semibold text-[var(--editorial-accent)]';
     const paragraphTextClass = isDark
         ? 'space-y-4 text-white/70 text-base leading-relaxed'
         : 'space-y-4 text-slate-700 text-base leading-relaxed';
-    const downloadBtnClass = 'relative inline-flex items-center justify-center overflow-hidden rounded-full border border-[#7C3AED]/40 bg-[#7C3AED] px-6 py-2.5 text-sm font-mono text-white transition-all duration-200 group disabled:border-[#7C3AED]/20 disabled:text-white/70';
-    const helloBtnClass = 'bg-[#7C3AED] hover:bg-[#6c21d6] text-white px-6 py-2.5 rounded-full font-mono text-sm transition-all duration-200 shadow-[0_0_20px_rgba(124,58,237,0.3)]';
+    const downloadBtnClass = 'group relative inline-flex items-center justify-center overflow-hidden rounded-sm border border-[#7C3AED]/40 bg-[#7C3AED] px-6 py-2.5 text-sm font-mono text-white transition-all duration-300 disabled:border-[#7C3AED]/20 disabled:text-white/70';
+    const helloBtnClass = 'rounded-sm border border-[var(--editorial-rule)] bg-[var(--editorial-card)] px-6 py-2.5 font-mono text-sm text-[var(--editorial-ink)] transition-colors duration-300 hover:border-[var(--editorial-accent)] hover:text-[var(--editorial-accent)]';
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -23,11 +23,12 @@ function FuturisticSecondHero() {
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: 20, filter: 'blur(7px)' },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.6 },
+            filter: 'blur(0px)',
+            transition: { duration: 0.72, ease: [0.22, 1, 0.36, 1] },
         },
     };
 
@@ -89,7 +90,7 @@ function FuturisticSecondHero() {
     };
 
     return (
-        <section className="w-full max-w-7xl mx-auto px-6 md:px-16 py-24 bg-white text-slate-900 dark:bg-[#1a1c23] dark:text-white" id="about">
+        <section className="mx-auto w-full max-w-7xl bg-[var(--editorial-paper)] px-6 py-24 text-[var(--editorial-ink)] md:px-16" id="about">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                 
                 {/* Left Column - Text Content */}
@@ -122,16 +123,16 @@ function FuturisticSecondHero() {
                         variants={itemVariants}
                     >
                         <p>
-                            I'm Bankole Ifeoluwa, a Fullstack Developer and ML Engineer living at the intersection of clean architecture and intelligent systems.
+                            I'm Bankole Ifeoluwa, a Software Engineer and AI Systems Engineer working at the intersection of dependable software and intelligent systems.
                             Someone once showed me what code could truly do, and that was the beginning of my journey.
-                            Since then, I've built across the full stack—React, Node.js, PostgreSQL, Redis, TypeScript—and dug deep into machine learning with ONNX Runtime, XGBoost, and scikit-learn.
-                            I build that way on purpose.
+                            I build across the stack with React, Node.js, PostgreSQL, Redis, and TypeScript, and develop AI-powered products with Python, ONNX Runtime, XGBoost, and scikit-learn.
                         </p>
                         <p>
-                            My most meaningful work is{' '}
-                            <span className={accentTextClass}>AIMHER</span>, an AI-driven, clinical-grade diagnostic platform engineered for early detection of PCOS.
-                            Because the most powerful code isn't the cleverest—it's the kind that helps someone.
-                            Beyond that, I founded{' '}
+                            My current work includes{' '}
+                            <span className={accentTextClass}>AIMHER</span>, an AI-assisted platform focused on PCOS health, and{' '}
+                            <span className={accentTextClass}>Tender Intelligence</span>, a system for monitoring opportunities and helping teams assess them.
+                            I also build practical platforms such as{' '}
+                            <span className={accentTextClass}>Payforms</span>. Beyond product work, I founded{' '}
                             <span className={accentTextClass}>Devalyze</span>, lead developers at{' '}
                             <span className={accentTextClass}>KodeBlock</span>, mentor at{' '}
                             <span className={accentTextClass}>CyberGenz</span>, and keep shipping.
@@ -193,7 +194,7 @@ function FuturisticSecondHero() {
                 >
                     {/* Quick facts card */}
                     <motion.div 
-                        className="bg-white/90 border border-slate-200 rounded-xl p-6 dark:bg-[#0d1117] dark:border-white/10"
+                        className="rounded-sm border border-[var(--editorial-rule)] bg-[var(--editorial-card)] p-6"
                         variants={itemVariants}
                     >
                             <p className="font-mono text-xs text-slate-500 tracking-widest uppercase mb-4 dark:text-white/30">
@@ -202,8 +203,8 @@ function FuturisticSecondHero() {
                         <div className="space-y-3">
                             {[
                         { label: "Based in", value: "Lagos - Oyo, Nigeria 🇳🇬" },
-                                { label: "Currently", value: "Building AIMHER 🧬" },
-                                { label: "Focus", value: "Fullstack + ML Systems" },
+                                { label: "Currently", value: "AI and product systems" },
+                                { label: "Focus", value: "Software + AI systems" },
                                 { label: "Open to", value: "Fulltime & Freelance" },
                             ].map(({ label, value }) => (
                                 <div className="flex items-center justify-between" key={label}>

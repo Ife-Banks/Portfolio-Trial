@@ -64,6 +64,34 @@
   -moz-osx-font-smoothing: grayscale;
   --color-primary: #7C3AED;
   --color-secondary: #06B6D4;
+  --editorial-paper: #f4f1eb;
+  --editorial-card: #fbfaf7;
+  --editorial-ink: #171719;
+  --editorial-muted: #6d6a65;
+  --editorial-rule: rgba(23, 23, 25, 0.14);
+  --editorial-accent: #7651a8;
+  --editorial-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dark {
+  --editorial-paper: #17191e;
+  --editorial-card: #1d2027;
+  --editorial-ink: #f4f1eb;
+  --editorial-muted: #aaa7a1;
+  --editorial-rule: rgba(244, 241, 235, 0.15);
+  --editorial-accent: #b99be8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  filter: none !important;
+  }
 }
 @layer base {
 .marquee {

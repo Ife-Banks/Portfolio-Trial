@@ -1,204 +1,174 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useContext, useEffect, useState } from 'react';
 import Projects from '../data/PortfolioData';
-import { ThemeContext } from './context/ThemeContext';
-import { containerVariants, itemVariants } from './Animations/PortfolioAnimate';
+import ResponsiveImage from './responsiveImage';
 
-const Portfolio = () => {
-  const [showMore, setShowMore] = useState(false);
-  const { theme } = useContext(ThemeContext);
-  const isDark = theme === 'dark';
-  const featuredProject = Projects.find((project) => project.featured);
-  const remainingProjects = Projects.filter((project) => !project.featured);
-  const visibleProjects = showMore ? remainingProjects : remainingProjects.slice(0, 3);
-  const hiddenCount = Math.max(0, remainingProjects.length - 3);
-  const hasMoreProjects = remainingProjects.length > 3;
-
-  useEffect(() => {
-    console.log('Projects total:', Projects.length);
-    console.log('Remaining projects:', remainingProjects.length);
-  }, [remainingProjects.length]);
+function ProjectVisual({ project, index }) {
+  if (project.image) {
+    return (
+      <ResponsiveImage
+        publicId={project.image}
+        alt={project.alt}
+        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+      />
+    );
+  }
 
   return (
-      <motion.section
-        id="portfolio"
-        className={`py-10 px-6 md:px-16 max-w-7xl mx-auto min-h-screen relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-[#1a1c23] text-white' : 'bg-white text-slate-900'}`}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, margin: '-100px' }}
-        variants={containerVariants}
-      >
-      <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
-        <div className="w-[520px] h-[520px] rounded-full blur-3xl bg-[#7C3AED]/20" />
+    <div className={`relative flex h-full min-h-60 items-end overflow-hidden p-7 ${index === 1 ? 'bg-[#17232b]' : 'bg-[#21183b]'}`}>
+      <div className="absolute inset-0 opacity-70" aria-hidden="true">
+        <div className="absolute -right-12 -top-20 h-64 w-64 rounded-full border border-white/10" />
+        <div className="absolute -right-2 -top-10 h-44 w-44 rounded-full border border-white/10" />
+        <div className="absolute -right-2 bottom-5 h-24 w-24 rounded-full bg-purple-500/20 blur-2xl" />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/40 to-transparent" />
       </div>
-        <motion.div variants={itemVariants} className="text-center mb-12">
-          <p className="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3 text-center">
-            $ ls projects/
-          </p>
-          <h2 className={`font-clash font-semibold tracking-wide text-4xl md:text-5xl text-center mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-            Projects <span className="text-[#7C3AED]">Highlight</span>
-          </h2>
-          <p className={`text-sm text-center mb-16 ${isDark ? 'text-white/40' : 'text-slate-500'}`}>
-            A journey through innovation, collaboration, and impact-driven development
-          </p>
-      </motion.div>
-
-      {featuredProject && (
-        <motion.div
-          variants={itemVariants}
-          className="w-full bg-white/95 border border-[#7C3AED]/30 rounded-2xl overflow-hidden
-                     transition-all duration-300 group mb-6 grid grid-cols-1 md:grid-cols-2 dark:bg-[#0d1117] dark:border-[#7C3AED]/30"
-        >
-          <div className="relative p-8 flex flex-col justify-between bg-[#0f0f1a]">
-            <div className="absolute top-4 left-4 bg-[#0d1117]/80 backdrop-blur-sm border border-white/10 rounded-full px-2 py-0.5 font-mono text-xs text-white/40">
-              {featuredProject.title?.charAt(0).toUpperCase()}
-            </div>
-            <div>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="font-mono text-xs uppercase tracking-widest text-cyan-400">
-                  {featuredProject.category}
-                </span>
-                <span className="text-[10px] font-mono text-white/60 px-2 py-1 border border-white/10 rounded-full">
-                  Featured
-                </span>
-              </div>
-              <div className="text-9xl font-clash font-black text-white/10 leading-none select-none">
-                {featuredProject.title?.charAt(0)}
-              </div>
-            </div>
-            <div className="mt-6">
-              <p className="text-xs font-mono tracking-[0.4em] uppercase text-white/30">
-                01 — Featured Project
-              </p>
-            </div>
-          </div>
-
-          <div className="p-8 flex flex-col justify-between">
-            <div>
-              <h3 className="font-clash font-semibold text-2xl text-slate-900 mb-3 dark:text-white">
-                {featuredProject.title}
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed mb-6 dark:text-white/50">
-                {featuredProject.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {featuredProject.tags?.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[10px] font-mono text-[#7C3AED] bg-[#7C3AED]/10 border border-[#7C3AED]/30 rounded-full px-2 py-0.5"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <a
-                href={featuredProject.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#7C3AED] hover:bg-[#6c21d6] text-white px-6 py-2.5
-                           rounded-full font-mono text-xs transition-all duration-200
-                           shadow-[0_0_20px_rgba(124,58,237,0.3)]"
-              >
-                Case Study →
-              </a>
-              <a
-                href={featuredProject.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-[#7C3AED]/40 hover:border-[#7C3AED]
-                           text-white/60 hover:text-white px-6 py-2.5 rounded-full
-                           font-mono text-xs transition-all duration-200"
-              >
-                Live ↗
-              </a>
-            </div>
-          </div>
-        </motion.div>
-      )}
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {visibleProjects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
-            className="relative bg-white/95 border border-[#7C3AED]/20 rounded-2xl overflow-hidden
-                       hover:border-[#7C3AED]/50 hover:shadow-[0_0_30px_rgba(124,58,237,0.15)]
-                       transition-all duration-300 group dark:bg-[#0d1117] dark:border-[#7C3AED]/30"
-          >
-            <span className="absolute top-4 left-4 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-full px-2 py-0.5 font-mono text-xs text-slate-500 dark:bg-[#0d1117]/80 dark:border-white/10 dark:text-white/40">
-              {project.title?.charAt(0).toUpperCase()}
-            </span>
-            <div className="p-5 pt-10">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="font-clash font-semibold text-base text-slate-900 dark:text-white">
-                  {project.title}
-                </h3>
-                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-[0.3em] dark:text-white/40">
-                  {project.category}
-                </span>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed mb-3 dark:text-white/40">
-                {project.description.split(' ').slice(0, 30).join(' ')}...
-              </p>
-              <div className="flex flex-wrap gap-1.5 mb-4">
-                {project.tags?.slice(0, 3).map((tag) => (
-                  <span
-                    key={`${project.id}-${tag}`}
-                    className="text-[10px] font-mono text-[#7C3AED] bg-[#7C3AED]/10
-                               border border-[#7C3AED]/30 rounded-full px-2 py-0.5"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="px-5 pb-5 flex items-center gap-3">
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-mono text-slate-600 hover:text-slate-900 transition-colors duration-200 dark:text-white/50 dark:hover:text-white"
-                >
-                  Case Study →
-                </a>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-mono text-slate-500 hover:text-slate-900/80 transition-colors duration-200 dark:text-white/40 dark:hover:text-white/80"
-                >
-                  Live ↗
-                </a>
-            </div>
-          </motion.div>
-        ))}
+      <div className="relative z-10">
+        <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.25em] text-white/50">
+          {project.category}
+        </p>
+        <p className="font-clash text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          {project.title}
+        </p>
+        {project.title === 'Tender Intelligence' && (
+          <span className="mt-4 inline-flex rounded-full border border-amber-200/20 bg-amber-100/10 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-amber-100/80">
+            In active development
+          </span>
+        )}
       </div>
-
-      {hasMoreProjects && (
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          <button
-            type="button"
-            onClick={() => setShowMore((prev) => !prev)}
-            className="border border-[#7C3AED]/40 text-slate-900 hover:border-[#7C3AED] hover:text-white px-8 py-3
-                       rounded-full font-mono text-sm transition-all duration-200 mx-auto block dark:border-[#7C3AED]/40 dark:text-white hover:bg-[#7C3AED]/10 dark:hover:bg-[#7C3AED]/20"
-          >
-            {showMore
-              ? 'Show Less ←'
-              : 'More Projects →' + (hiddenCount > 0 ? ' (' + hiddenCount + ' more)' : '')}
-          </button>
-        </motion.div>
-      )}
-    </motion.section>
+    </div>
   );
-};
+}
+
+function Portfolio() {
+  const [showMore, setShowMore] = useState(false);
+  const featuredProjects = Projects.filter((project) => project.featured);
+  const otherProjects = Projects.filter((project) => !project.featured);
+  const visibleProjects = showMore ? otherProjects : otherProjects.slice(0, 3);
+
+  return (
+    <section
+      id="portfolio"
+      className="relative w-full overflow-hidden bg-[var(--editorial-paper)] px-6 py-28 text-[var(--editorial-ink)] transition-colors duration-500 md:px-12 lg:px-16"
+    >
+      <div className="pointer-events-none absolute -left-40 top-28 -z-0 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl" />
+      <div className="relative z-10 mx-auto max-w-7xl">
+        <motion.div
+          className="mb-12 max-w-2xl"
+          initial={{ opacity: 0, y: 18, filter: 'blur(7px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.22em] text-[var(--editorial-accent)]">
+            Selected work <span className="mx-2 text-[var(--editorial-muted)]">/</span> 01—03
+          </p>
+          <h2 className="mb-5 font-clash text-4xl font-semibold leading-[1.02] tracking-[-0.035em] text-[var(--editorial-ink)] md:text-6xl">
+            Systems built for <span className="text-[var(--editorial-accent)]">real-world work.</span>
+          </h2>
+          <p className="max-w-xl text-base leading-relaxed text-[var(--editorial-muted)] md:text-lg">
+            A selection of software and AI systems I’m building across health, finance, and operations.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 gap-7 lg:grid-cols-2">
+          {featuredProjects.map((project, index) => {
+            const projectUrl = project.link || project.repoLink;
+            const actionLabel = project.link ? 'View live site' : 'View repository';
+
+            return (
+              <motion.article
+                key={project.id}
+                className={`group flex h-full flex-col overflow-hidden border-y border-[var(--editorial-rule)] bg-[var(--editorial-card)] transition-[border-color,background-color,box-shadow,transform] duration-500 hover:border-[var(--editorial-accent)] hover:shadow-xl hover:shadow-black/5 ${index === 0 ? 'md:col-span-2 md:grid md:grid-cols-[1.08fr_.92fr]' : ''}`}
+                initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+                whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.75, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <div className={`relative overflow-hidden bg-[#12141b] ${index === 0 ? 'h-72 md:h-full md:min-h-[28rem]' : 'h-60'}`}>
+                  <ProjectVisual project={project} index={index} />
+                  <span className="absolute right-4 top-4 rounded-full border border-white/15 bg-black/35 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-white/80 backdrop-blur-sm">
+                    0{index + 1}
+                  </span>
+                </div>
+                <div className={`flex flex-1 flex-col p-6 md:p-8 ${index === 0 ? 'md:justify-center md:p-10 lg:p-12' : ''}`}>
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--editorial-accent)]">
+                      {project.category}
+                    </span>
+                    {project.title === 'Tender Intelligence' && (
+                      <span className="shrink-0 text-[10px] font-medium text-amber-700 dark:text-amber-300">Building</span>
+                    )}
+                  </div>
+                  <h3 className="mb-3 font-clash text-3xl font-semibold tracking-tight text-[var(--editorial-ink)] md:text-4xl">
+                    {project.title}
+                  </h3>
+                  <p className="mb-6 flex-1 text-sm leading-relaxed text-[var(--editorial-muted)] md:text-base">
+                    {project.description}
+                  </p>
+                  {project.contribution && (
+                    <p className="mb-6 border-l border-[var(--editorial-accent)] pl-3 text-xs text-[var(--editorial-muted)]">
+                      {project.contribution}
+                    </p>
+                  )}
+                  <div className="mb-6 flex flex-wrap gap-2">
+                    {project.tags?.slice(0, 5).map((tag) => (
+                      <span key={`${project.id}-${tag}`} className="rounded-full border border-[var(--editorial-rule)] px-2.5 py-1 font-mono text-[10px] text-[var(--editorial-muted)]">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <a
+                    href={projectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-fit items-center gap-2 border-b border-[var(--editorial-accent)] pb-1 text-sm font-semibold text-[var(--editorial-accent)] transition-[gap,color] duration-300 hover:gap-3"
+                  >
+                    {actionLabel} <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </motion.article>
+            );
+          })}
+        </div>
+
+        {otherProjects.length > 0 && (
+          <div className="mt-20 border-t border-[var(--editorial-rule)] pt-8">
+            <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--editorial-muted)]">More work</p>
+                <h3 className="font-clash text-3xl font-semibold text-[var(--editorial-ink)]">Other projects</h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowMore((current) => !current)}
+                aria-expanded={showMore}
+                className="rounded-full border border-[var(--editorial-rule)] px-5 py-2.5 text-sm font-medium text-[var(--editorial-ink)] transition-colors hover:border-[var(--editorial-accent)]"
+              >
+                {showMore ? 'Show fewer projects ↑' : `Browse ${otherProjects.length} more projects ↓`}
+              </button>
+            </div>
+            {visibleProjects.length > 0 && (
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {visibleProjects.map((project) => (
+                  <a
+                    key={project.id}
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-xl border border-[var(--editorial-rule)] bg-[var(--editorial-card)] p-5 transition-colors hover:border-[var(--editorial-accent)]"
+                  >
+                    <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-[var(--editorial-accent)]">{project.category}</p>
+                    <h4 className="mb-2 font-clash text-lg font-semibold text-[var(--editorial-ink)]">{project.title}</h4>
+                    <p className="text-xs leading-relaxed text-[var(--editorial-muted)]">{project.description.split(' ').slice(0, 22).join(' ')}…</p>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
 
 export default Portfolio;

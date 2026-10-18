@@ -8,8 +8,7 @@ import { ThemeContext } from './context/ThemeContext';
 const FuturisticContact = () => {
     const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
     const [result, setResult] = useState("");
-    const [isHovered, setIsHovered] = useState(false);
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm();
 
     const { theme } = useContext(ThemeContext);
     const isDark = theme === 'dark';
@@ -33,6 +32,11 @@ const FuturisticContact = () => {
     ];
 
     const onSubmit = async (data) => {
+        if (!accessKey) {
+            setResult("The contact form is not configured yet. Please email me directly.");
+            return;
+        }
+
         setResult("Sending...");
 
         try {
@@ -43,7 +47,7 @@ const FuturisticContact = () => {
                     Accept: "application/json",
                 },
                 body: JSON.stringify({
-                    access_key: accessKey || "YOUR_ACCESS_KEY_HERE",
+                    access_key: accessKey,
                     from_name: "IfeBanks' Portfolio",
                     ...data,
                 }),
@@ -51,7 +55,7 @@ const FuturisticContact = () => {
 
             const json = await response.json();
 
-            if (json.success) {
+            if (response.ok && json.success) {
                 setResult("Message sent successfully ✅");
                 reset();
                 setTimeout(() => setResult(""), 3000);
@@ -77,9 +81,10 @@ const FuturisticContact = () => {
 
             <motion.div
                 className="w-full max-w-6xl mx-auto relative"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                initial={{ opacity: 0, scale: 0.98, y: 18, filter: 'blur(8px)' }}
+                whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
                 <div className="absolute -inset-[1px] rounded-3xl opacity-20 blur-sm bg-[#7C3AED]/20" />
 
@@ -87,9 +92,10 @@ const FuturisticContact = () => {
                     <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 p-8 lg:p-12">
                         <motion.div
                             className="space-y-8"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.3 }}
+                            initial={{ opacity: 0, x: -20, filter: 'blur(7px)' }}
+                            whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.15, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                         >
                             <div className="flex items-center gap-3">
                                 <span className="relative flex h-3 w-3">
@@ -146,9 +152,10 @@ const FuturisticContact = () => {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
+                            initial={{ opacity: 0, y: 20, filter: 'blur(7px)' }}
+                            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.25, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                         >
                             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -203,20 +210,21 @@ const FuturisticContact = () => {
                                 </div>
                                 <motion.button
                                     type="submit"
+                                    disabled={isSubmitting}
                                     className="w-full relative overflow-hidden rounded-2xl group"
-                                    onHoverStart={() => setIsHovered(true)}
-                                    onHoverEnd={() => setIsHovered(false)}
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
                                     <div className="absolute inset-0 bg-[#7C3AED] transition-all duration-300" />
                                     <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-60 transition-all duration-300" />
                                     <span className="relative inline-flex justify-center items-center w-full py-4 text-sm font-semibold text-white">
-                                        {isHovered ? 'Sending...' : 'Send Message'}
+                                        {isSubmitting ? 'Sending...' : 'Send Message'}
                                     </span>
                                 </motion.button>
                                 {result && (
                                     <motion.p
+                                        role="status"
+                                        aria-live="polite"
                                         className="text-white font-medium text-sm"
                                         initial={{ opacity: 0, y: -5 }}
                                         animate={{ opacity: 1, y: 0 }}
