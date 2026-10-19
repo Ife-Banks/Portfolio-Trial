@@ -37,6 +37,16 @@ const Projects = [
     contribution: "System design · AI workflow · Backend"
   },
   {
+    id: 18,
+    image: '',
+    alt: "School CBT Platform project preview",
+    category: "Education · Offline-First Systems",
+    title: "School CBT Platform",
+    description: "An offline-first computer-based testing platform for schools, pairing cloud services with a local exam server so students can sit exams without internet. Exam data, rosters, and results sync when connectivity returns.",
+    repoLink: "https://github.com/Ife-Banks/CBT-Hybrid",
+    tags: ["TypeScript", "NestJS", "React", "PostgreSQL", "SQLite", "Drizzle ORM", "Turborepo"]
+  },
+  {
     id: 3,
     image: '',
     alt: "Wyvadot PR project",

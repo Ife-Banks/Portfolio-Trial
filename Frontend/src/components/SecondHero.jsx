@@ -37,13 +37,12 @@ function FuturisticSecondHero() {
         setIsDownloading(true);
 
         try {
-            // Option 1: If CV is in your public folder
-            const cvPath = '/Bankole_Ifeoluwa_CV.pdf'; // Place your CV in public folder
+            const cvPath = '/Bankole_Ifeoluwa_CV.pdf';
 
             // Create invisible anchor element
             const link = document.createElement('a');
             link.href = cvPath;
-            link.download = 'Bankole_Ifeoluwa_CV.pdf'; // Filename for download
+            link.download = 'Bankole_Ifeoluwa_CV.pdf';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -57,35 +56,6 @@ function FuturisticSecondHero() {
             console.error('Download failed:', error);
             setIsDownloading(false);
             alert('Failed to download CV. Please try again.');
-        }
-    };
-
-    // Alternative: Download from external URL (Google Drive, Dropbox, etc.)
-    const handleDownloadCVFromURL = async () => {
-        setIsDownloading(true);
-
-        try {
-            // Use the direct Google Drive download link (not the view link)
-            const cvURL = 'https://drive.google.com/uc?export=download&id=19BBAs-Cu0CoIqTdzNo7sZq9HKyQXxVe1';
-
-            // Create a temporary invisible <a> tag for download
-            const link = document.createElement('a');
-            link.href = cvURL;
-            link.setAttribute('download', 'Bankole_Ifeoluwa_CV.pdf'); // Suggested filename
-            document.body.appendChild(link);
-
-            // Trigger the click programmatically
-            link.click();
-
-            // Clean up
-            document.body.removeChild(link);
-
-        } catch (error) {
-            console.error('Download failed:', error);
-            alert('Failed to download CV. Please try again.');
-        } finally {
-            // Reset loading state after a brief delay for smoother UI feedback
-            setTimeout(() => setIsDownloading(false), 800);
         }
     };
 
@@ -146,7 +116,7 @@ function FuturisticSecondHero() {
                         variants={itemVariants}
                     >
                         <button 
-                            onClick={handleDownloadCVFromURL}
+                            onClick={handleDownloadCV}
                             disabled={isDownloading}
                             className={downloadBtnClass}
                         >

@@ -42,7 +42,19 @@ function ProjectVisual({ project, index }) {
 function Portfolio() {
   const [showMore, setShowMore] = useState(false);
   const featuredProjects = Projects.filter((project) => project.featured);
-  const otherProjects = Projects.filter((project) => !project.featured);
+  const otherProjectPriority = [18, 4, 6, 7];
+  const otherProjects = Projects
+    .filter((project) => !project.featured)
+    .sort((a, b) => {
+      const rank = (project) => {
+        const priorityIndex = otherProjectPriority.indexOf(project.id);
+        return priorityIndex === -1
+          ? otherProjectPriority.length + Projects.indexOf(project) / Projects.length
+          : priorityIndex;
+      };
+
+      return rank(a) - rank(b);
+    });
   const visibleProjects = showMore ? otherProjects : otherProjects.slice(0, 3);
 
   return (
@@ -168,7 +180,7 @@ function Portfolio() {
                 {visibleProjects.map((project) => (
                   <a
                     key={project.id}
-                    href={project.link}
+                    href={project.link || project.repoLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-xl border border-[var(--editorial-rule)] bg-[var(--editorial-card)] p-5 transition-colors hover:border-[var(--editorial-accent)]"
