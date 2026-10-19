@@ -1,15 +1,16 @@
 const Projects = [
   {
     id: 1,
-    image: 'aimher_hero',
-    alt: "AIMHER project",
+    image: '/aimher-health.png',
+    alt: "AIMHER Health project preview",
     category: "AI · Digital Health",
-    title: "AIMHER",
-    description: "An AI-powered health platform focused on supporting earlier PCOS detection. I work across the product experience, API, and machine-learning pipeline.",
+    title: "AIMHER Health",
+    description: "An AI-powered women's health platform supporting PCOS detection, presented at the NextGen Innovation Challenge 2026 in London, UK.",
     link: "https://awhares.vercel.app/",
-    tags: ["Python", "ExpressJS", "XGBoost", "React", "PostgreSQL", "ONNX"],
+    tags: ["Python", "XGBoost", "ONNX Runtime", "React", "Express.js"],
     featured: true,
-    contribution: "AI product · Full-stack engineering"
+    roles: ["Assistant AI Researcher", "Lead Developer", "Machine Learning Engineer"],
+    team: ["Opakunle Kingsley", "Shefiq Owade"]
   },
   {
     id: 2,

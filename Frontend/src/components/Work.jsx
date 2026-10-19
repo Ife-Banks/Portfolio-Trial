@@ -4,6 +4,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Headings from "../Resuables/Headings.jsx";
 import ResponsiveImage from "./responsiveImage.jsx"
 const experienceData = [
+  {
+    id: 1,
+    role: "AI Engineer",
+    image: 'opex_consulting_ng_logo_jmurms',
+    company: "Opex Consulting",
+    location: "Lagos State, Nigeria",
+    period: "Aug 2026 - Present",
+    type: "Internship",
+    description: [
+      "Contributing to AI engineering initiatives and intelligent software at Opex Consulting."
+    ],
+    techStack: ["AI Engineering", "Machine Learning"],
+    color: "#7C3AED"
+  },
 
   {
     id: 3,
@@ -55,7 +69,7 @@ const experienceData = [
     image:"a241b3e95ac0b980fddc08671e7c8631c49ac9b6_1_xzjdz8",
     company: "Phoenix Technologies",
     location: "Ibadan, Oyo State, Nigeria",
-    period: "Nov 2024 - Present",
+    period: "Nov 2024 - Nov 2025",
     type: "Contract",
     description: [
       "Developed responsive and accessible web interfaces for educational platforms focused on data science and machine learning tutorials."
@@ -106,7 +120,7 @@ const WorkExperience = () => {
   };
 
   return (
-    <div className="min-h-screen bg-transparent transition-colors duration-300 pt-25 py-20 px-4 lg:px-8"
+    <div className="bg-transparent px-4 py-16 transition-colors duration-300 sm:py-18 lg:px-8 lg:py-20"
     id={`work`}>
       <motion.div
         className="max-w-7xl mx-auto"

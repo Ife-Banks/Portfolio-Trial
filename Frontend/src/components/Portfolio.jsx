@@ -48,7 +48,7 @@ function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="relative w-full overflow-hidden bg-[var(--editorial-paper)] px-6 py-28 text-[var(--editorial-ink)] transition-colors duration-500 md:px-12 lg:px-16"
+      className="relative w-full overflow-hidden bg-[var(--editorial-paper)] px-6 py-16 text-[var(--editorial-ink)] transition-colors duration-500 sm:py-18 md:px-12 md:py-20 lg:px-16"
     >
       <div className="pointer-events-none absolute -left-40 top-28 -z-0 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl" />
       <div className="relative z-10 mx-auto max-w-7xl">
@@ -110,6 +110,22 @@ function Portfolio() {
                       {project.contribution}
                     </p>
                   )}
+                  {(project.roles || project.team) && (
+                    <div className="mb-6 space-y-3 text-xs leading-relaxed text-[var(--editorial-muted)]">
+                      {project.roles && (
+                        <p>
+                          <span className="font-semibold text-[var(--editorial-ink)]">My roles: </span>
+                          {project.roles.join(' · ')}
+                        </p>
+                      )}
+                      {project.team && (
+                        <p>
+                          <span className="font-semibold text-[var(--editorial-ink)]">Team: </span>
+                          {project.team.join(' · ')}
+                        </p>
+                      )}
+                    </div>
+                  )}
                   <div className="mb-6 flex flex-wrap gap-2">
                     {project.tags?.slice(0, 5).map((tag) => (
                       <span key={`${project.id}-${tag}`} className="rounded-full border border-[var(--editorial-rule)] px-2.5 py-1 font-mono text-[10px] text-[var(--editorial-muted)]">
@@ -132,7 +148,7 @@ function Portfolio() {
         </div>
 
         {otherProjects.length > 0 && (
-          <div className="mt-20 border-t border-[var(--editorial-rule)] pt-8">
+          <div className="mt-14 border-t border-[var(--editorial-rule)] pt-8 sm:mt-16">
             <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--editorial-muted)]">More work</p>

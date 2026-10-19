@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import SecondHero from './SecondHero';
 import { ThemeContext } from './context/ThemeContext';
 import { motion } from 'framer-motion';
+import TechOrbit from './TechOrbit';
 
 // ==========================================
 // VARIANT 3 (ACTIVE)
@@ -18,12 +19,14 @@ const Hero = () => {
     <>
       <div className="relative flex min-h-[82svh] flex-col justify-center overflow-hidden bg-[var(--editorial-paper)] px-6 py-24 text-[var(--editorial-ink)] md:px-16" id="hero">
         <motion.div
-          className="mx-auto w-full max-w-6xl"
+          className="mx-auto w-full max-w-7xl"
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         >
 
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_.95fr] lg:gap-6 xl:gap-12">
+          <div>
           <p className="mb-7 font-mono text-xs uppercase tracking-[0.22em] text-[var(--editorial-muted)]">
             Independent engineer <span className="mx-2 text-[var(--editorial-accent)]">/</span> Lagos, Nigeria
           </p>
@@ -50,7 +53,7 @@ const Hero = () => {
             I design and build reliable software and AI systems for health, finance, and operations.
           </p>
 
-          <div className="mb-16 flex flex-wrap items-center justify-start gap-4">
+          <div className="mb-10 flex flex-wrap items-center justify-start gap-4 sm:mb-12">
             <a
               href="https://wa.link/msu7w0"
               target="_blank"
@@ -87,7 +90,11 @@ const Hero = () => {
               </p>
             </div>
           </div>
-
+          </div>
+          <div className="mx-auto w-full max-w-[18rem] sm:max-w-[22rem] lg:max-w-[27rem]">
+            <TechOrbit />
+          </div>
+          </div>
         </motion.div>
       </div>
 

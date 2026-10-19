@@ -90,7 +90,7 @@ function FuturisticSecondHero() {
     };
 
     return (
-        <section className="mx-auto w-full max-w-7xl bg-[var(--editorial-paper)] px-6 py-24 text-[var(--editorial-ink)] md:px-16" id="about">
+        <section className="mx-auto w-full max-w-7xl bg-slate-50 px-6 py-16 text-slate-900 transition-colors duration-300 dark:bg-[#1f2128] dark:text-white sm:py-18 md:px-16 md:py-20" id="about">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                 
                 {/* Left Column - Text Content */}
@@ -133,9 +133,9 @@ function FuturisticSecondHero() {
                             <span className={accentTextClass}>Tender Intelligence</span>, a system for monitoring opportunities and helping teams assess them.
                             I also build practical platforms such as{' '}
                             <span className={accentTextClass}>Payforms</span>. Beyond product work, I founded{' '}
-                            <span className={accentTextClass}>Devalyze</span>, lead developers at{' '}
-                            <span className={accentTextClass}>KodeBlock</span>, mentor at{' '}
-                            <span className={accentTextClass}>CyberGenz</span>, and keep shipping.
+                            <span className={accentTextClass}>Devalyze</span>, serve as Technical Lead at{' '}
+                            <span className={accentTextClass}>GDG-Tech-U</span>, and lead mentorship and training at{' '}
+                            <span className={accentTextClass}>Cyber Cathedral</span>. I keep shipping.
                             If there's a real problem on the table, I'm already thinking about the solution.
                         </p>
                     </motion.div>
