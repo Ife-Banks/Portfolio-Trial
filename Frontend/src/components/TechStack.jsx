@@ -29,7 +29,7 @@ const iconUrl = (slug, color) =>
 
 function TechStack() {
   return (
-    <section className="w-full px-4 sm:px-8 py-16 bg-white text-slate-900 relative dark:bg-[#1a1c23] dark:text-white">
+    <section className="relative w-full bg-white px-4 py-12 text-slate-900 dark:bg-[#1a1c23] dark:text-white sm:px-8 sm:py-14">
       <div className="text-center mb-8">
          <Headings
                       text=" Technical "

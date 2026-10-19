@@ -1,24 +1,50 @@
 const Projects = [
   {
     id: 1,
-    image: 'aimher_hero',
-    alt: "AIMHER project",
-    category: "Healthcare AI",
-    title: "AIMHER-Health",
-    description: "An AI-driven, clinical-grade diagnostic platform engineered for early detection of PCOS. A software-as-a-medical-device (SaMD) built to help real people with real health problems.",
+    image: '/aimher-health.png',
+    alt: "AIMHER Health project preview",
+    category: "AI · Digital Health",
+    title: "AIMHER Health",
+    description: "An AI-powered women's health platform supporting PCOS detection, presented at the NextGen Innovation Challenge 2026 in London, UK.",
     link: "https://awhares.vercel.app/",
-    tags: ["Python", "ExpressJS", "XGBoost", "React", "PostgreSQL", "ONNX"],
-    featured: true
+    tags: ["Python", "XGBoost", "ONNX Runtime", "React", "Express.js"],
+    featured: true,
+    roles: ["Assistant AI Researcher", "Lead Developer", "Machine Learning Engineer"],
+    team: ["Opakunle Kingsley", "Shefiq Owade"]
   },
   {
     id: 2,
     image: '',
     alt: "Payforms project",
-    category: "FinTech / EdTech",
-    title: "Payforms – Precision Payments for Modern Education",
-    description: "The Architectural Ledger for schools and universities—create forms, automate reconciliations, and manage tuition with surgical precision. An institutional payment platform featuring a no-code form builder, Paystack integration, real-time analytics, and a full email verification workflow. Built to meet international banking and educational compliance standards.",
+    category: "Payments · Education",
+    title: "Payforms",
+    description: "A payment and form-management platform for schools. It brings form creation, Paystack collections, reconciliation, and payment analytics into one workflow.",
     link: "https://www.payforms.com.ng/",
-    tags: ["React", "TypeScript", "Tailwind CSS", "NestJS", "PostgreSQL", "TypeORM", "Paystack", "Redis"]
+    tags: ["React", "TypeScript", "NestJS", "PostgreSQL", "Paystack"],
+    featured: true,
+    contribution: "Product engineering · Payments"
+  },
+  {
+    id: 17,
+    image: '',
+    alt: "Tender Intelligence project preview",
+    category: "AI Systems · RegTech",
+    title: "Tender Intelligence",
+    description: "A tender-monitoring system in active development. It gathers opportunities and documents, then prepares structured AI-assisted assessments for people to review and act on.",
+    repoLink: "https://github.com/Ife-Banks/tender-intelligence",
+    tags: ["Python", "FastAPI", "SQLAlchemy", "Alembic", "AI", "Testing"],
+    featured: true,
+    contribution: "System design · AI workflow · Backend"
+  },
+  {
+    id: 18,
+    image: '',
+    alt: "School CBT Platform project preview",
+    category: "Education · Offline-First Systems",
+    title: "School CBT Platform",
+    description: "An offline-first computer-based testing platform for schools, pairing cloud services with a local exam server so students can sit exams without internet. Exam data, rosters, and results sync when connectivity returns.",
+    repoLink: "https://github.com/Ife-Banks/CBT-Hybrid",
+    tags: ["TypeScript", "NestJS", "React", "PostgreSQL", "SQLite", "Drizzle ORM", "Turborepo"]
   },
   {
     id: 3,

@@ -3,30 +3,17 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
   // Animation variants
-  const navBarVariants = {
-    hidden: { y: -100, opacity: 0 },
-    visible: { 
-      y: 0, 
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 99,
-        damping: 10,
-        mass: 0.5
-      }
-    }
-  };
-
   return (
     <motion.footer
-      initial="hidden"
-      animate="visible"
-      variants={navBarVariants}
-      className="flex w-full flex-col lg:flex-row items-center relative justify-evenly py-4 px-4 lg:px-40 bg-slate-100 dark:bg-[#1f2128] gap-3 transition-colors duration-300"
+      initial={{ y: 18, opacity: 0, filter: 'blur(7px)' }}
+      whileInView={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
+      className="flex w-full flex-col items-center justify-center gap-3 border-t border-[var(--editorial-rule)] bg-[var(--editorial-paper)] px-6 py-8 text-[var(--editorial-ink)] transition-colors duration-500"
     >
       {/* Copyright - Enhanced for mobile */}
       <motion.div
-        className="flex gap-1 items-center p-2 text-slate-600 dark:text-[#ccc] tracking-wide text-lg font-light"
+        className="flex items-center gap-1 p-2 text-sm font-light tracking-wide text-[var(--editorial-muted)]"
         transition={{ delay: 0.4 }}
       >
         <span className='font-poppins italic'>Copyright © {new Date().getFullYear()}</span><span className='font-IBM italic'>Ife-Banks.</span>

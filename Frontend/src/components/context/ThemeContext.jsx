@@ -3,18 +3,12 @@ import { createContext, useState, useEffect } from 'react';
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState('dark');
-
-    useEffect(() => {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            setTheme(savedTheme);
-        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-            setTheme('light');
-        } else {
-            setTheme('dark');
-        }
-    }, []);
+    const [theme, setTheme] = useState(() => {
+        // Version the preference so the previously stored dark default does
+        // not override the new light default on returning visits.
+        const savedTheme = localStorage.getItem('ifebanks-theme-v2');
+        return savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'light';
+    });
 
     useEffect(() => {
         if (theme === 'dark') {
@@ -22,7 +16,7 @@ export const ThemeProvider = ({ children }) => {
         } else {
             document.documentElement.classList.remove('dark');
         }
-        localStorage.setItem('theme', theme);
+        localStorage.setItem('ifebanks-theme-v2', theme);
     }, [theme]);
 
     const toggleTheme = () => {

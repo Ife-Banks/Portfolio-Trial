@@ -5,6 +5,10 @@ import { autoGood } from '@cloudinary/url-gen/qualifiers/quality';
 import { auto as autoFormat } from '@cloudinary/url-gen/qualifiers/format';
 
 function ResponsiveImage({ publicId, alt, className }) {
+    if (publicId.startsWith('/') || publicId.startsWith('http')) {
+        return <img src={publicId} alt={alt} className={className} loading="lazy" />;
+    }
+
     // Generate URLs for different sizes
     const generateUrl = (width) => {
         const image = cld.image(publicId);

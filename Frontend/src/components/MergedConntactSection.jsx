@@ -1,18 +1,14 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import Socials from '../data/Socials';
-import { ThemeContext } from './context/ThemeContext';
 
 const FuturisticContact = () => {
     const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
     const [result, setResult] = useState("");
-    const [isHovered, setIsHovered] = useState(false);
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm();
 
-    const { theme } = useContext(ThemeContext);
-    const isDark = theme === 'dark';
     const contactSocialKeys = ['github', 'linkedIn', 'XIcon', 'instagram'];
     const socialLabelMap = {
         github: 'GitHub',
@@ -33,6 +29,11 @@ const FuturisticContact = () => {
     ];
 
     const onSubmit = async (data) => {
+        if (!accessKey) {
+            setResult("The contact form is not configured yet. Please email me directly.");
+            return;
+        }
+
         setResult("Sending...");
 
         try {
@@ -43,7 +44,7 @@ const FuturisticContact = () => {
                     Accept: "application/json",
                 },
                 body: JSON.stringify({
-                    access_key: accessKey || "YOUR_ACCESS_KEY_HERE",
+                    access_key: accessKey,
                     from_name: "IfeBanks' Portfolio",
                     ...data,
                 }),
@@ -51,7 +52,7 @@ const FuturisticContact = () => {
 
             const json = await response.json();
 
-            if (json.success) {
+            if (response.ok && json.success) {
                 setResult("Message sent successfully ✅");
                 reset();
                 setTimeout(() => setResult(""), 3000);
@@ -68,62 +69,61 @@ const FuturisticContact = () => {
     return (
         <section
             id="contact"
-            className="relative bg-white text-slate-900 py-24 px-6 overflow-hidden dark:bg-[#1a1c23] dark:text-white"
+            className="relative isolate overflow-hidden bg-[var(--editorial-paper)] px-4 py-16 text-[var(--editorial-ink)] transition-colors duration-500 sm:px-6 sm:py-20 lg:px-8"
         >
             <div className="pointer-events-none absolute inset-0">
-            <div className="absolute inset-0 bg-[#7C3AED]/20 opacity-40" />
-            <div className="absolute inset-0 bg-black/80" />
+                <div className="absolute -left-40 top-12 h-96 w-96 rounded-full bg-violet-500/10 blur-3xl" />
+                <div className="absolute -bottom-48 -right-24 h-[28rem] w-[28rem] rounded-full bg-cyan-500/5 blur-3xl" />
             </div>
 
             <motion.div
-                className="w-full max-w-6xl mx-auto relative"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative mx-auto w-full max-w-7xl"
+                initial={{ opacity: 0, scale: 0.98, y: 18, filter: 'blur(8px)' }}
+                whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-                <div className="absolute -inset-[1px] rounded-3xl opacity-20 blur-sm bg-[#7C3AED]/20" />
-
-                <div className={`relative ${isDark ? 'bg-[#0d1117]/95 border border-white/10' : 'bg-white/95 border border-slate-200'} rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.65)] overflow-hidden`}>
-                    <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 p-8 lg:p-12">
+                <div className="relative overflow-hidden rounded-3xl border border-[var(--editorial-rule)] bg-[var(--editorial-card)] shadow-[0_24px_80px_rgba(0,0,0,0.12)] transition-colors duration-500 dark:shadow-[0_24px_80px_rgba(0,0,0,0.28)]">
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--editorial-accent)]/70 to-transparent" />
+                    <div className="relative grid grid-cols-1 gap-10 p-5 sm:p-8 lg:grid-cols-2 lg:gap-16 lg:p-12 xl:p-16">
                         <motion.div
-                            className="space-y-8"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.3 }}
+                            className="flex flex-col gap-7 sm:gap-8"
+                            initial={{ opacity: 0, x: -20, filter: 'blur(7px)' }}
+                            whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.15, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                         >
                             <div className="flex items-center gap-3">
                                 <span className="relative flex h-3 w-3">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                                     <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500" />
                                 </span>
-                                <span className="text-xs font-mono uppercase tracking-[0.6em] text-emerald-300">
+                                <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-emerald-600 dark:text-emerald-300 sm:text-xs sm:tracking-[0.45em]">
                                     Available for Work
                                 </span>
                             </div>
-                            <div className="space-y-1">
-                                <p className="text-5xl lg:text-6xl font-clash font-bold text-white leading-tight">
-                                    Let's Build
-                                </p>
-                                <p className="text-5xl lg:text-6xl font-clash font-bold text-white leading-tight">
-                                    <span className="text-[#7C3AED]">Something Great</span>
-                                </p>
+                            <div>
+                                <p className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--editorial-muted)]">Have a project in mind?</p>
+                                <h2 className="mt-4 max-w-xl font-clash text-5xl font-semibold leading-[0.98] tracking-[-0.04em] text-[var(--editorial-ink)] sm:text-6xl lg:text-6xl xl:text-7xl">
+                                    Let&apos;s build <span className="text-[var(--editorial-accent)]">something great.</span>
+                                </h2>
                             </div>
-                            <p className="text-sm text-white/70 leading-relaxed">
+                            <p className="max-w-xl text-base leading-relaxed text-[var(--editorial-muted)] sm:text-lg">
                                 Whether it&apos;s a product launch, platform modernization, or custom workflow,
                                 I help teams ship thoughtful experiences that people remember.
                             </p>
-                            <div className="space-y-4">
+                            <div className="grid gap-3 sm:grid-cols-2">
                                 {contactDetails.map(({ label, value }) => (
-                                    <div key={label} className={`rounded-2xl p-4 ${isDark ? 'bg-[#0d1117] border border-white/10' : 'bg-white/90 border border-slate-200'}`}>
-                                        <p className={`text-xs font-mono uppercase tracking-widest mb-1 ${isDark ? 'text-white/40' : 'text-slate-500'}`}>
+                                    <a key={label} href={label === 'Email' ? `mailto:${value}` : `tel:${value.replaceAll(' ', '')}`} className="group min-w-0 rounded-2xl border border-[var(--editorial-rule)] bg-[var(--editorial-paper)] p-4 transition-colors duration-300 hover:border-[var(--editorial-accent)]">
+                                        <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--editorial-muted)]">
                                             {label}
                                         </p>
-                                        <p className={`${isDark ? 'text-white' : 'text-slate-900'} font-semibold`}>{value}</p>
-                                    </div>
+                                        <p className="break-words font-medium text-[var(--editorial-ink)] transition-colors group-hover:text-[var(--editorial-accent)] sm:text-xs xl:text-sm">{value}</p>
+                                    </a>
                                 ))}
                             </div>
                             <div className="space-y-3">
-                                <p className={`text-xs font-mono uppercase tracking-widest ${isDark ? 'text-white/40' : 'text-slate-500'}`}>
+                                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--editorial-muted)]">
                                     Connect
                                 </p>
                                 <div className="flex flex-wrap gap-3">
@@ -133,7 +133,7 @@ const FuturisticContact = () => {
                                             href={social.link}
                                             target="_blank"
                                             rel="noreferrer"
-                                            className={`flex items-center gap-2 text-xs font-mono rounded-full px-4 py-2 transition-colors duration-200 ${isDark ? 'bg-[#0d1117] border border-white/10 text-white hover:border-purple-500/50' : 'bg-white/80 border border-slate-200 text-slate-700 hover:border-purple-500/50 hover:text-slate-900'}`}
+                                            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[var(--editorial-rule)] bg-[var(--editorial-paper)] px-4 py-2 font-mono text-xs text-[var(--editorial-ink)] transition-colors duration-200 hover:border-[var(--editorial-accent)] hover:text-[var(--editorial-accent)]"
                                         >
                                             <span className="w-4 h-4 flex items-center justify-center">
                                                 {social.img}
@@ -146,84 +146,93 @@ const FuturisticContact = () => {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
+                            initial={{ opacity: 0, y: 20, filter: 'blur(7px)' }}
+                            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.25, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <form onSubmit={handleSubmit(onSubmit)} className="rounded-2xl border border-[var(--editorial-rule)] bg-[var(--editorial-paper)]/70 p-4 sm:p-6 lg:p-7">
+                                <div className="mb-6 flex items-center justify-between gap-4 border-b border-[var(--editorial-rule)] pb-4">
                                     <div>
-                                        <label className="text-xs font-mono text-white/40 uppercase tracking-widest mb-2 block">
+                                        <p className="font-clash text-xl font-semibold text-[var(--editorial-ink)]">Send a message</p>
+                                        <p className="mt-1 text-xs text-[var(--editorial-muted)]">I usually reply within 1–2 days.</p>
+                                    </div>
+                                    <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--editorial-muted)]">01 / 04</span>
+                                </div>
+                                <div className="space-y-5">
+                                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                                    <div>
+                                        <label className="mb-2 block font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--editorial-muted)]">
                                             Name*
                                         </label>
                                         <input
                                             type="text"
                                             {...register("name", { required: true })}
-                                            className="w-full bg-white/90 border border-slate-200 rounded-2xl px-4 py-3 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 transition-all duration-300 dark:bg-[#0d1117] dark:border-white/10 dark:text-white dark:placeholder-white/30"
+                                            className="w-full rounded-xl border border-[var(--editorial-rule)] bg-[var(--editorial-card)] px-4 py-3 text-[var(--editorial-ink)] outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-[var(--editorial-muted)]/70 focus:border-[var(--editorial-accent)] focus:ring-2 focus:ring-[var(--editorial-accent)]/20"
                                             placeholder="John Doe"
                                         />
-                                        {errors.name && <p className="text-red-400 text-xs mt-1">Name is required</p>}
+                                        {errors.name && <p className="mt-1 text-xs text-rose-600 dark:text-rose-400">Name is required</p>}
                                     </div>
                                     <div>
-                                        <label className="text-xs font-mono text-white/40 uppercase tracking-widest mb-2 block">
+                                        <label className="mb-2 block font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--editorial-muted)]">
                                             Email*
                                         </label>
                                         <input
                                             type="email"
                                             {...register("email", { required: true })}
-                                            className="w-full bg-white/90 border border-slate-200 rounded-2xl px-4 py-3 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 transition-all duration-300 dark:bg-[#0d1117] dark:border-white/10 dark:text-white dark:placeholder-white/30"
+                                            className="w-full rounded-xl border border-[var(--editorial-rule)] bg-[var(--editorial-card)] px-4 py-3 text-[var(--editorial-ink)] outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-[var(--editorial-muted)]/70 focus:border-[var(--editorial-accent)] focus:ring-2 focus:ring-[var(--editorial-accent)]/20"
                                             placeholder="john@example.com"
                                         />
-                                        {errors.email && <p className="text-red-400 text-xs mt-1">Email is required</p>}
+                                        {errors.email && <p className="mt-1 text-xs text-rose-600 dark:text-rose-400">Email is required</p>}
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="text-xs font-mono text-white/40 uppercase tracking-widest mb-2 block">
+                                    <label className="mb-2 block font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--editorial-muted)]">
                                         Subject*
                                     </label>
                                     <input
                                         type="text"
                                         {...register("subject", { required: true })}
-                                            className="w-full bg-white/90 border border-slate-200 rounded-2xl px-4 py-3 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 transition-all duration-300 dark:bg-[#0d1117] dark:border-white/10 dark:text-white dark:placeholder-white/30"
+                                        className="w-full rounded-xl border border-[var(--editorial-rule)] bg-[var(--editorial-card)] px-4 py-3 text-[var(--editorial-ink)] outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-[var(--editorial-muted)]/70 focus:border-[var(--editorial-accent)] focus:ring-2 focus:ring-[var(--editorial-accent)]/20"
                                         placeholder="Project Inquiry"
                                     />
-                                    {errors.subject && <p className="text-red-400 text-xs mt-1">Subject is required</p>}
+                                    {errors.subject && <p className="mt-1 text-xs text-rose-600 dark:text-rose-400">Subject is required</p>}
                                 </div>
                                 <div>
-                                    <label className="text-xs font-mono text-white/40 uppercase tracking-widest mb-2 block">
+                                    <label className="mb-2 block font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--editorial-muted)]">
                                         Message*
                                     </label>
                                     <textarea
                                         rows={5}
                                         {...register("message", { required: true })}
-                                            className="w-full bg-white/90 border border-slate-200 rounded-2xl px-4 py-3 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 transition-all duration-300 resize-none dark:bg-[#0d1117] dark:border-white/10 dark:text-white dark:placeholder-white/30"
+                                        className="w-full resize-y rounded-xl border border-[var(--editorial-rule)] bg-[var(--editorial-card)] px-4 py-3 text-[var(--editorial-ink)] outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-[var(--editorial-muted)]/70 focus:border-[var(--editorial-accent)] focus:ring-2 focus:ring-[var(--editorial-accent)]/20"
                                         placeholder="Tell me about your project..."
                                     />
-                                    {errors.message && <p className="text-red-400 text-xs mt-1">Message is required</p>}
+                                    {errors.message && <p className="mt-1 text-xs text-rose-600 dark:text-rose-400">Message is required</p>}
                                 </div>
                                 <motion.button
                                     type="submit"
-                                    className="w-full relative overflow-hidden rounded-2xl group"
-                                    onHoverStart={() => setIsHovered(true)}
-                                    onHoverEnd={() => setIsHovered(false)}
+                                    disabled={isSubmitting}
+                                    className="group relative w-full overflow-hidden rounded-xl border border-violet-500/30 bg-[#7C3AED] shadow-lg shadow-violet-950/15 transition-colors hover:bg-[#6c21d6] disabled:cursor-not-allowed disabled:opacity-60"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
-                                    <div className="absolute inset-0 bg-[#7C3AED] transition-all duration-300" />
-                                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-60 transition-all duration-300" />
-                                    <span className="relative inline-flex justify-center items-center w-full py-4 text-sm font-semibold text-white">
-                                        {isHovered ? 'Sending...' : 'Send Message'}
+                                    <span className="inline-flex min-h-12 w-full items-center justify-center gap-2 py-3 text-sm font-semibold text-white">
+                                        {isSubmitting ? 'Sending…' : 'Send message'} <span aria-hidden="true">↗</span>
                                     </span>
                                 </motion.button>
                                 {result && (
                                     <motion.p
-                                        className="text-white font-medium text-sm"
+                                        role="status"
+                                        aria-live="polite"
+                                        className="text-sm font-medium text-[var(--editorial-muted)]"
                                         initial={{ opacity: 0, y: -5 }}
                                         animate={{ opacity: 1, y: 0 }}
                                     >
                                         {result}
                                     </motion.p>
                                 )}
+                                </div>
                             </form>
                         </motion.div>
                     </div>

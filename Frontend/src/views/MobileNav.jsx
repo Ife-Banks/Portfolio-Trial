@@ -1,11 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { motion, AnimatePresence } from 'framer-motion';
-import { menuVariants, itemVariants2 } from '../components/Animations/Animate';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import LangContext from '../components/context/LangContext';
 
 function MobileNav() {
     const { isMenuOpen, setIsMenuOpen } = useContext(LangContext);
+    const reduceMotion = useReducedMotion();
+
+    useEffect(() => {
+        if (!isMenuOpen) return undefined;
+
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        const closeOnEscape = (event) => {
+            if (event.key === 'Escape') setIsMenuOpen(false);
+        };
+        window.addEventListener('keydown', closeOnEscape);
+
+        return () => {
+            document.body.style.overflow = previousOverflow;
+            window.removeEventListener('keydown', closeOnEscape);
+        };
+    }, [isMenuOpen, setIsMenuOpen]);
 
     const navItems = [
         { name: 'Home', path: 'hero' },
@@ -18,9 +34,9 @@ function MobileNav() {
         <AnimatePresence>
             {isMenuOpen && (
                 <>
-                    {/* Backdrop with blur */}
+                    {/* Quiet backdrop keeps the page visible while focusing the menu. */}
                     <motion.div
-                        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+                        className="fixed inset-0 z-40 bg-slate-950/30 backdrop-blur-[2px] dark:bg-black/50"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -30,33 +46,28 @@ function MobileNav() {
 
                     {/* Mobile Menu Panel */}
                     <motion.div
-                        className="fixed top-20 right-4 w-64 z-50"
-                        initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                        role="dialog"
+                        aria-label="Mobile navigation"
+                        aria-modal="true"
+                        className="fixed inset-x-4 top-[5.25rem] z-50 mx-auto w-auto max-w-sm overflow-y-auto"
+                        style={{ maxHeight: 'calc(100dvh - 6.5rem)' }}
+                        initial={{ opacity: 0, y: -10, scale: 0.98 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                        transition={{ duration: 0.3, ease: 'easeOut' }}
+                        exit={{ opacity: 0, y: -8, scale: 0.985 }}
+                        transition={{ duration: reduceMotion ? 0.01 : 0.22, ease: [0.22, 1, 0.36, 1] }}
                     >
-                        {/* Glow Border Container */}
-                        <div className="relative">
-                            <motion.div
-                                className="absolute -inset-[1px] rounded-2xl border border-[#7C3AED]/30 opacity-60 blur-sm"
-                            />
-
-                            {/* Main Menu Container */}
-                            <div className="relative bg-[#1f2128]/95 backdrop-blur-xl rounded-2xl border border-white/10 shadow-[0_8px_32px_rgba(135,27,230,0.3)] overflow-hidden">
+                        <div className="overflow-hidden rounded-[1.6rem] border border-[var(--editorial-rule)] bg-[var(--editorial-card)]/95 shadow-[0_20px_60px_rgba(15,23,42,0.18)] backdrop-blur-2xl dark:shadow-[0_20px_60px_rgba(0,0,0,0.42)]">
                                 {/* Menu Items */}
                                 <motion.ul
-                                    className="flex flex-col p-4 gap-1"
-                                    variants={menuVariants}
-                                    initial="hidden"
-                                    animate="visible"
+                                    aria-label="Mobile navigation links"
+                                    className="flex flex-col gap-1 p-3 sm:p-4"
                                 >
                                     {navItems.map((item, index) => (
                                         <motion.li
                                             key={item.name}
                                             initial={{ opacity: 0, x: -20 }}
                                             animate={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: 0.1 * index }}
+                                            transition={{ delay: reduceMotion ? 0 : 0.045 * index, duration: reduceMotion ? 0.01 : 0.2 }}
                                         >
                                             <Link
                                                 to={item.path || item.id}
@@ -65,81 +76,44 @@ function MobileNav() {
                                                 duration={500}
                                                 activeClass="active-link-mobile"
                                                 onClick={() => setIsMenuOpen(false)}
-                                                className="group relative cursor-pointer block px-4 py-3 rounded-xl text-[#95A3B9] font-mono2 text-sm font-medium transition-all duration-300 hover:text-white"
+                                                className="group relative block min-h-12 cursor-pointer rounded-xl px-4 py-3 font-mono text-sm font-medium text-[var(--editorial-muted)] transition-colors duration-200 hover:bg-[var(--editorial-accent)]/10 hover:text-[var(--editorial-ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-accent)]"
                                             >
-                                                {/* Hover Background */}
-                                                <span className="absolute inset-0 bg-[#7C3AED]/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
                                                 {/* Active Indicator */}
-                                                <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#7C3AED] rounded-full transition-all duration-300 group-hover:h-8 group-[.active-link-mobile]:h-8" />
+                                                <span className="absolute left-0 top-1/2 h-0 w-1 -translate-y-1/2 rounded-full bg-[var(--editorial-accent)] transition-all duration-200 group-hover:h-7 group-[.active-link-mobile]:h-7" />
 
                                                 {/* Text */}
-                                                <span className="relative ml-2 group-[.active-link-mobile]:text-white">
-                          {item.name}
-                        </span>
+                                                <span className="relative ml-2 group-[.active-link-mobile]:text-[var(--editorial-ink)]">
+                                                    {item.name}
+                                                </span>
                                             </Link>
                                         </motion.li>
                                     ))}
 
                                     {/* Divider */}
                                     <motion.div
-                                        className="h-px bg-white/20 my-2"
+                                        className="my-2 h-px bg-[var(--editorial-rule)]"
                                         initial={{ scaleX: 0 }}
                                         animate={{ scaleX: 1 }}
-                                        transition={{ delay: 0.4 }}
+                                        transition={{ delay: reduceMotion ? 0 : 0.2, duration: reduceMotion ? 0.01 : 0.2 }}
                                     />
 
                                     {/* Contact Button */}
                                     <motion.li
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.5 }}
+                                        transition={{ delay: reduceMotion ? 0 : 0.22, duration: reduceMotion ? 0.01 : 0.2 }}
                                     >
                                         <Link
                                             to="contact"
                                             smooth={true}
                                             duration={500}
                                             onClick={() => setIsMenuOpen(false)}
-                                            className="relative group cursor-pointer block mt-2"
+                                            className="group relative mt-2 block min-h-12 cursor-pointer rounded-xl bg-[#7C3AED] px-4 py-3 text-center font-mono text-sm font-semibold text-white shadow-[0_8px_24px_rgba(124,58,237,0.2)] transition-colors hover:bg-[#6c21d6] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-accent)]"
                                         >
-                                        <motion.div
-                                            className="relative px-4 py-3 rounded-xl bg-[#7C3AED] text-white font-mono2 text-sm font-semibold text-center shadow-[0_4px_16px_rgba(125,61,237,0.3)] overflow-hidden"
-                                            whileHover={{ scale: 1.02 }}
-                                            whileTap={{ scale: 0.98 }}
-                                        >
-                                            {/* Animated Shine Effect */}
-                                            <motion.div
-                                                className="absolute inset-0 bg-white/20 opacity-30"
-                                                animate={{
-                                                    x: ['-100%', '100%'],
-                                                }}
-                                                transition={{
-                                                    duration: 2,
-                                                    repeat: Infinity,
-                                                    repeatDelay: 1,
-                                                    ease: 'easeInOut',
-                                                }}
-                                            />
-                                            <span className="relative">Contact Me</span>
-                                        </motion.div>
+                                            Contact Me
                                         </Link>
                                     </motion.li>
                                 </motion.ul>
-                            </div>
-
-                            {/* Ambient Glow Effect */}
-                            <motion.div
-                                className="absolute -inset-4 bg-[#7C3AED]/20 rounded-2xl blur-2xl pointer-events-none"
-                                animate={{
-                                    scale: [1, 1.05, 1],
-                                    opacity: [0.3, 0.5, 0.3],
-                                }}
-                                transition={{
-                                    duration: 3,
-                                    repeat: Infinity,
-                                    ease: 'easeInOut',
-                                }}
-                            />
                         </div>
                     </motion.div>
                 </>

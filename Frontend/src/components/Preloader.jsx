@@ -1,6 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { ThemeContext } from './context/ThemeContext';
 
 const Preloader = ({ onExitComplete }) => {
+  const { theme } = useContext(ThemeContext);
+  const isDark = theme === 'dark';
   const [progress, setProgress] = useState(0);
   const [exiting, setExiting] = useState(false);
   
@@ -61,18 +64,18 @@ const Preloader = ({ onExitComplete }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#1a1c23] ${
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center transition-colors duration-300 ${isDark ? 'bg-[#1a1c23] text-white' : 'bg-[var(--editorial-paper)] text-[var(--editorial-ink)]'} ${
         exiting ? 'preloader-exit' : ''
       }`}
     >
       <div className="flex flex-col items-start">
         {/* Terminal line */}
-        <div className="text-xs font-mono2 text-cyan-400/60 flex items-center">
+        <div className={`flex items-center text-xs font-mono2 ${isDark ? 'text-cyan-400/60' : 'text-cyan-700/70'}`}>
           <span>~/portfolio $</span>
           <span className="ml-1 animate-pulse">|</span>
         </div>
         {/* Subtitle comment */}
-        <div className="mt-1 mb-2 text-xs font-mono2 text-white/30">
+        <div className={`mt-1 mb-2 text-xs font-mono2 ${isDark ? 'text-white/30' : 'text-[var(--editorial-muted)]'}`}>
           // Fullstack Developer &amp; ML Engineer
         </div>
         {/* Centered Main Text */}
@@ -82,7 +85,7 @@ const Preloader = ({ onExitComplete }) => {
       </div>
 
       {/* Progress Bar Container */}
-      <div className="w-72 md:w-80 h-[2px] bg-white/10 rounded overflow-hidden mt-8">
+      <div className={`mt-8 h-[2px] w-72 overflow-hidden rounded md:w-80 ${isDark ? 'bg-white/10' : 'bg-black/10'}`}>
         <div
           className="h-full progress-bar-fill"
           style={{ 
@@ -93,7 +96,7 @@ const Preloader = ({ onExitComplete }) => {
       </div>
 
       {/* Status Text */}
-      <div className="mt-3 text-[10px] font-mono2 tracking-[0.3em] uppercase text-white/40 h-4 flex items-center gap-2">
+      <div className={`mt-3 flex h-4 items-center gap-2 font-mono2 text-[10px] uppercase tracking-[0.3em] ${isDark ? 'text-white/40' : 'text-[var(--editorial-muted)]'}`}>
         <span>&gt; {getStatusText()}</span>
       </div>
     </div>

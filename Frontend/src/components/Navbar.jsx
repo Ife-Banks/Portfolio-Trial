@@ -1,142 +1,156 @@
-import { useContext } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useContext, useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { FiMenu, FiX, FiMoon, FiSun } from 'react-icons/fi';
 import { Link } from 'react-scroll';
-import { navBarVariants } from './Animations/Animate';
 import MobileNav from '../views/MobileNav';
 import { ThemeContext } from './context/ThemeContext';
 import LangContext from './context/LangContext';
 
+const navItems = [
+    { name: 'About', id: 'about' },
+    { name: 'Experience', id: 'work' },
+    { name: 'Projects', id: 'portfolio' },
+];
+
 const Navigate = () => {
     const { isMenuOpen, setIsMenuOpen } = useContext(LangContext);
     const { theme, toggleTheme } = useContext(ThemeContext);
+    const [isCompact, setIsCompact] = useState(false);
 
-    const navItems = [
-        { name: 'Home', path: 'hero' },
-        { name: 'About', id: 'about' },
-        { name: 'Experience', id: 'work' },
-        { name: 'Portfolio', id: 'portfolio' },
-        {name: 'Contact', id: 'contact'}
-    ];
+    useEffect(() => {
+        // Ignore browser scroll restoration on load; only respond after the
+        // visitor has initiated a scroll themselves.
+        let hasUserScrolled = false;
+        const updateNavbar = () => {
+            if (hasUserScrolled) setIsCompact(window.scrollY > 8);
+        };
+        const enableScrollResponse = () => {
+            hasUserScrolled = true;
+            updateNavbar();
+        };
+        const handleKeydown = (event) => {
+            if (!['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'End', 'Home'].includes(event.key)) return;
+            if (event.target instanceof HTMLElement && event.target.isContentEditable) return;
+            if (['INPUT', 'TEXTAREA', 'SELECT'].includes(event.target?.tagName)) return;
+            enableScrollResponse();
+        };
+
+        window.addEventListener('scroll', updateNavbar, { passive: true });
+        window.addEventListener('wheel', enableScrollResponse, { passive: true });
+        window.addEventListener('touchmove', enableScrollResponse, { passive: true });
+        window.addEventListener('keydown', handleKeydown);
+        return () => {
+            window.removeEventListener('scroll', updateNavbar);
+            window.removeEventListener('wheel', enableScrollResponse);
+            window.removeEventListener('touchmove', enableScrollResponse);
+            window.removeEventListener('keydown', handleKeydown);
+        };
+    }, []);
+
+    const linkColor = isCompact
+        ? 'text-slate-700 hover:text-slate-950 dark:text-white/75 dark:hover:text-white'
+        : 'text-[var(--editorial-muted)] hover:text-[var(--editorial-ink)]';
 
     return (
-        <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={navBarVariants}
-            className='flex w-fit mx-auto items-center fixed right-4 top-4 lg:top-6 lg:right-1/2 lg:translate-x-1/2 z-50'
+        <>
+        <motion.header
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-x-0 top-0 z-50 flex justify-center px-4"
         >
-            {/* Glassmorphic Container */}
-            <div className='relative'>
-                {/* Soft Glow Border */}
-                <motion.div
-                    className='absolute -inset-[1px] rounded-full lg:rounded-3xl border border-[#7C3AED]/30 opacity-60 blur-sm'
-                />
+            <motion.div
+                layout
+                transition={{ layout: { duration: 0.48, ease: [0.22, 1, 0.36, 1] } }}
+                animate={{ y: isCompact ? 12 : 0 }}
+                className={`pointer-events-auto grid items-center transition-[background-color,border-color,box-shadow,padding,border-radius] duration-500 ${isCompact
+                    ? 'w-fit max-w-[calc(100vw-2rem)] grid-cols-[1fr_auto] gap-3 rounded-full border border-white/60 bg-white/75 px-3 py-2.5 text-slate-900 shadow-lg shadow-slate-900/10 backdrop-blur-2xl dark:border-white/10 dark:bg-slate-950/65 dark:text-white lg:grid-cols-[auto_auto_auto] lg:gap-5 lg:px-4'
+                    : 'w-full max-w-7xl grid-cols-[1fr_auto] gap-4 border border-transparent bg-transparent px-2 py-6 text-[var(--editorial-ink)] md:px-6 lg:grid-cols-[1fr_auto_1fr]'
+                    }`}
+            >
+                <Link
+                    to="hero"
+                    smooth
+                    duration={650}
+                    className={`flex cursor-pointer items-center gap-2.5 justify-self-start rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 ${isCompact ? 'focus-visible:outline-slate-700 dark:focus-visible:outline-white' : 'focus-visible:outline-[var(--editorial-accent)]'}`}
+                    aria-label="Ifebanks home"
+                >
+                    <img
+                        src="/Ife.png"
+                        alt=""
+                        className={`shrink-0 rounded-full object-cover transition-[width,height] duration-500 ${isCompact ? 'h-8 w-8' : 'h-10 w-10'}`}
+                    />
+                    <span className={`font-clash text-lg font-semibold tracking-tight transition-colors duration-300 ${isCompact ? 'text-slate-900 dark:text-white' : 'text-[var(--editorial-ink)]'}`}>
+                        Ifebanks<span className="text-[var(--editorial-accent)]">.</span>
+                    </span>
+                </Link>
 
-                {/* Main Nav Container */}
-                <div className='relative bg-white/70 dark:bg-[#1f2128]/95 backdrop-blur-xl rounded-full lg:rounded-3xl border border-slate-200 dark:border-white/10 shadow-[0_8px_32px_rgba(135,27,230,0.2)]'>
-                    {/* Desktop Navigation Structure */}
-                    <div className='hidden lg:flex items-center px-4 py-2 w-fit'>
-                        {/* Left Section - Avatar/Logo */}
-                        <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className='flex items-center shrink-0'>
-                            <img src='/Ife.png' alt='Avatar' className='w-7 h-7 rounded-full object-cover border border-white/20' />
-                        </motion.div>
-
-                        {/* Vertical Divider */}
-                        <div className='w-[1px] h-4 bg-slate-300 dark:bg-white/20 mx-4 shrink-0'></div>
-
-                        {/* Middle Section - Nav Links */}
-                        <motion.ul
-                            className='flex gap-6 items-center text-slate-600 dark:text-[#95A3B9] font-mono2 text-sm font-medium'
-                            transition={{ delay: 0.3 }}
-                        >
-                            {navItems.map((item, index) => (
-                                <motion.li
-                                    key={item.name}
-                                    initial={{ opacity: 0, y: -20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 * index }}
+                <nav aria-label="Main navigation" className="hidden lg:block">
+                    <ul className="flex items-center gap-1">
+                        {navItems.map((item) => (
+                            <li key={item.id}>
+                                <Link
+                                    to={item.id}
+                                    spy
+                                    smooth
+                                    duration={650}
+                                    activeClass="active-link"
+                                    className={`group relative block cursor-pointer whitespace-nowrap px-3 py-2 text-sm font-medium transition-colors duration-300 ${linkColor} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current`}
                                 >
-                                    <Link
-                                        to={item.path || item.id}
-                                        spy={true}
-                                        smooth={true}
-                                        duration={500}
-                                        activeClass="active-link"
-                                        className="group relative cursor-pointer px-4 py-2 rounded-2xl transition-all duration-300 hover:text-slate-900 dark:hover:text-white block whitespace-nowrap"
-                                    >
-                                        {/* Hover Background Effect */}
-                                        <span className="absolute inset-0 bg-[#7C3AED]/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                        
-                                        {/* Underline (Hover + Active) */}
-                                        <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#7C3AED] transition-all duration-300 rounded-full group-hover:w-3/4 group-[.active-link]:w-3/4" />
-                                        
-                                        {/* Text */}
-                                        <span className="relative group-[.active-link]:text-slate-900 dark:group-[.active-link]:text-white">{item.name}</span>
-                                    </Link>
-                                </motion.li>
-                            ))}
-                        </motion.ul>
+                                    {item.name}
+                                    <span className="absolute bottom-0 left-3 right-3 h-px origin-left scale-x-0 bg-[var(--editorial-accent)] transition-transform duration-300 group-hover:scale-x-100 group-[.active-link]:scale-x-100" />
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
 
-                        {/* Vertical Divider */}
-                        <div className='w-[1px] h-4 bg-slate-300 dark:bg-white/20 mx-4 shrink-0'></div>
-
-                        {/* Right Section - Theme Toggle */}
-                        <motion.button 
-                            className='text-slate-500 hover:text-slate-900 dark:text-[#cbd6e8] dark:hover:text-white transition-colors p-1 flex items-center justify-center shrink-0'
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            onClick={toggleTheme}
-                            aria-label='Toggle theme'
-                        >
-                            {theme === 'dark' ? <FiSun size={18} /> : <FiMoon size={18} />}
-                        </motion.button>
-                    </div>
-
-                    {/* Mobile Menu Button */}
+                <div className="hidden items-center justify-self-end lg:flex">
                     <motion.button
-                        className='lg:hidden text-[#cbd6e8] p-3 cursor-pointer relative group'
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                        whileTap={{ scale: 0.9 }}
-                        transition={{ duration: 0.2 }}
+                        type="button"
+                        className={`mr-4 flex h-9 w-9 items-center justify-center transition-colors duration-300 ${isCompact ? 'text-slate-600 hover:text-slate-950 dark:text-white/75 dark:hover:text-white' : 'text-[var(--editorial-muted)] hover:text-[var(--editorial-accent)]'}`}
+                        whileTap={{ scale: 0.92 }}
+                        onClick={toggleTheme}
+                        aria-label="Toggle theme"
                     >
-                        {/* Button Background Glow */}
-                        <motion.div
-                            className='absolute inset-0 bg-[#871BE6]/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300'
-                            whileHover={{ scale: 1.2 }}
-                        />
-
-                        <motion.div
-                            initial={false}
-                            animate={{ rotate: isMenuOpen ? 90 : 0 }}
-                            transition={{ duration: 0.3 }}
-                            className='relative z-10'
-                        >
-                            {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-                        </motion.div>
+                        {theme === 'dark' ? <FiSun size={17} /> : <FiMoon size={17} />}
                     </motion.button>
+                    <Link
+                        to="contact"
+                        smooth
+                        duration={650}
+                        className={`cursor-pointer whitespace-nowrap px-5 py-2.5 text-sm font-medium transition-[background-color,color,border-radius] duration-300 ${isCompact
+                            ? 'rounded-full bg-[#7C3AED] text-white hover:bg-[#6c21d6]'
+                            : 'rounded-sm bg-[#7C3AED] text-white hover:bg-[#6c21d6]'
+                            }`}
+                    >
+                        Let&apos;s talk <span aria-hidden="true">↗</span>
+                    </Link>
                 </div>
 
-                {/* Ambient Glow Effect */}
-                <motion.div
-                    className='absolute -inset-4 rounded-full blur-2xl pointer-events-none opacity-40 bg-[#7C3AED]/20'
-                    animate={{
-                        scale: [1, 1.1, 1],
-                        opacity: [0.3, 0.5, 0.3],
-                    }}
-                    transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: 'easeInOut',
-                    }}
-                />
-            </div>
+                <motion.button
+                    type="button"
+                    className={`relative justify-self-end p-2 lg:hidden ${isCompact ? 'text-slate-700 dark:text-white' : 'text-[var(--editorial-ink)]'}`}
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                    aria-expanded={isMenuOpen}
+                    whileTap={{ scale: 0.92 }}
+                >
+                    <motion.span
+                        className="block"
+                        initial={false}
+                        animate={{ rotate: isMenuOpen ? 90 : 0 }}
+                        transition={{ duration: 0.25, ease: 'easeOut' }}
+                    >
+                        {isMenuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
+                    </motion.span>
+                </motion.button>
+            </motion.div>
 
-            {/* Mobile Menu */}
-            <MobileNav />
-        </motion.div>
+        </motion.header>
+        <MobileNav />
+        </>
     );
-}
+};
 
 export default Navigate;

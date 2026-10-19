@@ -7,7 +7,6 @@ import Work from '../components/Work';
 import LangContext from "../components/context/LangContext"
 import Modal from '../components/Modal';
 import FuturisticContact from '../components/MergedConntactSection.jsx';
-import TechStack from '../components/TechStack.jsx';
 
 
 
@@ -52,10 +51,9 @@ const Home = () => {
                 <Navigate />
                 <Hero className="" />
             </main>
-            <Work />
-            <TechStack />
-            
             <Portfolio />
+
+            <Work />
             
             <Modal />
             
