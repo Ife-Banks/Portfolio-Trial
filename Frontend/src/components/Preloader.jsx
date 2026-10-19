@@ -9,15 +9,15 @@ const Preloader = ({ onExitComplete }) => {
   
   // Loading Stages
   // INITIALIZING... → 0–20%
-  // IMPORTING MODULES... → 20–50%
-  // TRAINING MODEL... → 50–75%
-  // DEPLOYING... → 75–99%
+  // LOADING INTERFACE... → 20–50%
+  // PREPARING CONTENT... → 50–75%
+  // FINALIZING... → 75–99%
   // READY → 100%
   const getStatusText = () => {
     if (progress <= 20) return 'INITIALIZING...';
-    if (progress <= 50) return 'IMPORTING MODULES...';
-    if (progress <= 75) return 'TRAINING MODEL...';
-    if (progress < 100) return 'DEPLOYING...';
+    if (progress <= 50) return 'LOADING INTERFACE...';
+    if (progress <= 75) return 'PREPARING CONTENT...';
+    if (progress < 100) return 'FINALIZING...';
     return 'READY';
   };
 
@@ -76,7 +76,7 @@ const Preloader = ({ onExitComplete }) => {
         </div>
         {/* Subtitle comment */}
         <div className={`mt-1 mb-2 text-xs font-mono2 ${isDark ? 'text-white/30' : 'text-[var(--editorial-muted)]'}`}>
-          // Fullstack Developer &amp; ML Engineer
+          // Software Engineer &amp; AI Systems Engineer
         </div>
         {/* Centered Main Text */}
         <h1 className="text-4xl md:text-5xl font-mono2 font-bold tracking-tight gradient-text select-none">
